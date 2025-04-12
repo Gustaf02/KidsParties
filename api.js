@@ -5,11 +5,12 @@ const container = document.getElementById('imagenes-container');
 async function fetchBirthdayImages() {
     const foto1 = "Promo Uner extra globos"
     try {
-        const response = await fetch(`https://api.pexels.com/v1/search?query=birthday&per_page=12`, {
+        const response = await fetch(`https://api.pexels.com/v1/search?query=birthday&per_page=6`, {
             headers: {
                 'Authorization': API_KEY
             }
         });
+        
         
         if (!response.ok) {
             throw new Error('Error al cargar imágenes');
