@@ -41,6 +41,11 @@ function displayImages(photos) {
     `).join('');
 }
 
+// Llamar a la función al cargar la página
+document.addEventListener('DOMContentLoaded', fetchBirthdayImages);
+
+
+
 // 1. Esperar a que el DOM esté listo
 document.addEventListener('DOMContentLoaded', function() {
     // 2. Obtener referencias a los botones
