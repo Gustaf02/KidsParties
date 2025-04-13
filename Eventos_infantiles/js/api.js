@@ -41,5 +41,41 @@ function displayImages(photos) {
     `).join('');
 }
 
-// Llamar a la función al cargar la página
-document.addEventListener('DOMContentLoaded', fetchBirthdayImages);
+// 1. Esperar a que el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+    // 2. Obtener referencias a los botones
+    const saveDataBtn = document.getElementById('saveDataBtn');
+    const viewDataBtn = document.getElementById('viewDataBtn');
+    const clearDataBtn = document.getElementById('clearDataBtn');
+    const dataDisplay = document.getElementById('dataDisplay');
+
+    // 3. Datos de ejemplo
+    const exampleData = {
+        name: "Salón Mi Primer Año",
+        diponibilidad: true,
+        precio: 20000,
+        capacidad: 100,
+        email: "contacto@salonesdefiesta.com"
+    };
+
+    // 4. Funciones
+    function saveData() {
+        localStorage.setItem('userData', JSON.stringify(exampleData));
+        dataDisplay.textContent = "Datos guardados!";
+    }
+
+    function viewData() {
+        const data = localStorage.getItem('userData');
+        dataDisplay.textContent = data || "No hay datos guardados";
+    }
+
+    function clearData() {
+        localStorage.removeItem('userData');
+        dataDisplay.textContent = "Datos eliminados!";
+    }
+
+    // 5. Asignar eventos (¡IMPORTANTE! Después de definir las funciones)
+    saveDataBtn.addEventListener('click', saveData);
+    viewDataBtn.addEventListener('click', viewData);
+    clearDataBtn.addEventListener('click', clearData);
+});
