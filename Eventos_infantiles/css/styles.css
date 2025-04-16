@@ -17,11 +17,9 @@ background: radial-gradient(circle,rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1
 /* Variable video 10 */
 :root {
     --color-footer-header: #ff6b6b;
-}
+} 
 
-.footer {
-    background-color: var(--color-footer-header);
-}
+
 /* Walter */
 
 .card-img-top {
@@ -54,7 +52,7 @@ background: radial-gradient(circle,rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1
     display: inline-block;
     margin-top: 0.5rem;
     padding: 0.5rem 1rem;
-    background: #ff6b6b;
+    background:#c830ee;
     color: white;
     text-decoration: none;
     border-radius: 4px;
@@ -65,14 +63,16 @@ background: radial-gradient(circle,rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1
 .btn-ver-mas:hover {
     background: #d60e7c;
 }
-    .grid-container {
+
+.grid-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 20px;
         padding: 0 20px;
         max-width: 1200px;
         margin: 0 auto;
-    }
+        margin-top: 30px;
+}
 
 .grid-item {
     position: relative;
@@ -143,11 +143,12 @@ ion-icon {
 /* Footer compartidos por todos*/
 
 
+/* Sección superior */
+
 .footer {
-    border-top: 1px solid var(--gray-200);
+    background-color: var(--color-footer-header);
 }
 
-/* Sección superior */
 .footer-top {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -340,14 +341,13 @@ button:hover {
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
-    background-color: #f8f8f8; 
     padding: 20px; 
     font-family: Arial, sans-serif; 
 }
 
 .header-title {
     font-size: 32px; 
-    font-weight: bold; 
+    font-weight: bold;                                                                                                          
 }
 
 .nav-menu ul {
@@ -460,149 +460,16 @@ button:hover {
     font-family: 'Arial', sans-serif;
 }
 
-body {
-    background: #3F5EFB;
-    background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
-}
-
-/* Variable para el color del footer */
-:root {
-    --color-footer-header: #ff6b6b;
-    --gray-200: #e2e2e2;
-    --gray-600: #6c757d;
-    --gray-700: #495057;
-    --gray-800: #343a40;
-    --yellow-500: #ffc107;
-}
-
-/* Footer */
-.footer {
-    background-color: var(--color-footer-header);
-    border-top: 1px solid var(--gray-200);
-}
-
-/* Sección superior del footer */
-.footer-top {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    padding: 2rem 1rem;
-}
-
-.footer-column {
-    margin-bottom: 1rem;
-}
-
-.footer-title {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--gray-800);
-    margin-bottom: 1rem;
-}
-
-.footer-list {
-    list-style: none;
-}
-
-.footer-list li {
-    margin-bottom: 0.5rem;
-}
-
-.footer-link {
-    color: var(--gray-600);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-link:hover {
-    color: var(--yellow-500);
-}
-
-/* Contacto */
-.footer-contact {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.contact-icon {
-    color: var(--yellow-500);
-    font-size: 1.25rem;
-}
-
-.contact-text {
-    color: var(--gray-600);
-}
-
-.contact-email {
-    color: var(--gray-600);
-}
-
-.social-icons {
-    display: flex;
-    gap: 1rem;
-}
-
-.social-link {
-    color: var(--gray-600);
-    font-size: 1.25rem;
-    transition: color 0.3s ease;
-}
-
-.social-link:hover {
-    color: var(--yellow-500);
-}
-
-/* Sección media */
-.footer-middle {
-    background-color: var(--gray-100);
-    padding: 1.5rem 0;
-    text-align: center;
-}
-
-.footer-middle-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Para pantallas más grandes */
-@media (min-width: 768px) {
-    .footer-top {
-        grid-template-columns: repeat(4, 1fr);
-    }
-    
-    .footer-middle-content {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-}
 
 /* Estilos para el header */
-header {
+.header {
     text-align: center;
     padding: 20px;
-    background-color: #fff;
+    background-color: var(--color-footer-header);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.header {
-    background-color: #f1f0d6; 
-    color: rgb(15, 13, 13); 
-    padding: 20px;
-    text-align: center;
-}
+
 
 header h1 {
     font-size: 1.8rem;
@@ -709,12 +576,7 @@ header a {
     color: #555; 
 }
 
-/* Footer final */
-.footer-bottom {
-    background-color: #e44848;
-    padding: 1rem 0;
-    text-align: center;
-}
+
 
 .copyright {
     font-size: 0.875rem;

@@ -84,3 +84,14 @@ document.addEventListener('DOMContentLoaded', function() {
     viewDataBtn.addEventListener('click', viewData);
     clearDataBtn.addEventListener('click', clearData);
 });
+
+
+
+
+{/* <div class="storage-buttons">
+        <button id="saveDataBtn">Guardar Datos</button>
+        <button id="viewDataBtn">Ver Datos</button>
+        <button id="clearDataBtn">Limpiar Datos</button>
+    </div>
+    <div id="dataDisplay">Presiona algún botón...</div>
+     */}
