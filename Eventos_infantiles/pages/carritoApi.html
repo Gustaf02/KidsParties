@@ -3,82 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salones de Eventos</title>
+    <title>Catálogo de Salones</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
-        .cart {
-            position: fixed;
-            right: 20px;
-            top: 20px;
-            background: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-            width: 350px;
-        }
         .card-img-top {
             height: 200px;
             object-fit: cover;
         }
-        .service-card {
-            transition: transform 0.3s ease;
+        .card {
+            transition: all 0.3s;
+            margin-bottom: 20px;
         }
-        .service-card:hover {
+        .card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .spinner-container {
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="mb-4">Salones para Eventos</h1>
+    <div class="container py-4">
+        <h1 class="text-center mb-4">Catálogo de Salones</h1>
         
-        <!-- Catálogo -->
-        <div class="row g-4" id="catalogo-container">
-            <!-- Los salones se cargarán aquí dinámicamente -->
+        <div id="loading" class="spinner-container">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;"></div>
         </div>
-
-        <!-- Carrito -->
-        <div class="cart">
-            <h4 class="mb-3">🛒 Carrito de Reservas</h4>
-            <div id="cart-alerts"></div>
-            <ul id="cart-items" class="list-group mb-3">
-                <!-- Items del carrito aparecerán aquí -->
-            </ul>
-            <div class="total-container bg-light p-3 rounded">
-                <h5 class="d-flex justify-content-between">
-                    <span>Total:</span>
-                    <span>$<span id="total">0</span></span>
-                </h5>
-                <button class="btn btn-success w-100 mt-2" onclick="cart.checkout()">
-                    Finalizar Reserva <i class="bi bi-check2-circle"></i>
-                </button>
-            </div>
-        </div>
+        
+        <div id="error-message" class="alert alert-danger d-none"></div>
+        
+        <div id="catalogo-container" class="row"></div>
     </div>
 
-    <div id="cart-alerts" class="position-fixed top-0 end-0 p-3" style="z-index: 2000"></div>
-    <!-- Plantilla para items del catálogo (usada en JS) -->
-    <template id="card-template">
-        <div class="col-md-4">
-            <div class="card service-card h-100">
-                <img class="card-img-top" src="" alt="Salón">
-                <div class="card-body">
-                    <h5 class="card-title"></h5>
-                    <div class="d-flex justify-content-between mb-2">
-                        <span class="badge bg-primary"><i class="bi bi-people"></i> Capacidad: </span>
-                        <span class="badge bg-success">$</span>
+    <script>
+        const API_KEY = '9tNEjFhwUIus25QDwOd8iywPhg5QEyYDWiVS9NlvWfD2MeSClgYAU125';
+        
+        async function fetchData() {
+            try {
+                // Mostrar spinner de carga
+                document.getElementById('loading').classList.remove('d-none');
+                document.getElementById('error-message').classList.add('d-none');
+                
+                // Hacer ambas llamadas a API simultáneamente
+                const [imagesResponse, salonesResponse] = await Promise.all([
+                    fetch('https://api.pexels.com/v1/search?query=birthday&per_page=6', {
+                        headers: { 'Authorization': API_KEY }
+                    }),
+                    fetch('https://681a090f1ac1155635078a8f.mockapi.io/salones')
+                ]);
+                
+                // Verificar respuestas
+                if (!imagesResponse.ok) throw new Error('Error en API de imágenes');
+                if (!salonesResponse.ok) throw new Error('Error en API de salones');
+                
+                // Convertir a JSON
+                const [imagesData, salonesData] = await Promise.all([
+                    imagesResponse.json(),
+                    salonesResponse.json()
+                ]);
+                
+                // Combinar datos
+                const combinedData = salonesData.map((salon, index) => {
+                    const imageIndex = index % imagesData.photos.length;
+                    return {
+                        ...salon,
+                        imagen: imagesData.photos[imageIndex]?.src.medium || 'https://via.placeholder.com/300'
+                    };
+                });
+                
+                // Mostrar datos
+                renderCatalog(combinedData);
+                
+            } catch (error) {
+                console.error('Error:', error);
+                showError('Error al cargar los datos: ' + error.message);
+            } finally {
+                document.getElementById('loading').classList.add('d-none');
+            }
+        }
+        
+        function renderCatalog(data) {
+            const container = document.getElementById('catalogo-container');
+            
+            if (!data || data.length === 0) {
+                container.innerHTML = `
+                    <div class="col-12 text-center py-5">
+                        <h4>No hay salones disponibles</h4>
                     </div>
-                    <p class="card-text"><i class="bi bi-calendar-check"></i> Disponible en: </p>
-                    <button class="btn btn-primary w-100">
-                        <i class="bi bi-cart-plus"></i> Reservar
-                    </button>
+                `;
+                return;
+            }
+            
+            container.innerHTML = data.map(item => `
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="${item.imagen}" 
+                             class="card-img-top" 
+                             alt="${item.nombre}"
+                             onerror="this.src='https://via.placeholder.com/300'">
+                        <div class="card-body">
+                            <h5 class="card-title">${item.nombre}</h5>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-primary">Capacidad: ${item.capacidad || 'N/A'}</span>
+                                <h5 class="text-success mb-0">$${(item.precio || 0).toLocaleString('es-AR')}</h5>
+                            </div>
+                            <p class="mt-2"><small class="text-muted">Disponible: ${item.fecha || 'Fecha no especificada'}</small></p>
+                            <button class="btn btn-primary w-100">
+                                <i class="bi bi-cart-plus"></i> Reservar
+                            </button>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </template>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="carritoApi.js"></script>
+            `).join('');
+        }
+        
+        function showError(message) {
+            const errorDiv = document.getElementById('error-message');
+            errorDiv.textContent = message;
+            errorDiv.classList.remove('d-none');
+        }
+        
+        // Iniciar la carga de datos cuando la página esté lista
+        document.addEventListener('DOMContentLoaded', fetchData);
+    </script>
 </body>
 </html>
