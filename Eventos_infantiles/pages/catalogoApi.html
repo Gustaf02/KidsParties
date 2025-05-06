@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDW Kids Parties - Catálogo de Salones</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts - Montserrat + Dancing Script -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+    <!-- CSS personalizado -->
+    <style>
+        :root {
+            --color-primary: #FF6B6B;
+            --color-secondary: #4ECDC4;
+            --color-accent: #FFBE0B;
+            --color-dark: #3A405A;
+            --color-light: #F8F9FA;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f5 100%);
+            min-height: 100vh;
+        }
+        
+        /* Navbar */
+        .navbar-brand {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: white !important;
+        }
+        
+        .navbar-custom {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+            background-size: cover;
+            height: 60vh;
+            position: relative;
+            margin-bottom: 3rem;
+        }
+        
+        .hero-overlay {
+            background: rgba(0,0,0,0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        /* Cards */
+        .card-theme {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .card-theme:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .card-img-top {
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .card-theme:hover .card-img-top {
+            transform: scale(1.05);
+        }
+        
+        .card-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            color: white;
+        }
+        
+        /* Categorías temáticas */
+        .card-princesas .card-overlay {
+            background: linear-gradient(to top, rgba(231, 76, 60, 0.9), transparent);
+        }
+        
+        .card-bebes .card-overlay {
+            background: linear-gradient(to top, rgba(52, 152, 219, 0.9), transparent);
+        }
+        
+        .card-videojuegos .card-overlay {
+            background: linear-gradient(to top, rgba(155, 89, 182, 0.9), transparent);
+        }
+        
+        .card-maquillaje .card-overlay {
+            background: linear-gradient(to top, rgba(26, 188, 156, 0.9), transparent);
+        }
+        
+        /* Botones */
+        .btn-theme {
+            background-color: var(--color-accent);
+            color: var(--color-dark);
+            border: none;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+        
+        .btn-theme:hover {
+            background-color: var(--color-primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Footer */
+        .footer-custom {
+            background-color: var(--color-dark);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-title {
+            color: var(--color-accent);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 50px;
+            height: 3px;
+            background-color: var(--color-accent);
+        }
+        
+        .social-icon {
+            font-size: 1.5rem;
+            color: white;
+            transition: all 0.3s;
+            margin-right: 1rem;
+        }
+        
+        .social-icon:hover {
+            color: var(--color-accent);
+            transform: translateY(-5px);
+        }
+        
+        /* Efectos especiales */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 40vh;
+            }
+            
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <ion-icon name="sparkles" class="me-2"></ion-icon>
+                IDW Kids Parties
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#salones">Nuestros Salones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay">
+            <div class="container">
+                <h1 class="display-3 fw-bold mb-4">Celebra momentos mágicos</h1>
+                <p class="lead mb-4">Los mejores salones temáticos para fiestas infantiles</p>
+                <a href="#salones" class="btn btn-theme btn-lg pulse">Ver Catálogo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catálogo de Salones -->
+    <section id="salones" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 display-4 fw-bold">Nuestros Salones Temáticos</h2>
+            
+            <div class="row">
+                <!-- Card 1 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-theme card-princesas h-100">
+                        <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Princesas">
+                        <div class="card-overlay">
+                            <h3 class="card-title fw-bold">Princesas Encantadas</h3>
+                            <p class="card-text">Temática niñas • 3-10 años</p>
+                            <a href="#" class="btn btn-light btn-sm">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-theme card-bebes h-100">
+                        <img src="https://images.unsplash.com/photo-1526893381913-e311045b8064?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Bebés">
+                        <div class="card-overlay">
+                            <h3 class="card-title fw-bold">Mi Primer Año</h3>
+                            <p class="card-text">Celebración para bebés</p>
+                            <a href="#" class="btn btn-light btn-sm">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-theme card-videojuegos h-100">
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Videojuegos">
+                        <div class="card-overlay">
+                            <h3 class="card-title fw-bold">Game Over Party</h3>
+                            <p class="card-text">Videojuegos y series</p>
+                            <a href="#" class="btn btn-light btn-sm">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-theme card-maquillaje h-100">
+                        <img src="https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Maquillaje">
+                        <div class="card-overlay">
+                            <h3 class="card-title fw-bold">Caritas Creativas</h3>
+                            <p class="card-text">Maquillaje personalizado</p>
+                            <a href="#" class="btn btn-light btn-sm">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 display-4 fw-bold">Nuestros Servicios</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <ion-icon name="color-palette" style="font-size: 3rem; color: var(--color-primary);"></ion-icon>
+                            <h3 class="h4 mt-3">Decoración Temática</h3>
+                            <p class="text-muted">Transformamos espacios según la temática elegida con los mejores materiales.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <ion-icon name="restaurant" style="font-size: 3rem; color: var(--color-primary);"></ion-icon>
+                            <h3 class="h4 mt-3">Catering Infantil</h3>
+                            <p class="text-muted">Menús saludables y divertidos adaptados a los gustos de los niños.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <ion-icon name="people" style="font-size: 3rem; color: var(--color-primary);"></ion-icon>
+                            <h3 class="h4 mt-3">Animación Profesional</h3>
+                            <p class="text-muted">Equipo de animadores especializados en fiestas infantiles.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="display-5 fw-bold mb-4">Contáctanos</h2>
+                    <p class="lead mb-4">Reserva tu fecha o solicita más información sobre nuestros servicios.</p>
+                    
+                    <div class="d-flex align-items-center mb-3">
+                        <ion-icon name="location" style="font-size: 1.5rem; color: var(--color-primary); margin-right: 1rem;"></ion-icon>
+                        <span>Calle Fiesta 123, Ciudad</span>
+                    </div>
+                    
+                    <div class="d-flex align-items-center mb-3">
+                        <ion-icon name="call" style="font-size: 1.5rem; color: var(--color-primary); margin-right: 1rem;"></ion-icon>
+                        <span>+54 11 1234-5678</span>
+                    </div>
+                    
+                    <div class="d-flex align-items-center mb-4">
+                        <ion-icon name="mail" style="font-size: 1.5rem; color: var(--color-primary); margin-right: 1rem;"></ion-icon>
+                        <span>info@idwkidsparties.com</span>
+                    </div>
+                    
+                    <div class="social-icons">
+                        <a href="#" class="me-3"><ion-icon name="logo-facebook" class="social-icon"></ion-icon></a>
+                        <a href="#" class="me-3"><ion-icon name="logo-instagram" class="social-icon"></ion-icon></a>
+                        <a href="#" class="me-3"><ion-icon name="logo-whatsapp" class="social-icon"></ion-icon></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="card shadow-sm">
+                        <div class="card-body p-4">
+                            <h3 class="h4 mb-4">Formulario de Contacto</h3>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="nombre" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="nombre" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="telefono" class="form-label">Teléfono</label>
+                                    <input type="tel" class="form-control" id="telefono">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="mensaje" class="form-label">Mensaje</label>
+                                    <textarea class="form-control" id="mensaje" rows="3" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-theme">Enviar Mensaje</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-custom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">© <span id="current-year"></span> IDW Kids Parties. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-white me-3">Términos y condiciones</a>
+                    <a href="#" class="text-white">Política de privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Año actual en el footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Smooth scrolling para los enlaces del navbar
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
