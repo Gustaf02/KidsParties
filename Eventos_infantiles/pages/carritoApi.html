@@ -51,7 +51,7 @@
                 
                 // Hacer ambas llamadas a API simultáneamente
                 const [imagesResponse, salonesResponse] = await Promise.all([
-                    fetch('https://api.pexels.com/v1/search?query=birthday&per_page=6', {
+                    fetch('https://api.pexels.com/v1/search?query=birthday&per_page=28', {
                         headers: { 'Authorization': API_KEY }
                     }),
                     fetch('https://681a090f1ac1155635078a8f.mockapi.io/salones')
@@ -66,7 +66,8 @@
                     imagesResponse.json(),
                     salonesResponse.json()
                 ]);
-                
+                console.log(salonesData)
+                console.log(imagesData)
                 // Combinar datos
                 const combinedData = salonesData.map((salon, index) => {
                     const imageIndex = index % imagesData.photos.length;
