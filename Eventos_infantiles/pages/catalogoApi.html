@@ -232,7 +232,7 @@
             <div class="container">
                 <h1 class="display-3 fw-bold mb-4">Celebra momentos mágicos</h1>
                 <p class="lead mb-4">Los mejores salones temáticos para fiestas infantiles</p>
-                <a href="#salones" class="btn btn-theme btn-lg pulse">Ver Catálogo</a>
+                <a href="http://127.0.0.1:5500/pages/carritoApi.html" class="btn btn-theme btn-lg pulse">Ver Catálogo</a>
             </div>
         </div>
     </section>
@@ -240,7 +240,7 @@
     <!-- Catálogo de Salones -->
     <section id="salones" class="py-5">
         <div class="container">
-            <h2 class="text-center mb-5 display-4 fw-bold">Nuestros Salones Temáticos</h2>
+            <h2 class="text-center mb-5 display-4 fw-bold">Salones Destacados</h2>
             
             <div class="row">
                 <!-- Card 1 -->
@@ -262,7 +262,7 @@
                         <div class="card-overlay">
                             <h3 class="card-title fw-bold">Mi Primer Año</h3>
                             <p class="card-text">Celebración para bebés</p>
-                            <a href="#" class="btn btn-light btn-sm">Ver más</a>
+                            <a onclick="" class="btn btn-light btn-sm">Agregar</a>
                         </div>
                     </div>
                 </div>
@@ -274,7 +274,7 @@
                         <div class="card-overlay">
                             <h3 class="card-title fw-bold">Game Over Party</h3>
                             <p class="card-text">Videojuegos y series</p>
-                            <a href="#" class="btn btn-light btn-sm">Ver más</a>
+                            <a onclick="" class="btn btn-light btn-sm">Agregar</a>
                         </div>
                     </div>
                 </div>
@@ -286,7 +286,7 @@
                         <div class="card-overlay">
                             <h3 class="card-title fw-bold">Caritas Creativas</h3>
                             <p class="card-text">Maquillaje personalizado</p>
-                            <a href="#" class="btn btn-light btn-sm">Ver más</a>
+                            <a onclick="" class="btn btn-light btn-sm">Agregar</a>
                         </div>
                     </div>
                 </div>
@@ -306,6 +306,7 @@
                             <ion-icon name="color-palette" style="font-size: 3rem; color: var(--color-primary);"></ion-icon>
                             <h3 class="h4 mt-3">Decoración Temática</h3>
                             <p class="text-muted">Transformamos espacios según la temática elegida con los mejores materiales.</p>
+                            <a onclick="" class="btn btn-light btn-sm">Agregar</a>
                         </div>
                     </div>
                 </div>
@@ -366,25 +367,26 @@
                 <div class="col-lg-6">
                     <div class="card shadow-sm">
                         <div class="card-body p-4">
-                            <h3 class="h4 mb-4">Formulario de Contacto</h3>
+                            <h3 class="h4 mb-4">Tu Reserva</h3>
                             <form>
                                 <div class="mb-3">
-                                    <label for="nombre" class="form-label">Nombre</label>
+                                    <label for="nombre" class="form-label">Numero de reserva</label>
                                     <input type="text" class="form-control" id="nombre" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="email" class="form-label">Email</label>
+                                    <label for="nombre" class="form-label">Salon</label>
+                                    <input type="text" class="form-control" id="nombre" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Fecha</label>
                                     <input type="email" class="form-control" id="email" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="telefono" class="form-label">Teléfono</label>
+                                    <label for="telefono" class="form-label">Hora</label>
                                     <input type="tel" class="form-control" id="telefono">
                                 </div>
-                                <div class="mb-3">
-                                    <label for="mensaje" class="form-label">Mensaje</label>
-                                    <textarea class="form-control" id="mensaje" rows="3" required></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-theme">Enviar Mensaje</button>
+                              
+                                <button type="submit" class="btn btn-theme">Reservar</button>
                             </form>
                         </div>
                     </div>
