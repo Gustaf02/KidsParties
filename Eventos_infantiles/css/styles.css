@@ -617,3 +617,20 @@ button:hover {
 .btn:hover {
     background-color: #cf4116;
 }
+
+/* Efectos hover personalizados */
+.nav-link:hover {
+    background-color: rgba(255,255,255,0.15) !important;
+}
+
+.nav-link:hover span:last-child {
+    width: 60% !important;
+}
+
+.nav-link.active {
+    font-weight: 600;
+}
+
+.nav-link.active span:last-child {
+    width: 60% !important;
+}
