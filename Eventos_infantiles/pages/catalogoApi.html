@@ -334,81 +334,64 @@
         </div>
     </section>
 
-    <!-- Contacto -->
-    <section id="contacto" class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <h2 class="display-5 fw-bold mb-4">Contáctanos</h2>
-                    <p class="lead mb-4">Reserva tu fecha o solicita más información sobre nuestros servicios.</p>
-                    
-                    <div class="d-flex align-items-center mb-3">
-                        <ion-icon name="location" style="font-size: 1.5rem; color: var(--color-primary); margin-right: 1rem;"></ion-icon>
-                        <span>Calle Fiesta 123, Ciudad</span>
-                    </div>
-                    
-                    <div class="d-flex align-items-center mb-3">
-                        <ion-icon name="call" style="font-size: 1.5rem; color: var(--color-primary); margin-right: 1rem;"></ion-icon>
-                        <span>+54 11 1234-5678</span>
-                    </div>
-                    
-                    <div class="d-flex align-items-center mb-4">
-                        <ion-icon name="mail" style="font-size: 1.5rem; color: var(--color-primary); margin-right: 1rem;"></ion-icon>
-                        <span>info@idwkidsparties.com</span>
-                    </div>
-                    
-                    <div class="social-icons">
-                        <a href="#" class="me-3"><ion-icon name="logo-facebook" class="social-icon"></ion-icon></a>
-                        <a href="#" class="me-3"><ion-icon name="logo-instagram" class="social-icon"></ion-icon></a>
-                        <a href="#" class="me-3"><ion-icon name="logo-whatsapp" class="social-icon"></ion-icon></a>
-                    </div>
-                </div>
-                
-                <div class="col-lg-6">
-                    <div class="card shadow-sm">
-                        <div class="card-body p-4">
-                            <h3 class="h4 mb-4">Tu Reserva</h3>
-                            <form>
-                                <div class="mb-3">
-                                    <label for="nombre" class="form-label">Numero de reserva</label>
-                                    <input type="text" class="form-control" id="nombre" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="nombre" class="form-label">Salon</label>
-                                    <input type="text" class="form-control" id="nombre" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">Fecha</label>
-                                    <input type="email" class="form-control" id="email" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="telefono" class="form-label">Hora</label>
-                                    <input type="tel" class="form-control" id="telefono">
-                                </div>
-                              
-                                <button type="submit" class="btn btn-theme">Reservar</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+   
     <!-- Footer -->
     <footer class="footer-custom">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-0">© <span id="current-year"></span> IDW Kids Parties. Todos los derechos reservados.</p>
+            <div class="row g-4">
+                <!-- Columna 1 -->
+                <div class="col-md-6 col-lg-3">
+                    <h3 class="footer-title">Fiesta Mágica</h3>
+                    <p class="mb-4">Creando momentos inolvidables para los más pequeños desde 2010.</p>
+                    <div class="social-icons">
+                        <a href="#" class="me-3"><ion-icon name="logo-facebook" class="social-icon"></ion-icon></a>
+                        <a href="#" class="me-3"><ion-icon name="logo-instagram" class="social-icon"></ion-icon></a>
+                        <a href="#" class="me-3"><ion-icon name="logo-twitter" class="social-icon"></ion-icon></a>
+                    </div>
                 </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <a href="#" class="text-white me-3">Términos y condiciones</a>
-                    <a href="#" class="text-white">Política de privacidad</a>
+                <!-- Columna 2 -->
+                <div class="col-md-6 col-lg-3">
+                    <h3 class="footer-title">Navegación</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./pages/institucional.html" class="text-white text-decoration-none">Institucional</a></li>
+                        <li class="mb-2"><a href="./pages/contacto.html" class="text-white text-decoration-none">Contacto</a></li>
+                        <li class="mb-2"><a href="./pages/catalogoApi.html" class="text-white text-decoration-none">CatalogoAPI</a></li> 
+                    </ul>
                 </div>
+                <!-- Columna 3 -->
+                <div class="col-md-6 col-lg-3">
+                    <h3 class="footer-title">Legal</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Aviso legal</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Cookies</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Política de privacidad</a></li>
+                    </ul>
+                </div>
+                <!-- Columna 4 - Contacto -->
+                <div class="col-md-6 col-lg-3">
+                    <h3 class="footer-title">Contacto</h3>
+                    <div class="d-flex align-items-center mb-3">
+                        <ion-icon name="headset" class="me-2 social-icon"></ion-icon>
+                        <span>Soporte 24/7</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <ion-icon name="mail" class="me-2 social-icon"></ion-icon>
+                        <span>contacto@fiestamagica.com</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <ion-icon name="location" class="me-2 social-icon"></ion-icon>
+                        <span>Calle Fiesta 123, Ciudad</span>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-light opacity-25">
+            <div class="text-center pt-3">
+                © <span id="current-year"></span> Fiesta Mágica. Todos los derechos reservados.
             </div>
         </div>
     </footer>
+
+
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
