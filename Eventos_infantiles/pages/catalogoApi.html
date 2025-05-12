@@ -15,186 +15,7 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     
-    <!-- CSS personalizado -->
-    <style>
-        :root {
-            --color-primary: #FF6B6B;
-            --color-secondary: #4ECDC4;
-            --color-accent: #FFBE0B;
-            --color-dark: #3A405A;
-            --color-light: #F8F9FA;
-        }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f5 100%);
-            min-height: 100vh;
-        }
-        
-        /* Navbar */
-        .navbar-brand {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2rem;
-            color: white !important;
-        }
-        
-        .navbar-custom {
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-        
-        /* Hero Section */
-        .hero-section {
-            background: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
-            background-size: cover;
-            height: 60vh;
-            position: relative;
-            margin-bottom: 3rem;
-        }
-        
-        .hero-overlay {
-            background: rgba(0,0,0,0.5);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-        }
-        
-        /* Cards */
-        .card-theme {
-            border: none;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-        }
-        
-        .card-theme:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-        
-        .card-img-top {
-            height: 250px;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .card-theme:hover .card-img-top {
-            transform: scale(1.05);
-        }
-        
-        .card-overlay {
-            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 1.5rem;
-            color: white;
-        }
-        
-        /* Categorías temáticas */
-        .card-princesas .card-overlay {
-            background: linear-gradient(to top, rgba(231, 76, 60, 0.9), transparent);
-        }
-        
-        .card-bebes .card-overlay {
-            background: linear-gradient(to top, rgba(52, 152, 219, 0.9), transparent);
-        }
-        
-        .card-videojuegos .card-overlay {
-            background: linear-gradient(to top, rgba(155, 89, 182, 0.9), transparent);
-        }
-        
-        .card-maquillaje .card-overlay {
-            background: linear-gradient(to top, rgba(26, 188, 156, 0.9), transparent);
-        }
-        
-        /* Botones */
-        .btn-theme {
-            background-color: var(--color-accent);
-            color: var(--color-dark);
-            border: none;
-            font-weight: 600;
-            padding: 0.75rem 2rem;
-            border-radius: 50px;
-            transition: all 0.3s;
-        }
-        
-        .btn-theme:hover {
-            background-color: var(--color-primary);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        /* Footer */
-        .footer-custom {
-            background-color: var(--color-dark);
-            color: white;
-            padding: 3rem 0;
-            margin-top: 3rem;
-        }
-        
-        .footer-title {
-            color: var(--color-accent);
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-        
-        .footer-title:after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -10px;
-            width: 50px;
-            height: 3px;
-            background-color: var(--color-accent);
-        }
-        
-        .social-icon {
-            font-size: 1.5rem;
-            color: white;
-            transition: all 0.3s;
-            margin-right: 1rem;
-        }
-        
-        .social-icon:hover {
-            color: var(--color-accent);
-            transform: translateY(-5px);
-        }
-        
-        /* Efectos especiales */
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .hero-section {
-                height: 40vh;
-            }
-            
-            .navbar-brand {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
+
 </head>
 <body>
      <!-- Navbar -->
@@ -232,7 +53,7 @@
                 <li class="nav-item mx-2">
                     <a class="nav-link position-relative px-3 py-2" 
                        style="border-radius: 50px; transition: all 0.3s;" 
-                       href="/index.html">
+                       href="../index.html">
                        <span class="d-inline-block position-relative z-1">Inicio 
                        <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white" 
                              style="height: 3px; width: 0; transition: width 0.3s;"></span>
@@ -466,3 +287,184 @@
     </script>
 </body>
 </html>
+
+    <!-- CSS personalizado -->
+    <style>
+        :root {
+            --color-primary: #FF6B6B;
+            --color-secondary: #4ECDC4;
+            --color-accent: #FFBE0B;
+            --color-dark: #3A405A;
+            --color-light: #F8F9FA;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f5 100%);
+            min-height: 100vh;
+        }
+        
+        /* Navbar */
+        .navbar-brand {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: white !important;
+        }
+        
+        .navbar-custom {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+            background-size: cover;
+            height: 60vh;
+            position: relative;
+            margin-bottom: 3rem;
+        }
+        
+        .hero-overlay {
+            background: rgba(0,0,0,0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        /* Cards */
+        .card-theme {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .card-theme:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .card-img-top {
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .card-theme:hover .card-img-top {
+            transform: scale(1.05);
+        }
+        
+        .card-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            color: white;
+        }
+        
+        /* Categorías temáticas */
+        .card-princesas .card-overlay {
+            background: linear-gradient(to top, rgba(231, 76, 60, 0.9), transparent);
+        }
+        
+        .card-bebes .card-overlay {
+            background: linear-gradient(to top, rgba(52, 152, 219, 0.9), transparent);
+        }
+        
+        .card-videojuegos .card-overlay {
+            background: linear-gradient(to top, rgba(155, 89, 182, 0.9), transparent);
+        }
+        
+        .card-maquillaje .card-overlay {
+            background: linear-gradient(to top, rgba(26, 188, 156, 0.9), transparent);
+        }
+        
+        /* Botones */
+        .btn-theme {
+            background-color: var(--color-accent);
+            color: var(--color-dark);
+            border: none;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+        
+        .btn-theme:hover {
+            background-color: var(--color-primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Footer */
+        .footer-custom {
+            background-color: var(--color-dark);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-title {
+            color: var(--color-accent);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 50px;
+            height: 3px;
+            background-color: var(--color-accent);
+        }
+        
+        .social-icon {
+            font-size: 1.5rem;
+            color: white;
+            transition: all 0.3s;
+            margin-right: 1rem;
+        }
+        
+        .social-icon:hover {
+            color: var(--color-accent);
+            transform: translateY(-5px);
+        }
+        
+        /* Efectos especiales */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 40vh;
+            }
+            
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
