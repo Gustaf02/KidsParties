@@ -4,135 +4,223 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fotos de Cumpleaños</title>
-    <!-- Bootstrap CSS -->
-    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-    <link href="./css/styles.css" rel="stylesheet">   
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <!-- Iconos de Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600|Playfair+Display:ital@1|Quicksand:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-        <!-- Header -->
-        <header class="header">
-            <div class="header-title">IDW S.A - Reserva de Salones de Eventos</div>
-            <nav class="nav-menu">
-                <ul>
-                    
-                    <li><a href="./pages/institucional.html">Información Institucional</a></li>
-                    <li><a href="./pages/contacto.html">Contacto</a></li>
-                </ul>
-            </nav>
-        </header>
-    
 
-    <div class="grid-container">
-        <div class="grid-item">
-            <img src="./img/tp_des_web_portada_0.webp" alt="Fiesta temática princesas">
-            <div class="overlay">
-                <h3>Salón "Princesas Encantadas"</h3>
-                <p>Temática niñas • 3-10 años</p>
-                <a href="salon-princesas.html" class="btn-ver-mas">Ver más</a>
+ <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, #ff9a9e 0%, #6749ec 100%); box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+    <div class="container">
+<a class="navbar-brand d-flex align-items-center position-relative px-3 py-2" 
+   href="#" 
+   style="border-radius: 50px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; font-weight: 700; color: #4a6fa5;">
+   
+   <ion-icon name="sparkles" 
+             class="me-2 d-none d-sm-inline-block" 
+             style="font-size: 1.5em; color: #ffb347; transition: transform 0.3s;">
+   </ion-icon>
+   
+   <span class="d-none d-lg-inline position-relative z-1">
+      IDW Eventos
+      <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white" 
+            style="height: 3px; width: 0; transition: width 0.3s;">
+      </span>
+   </span>
+   
+   <span class="d-lg-none position-relative z-1">
+      IDW 
+      <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white" 
+            style="height: 3px; width: 0; transition: width 0.3s;">
+      </span>
+   </span>
+</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+               
+                <li class="nav-item mx-2">
+                    <a class="nav-link position-relative px-3 py-2" 
+                       style="border-radius: 50px; transition: all 0.3s;" 
+                       href="./">
+                       <span class="d-inline-block position-relative z-1">Inicio 
+                       <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white" 
+                             style="height: 3px; width: 0; transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link position-relative px-3 py-2" 
+                       style="border-radius: 50px; transition: all 0.3s;" 
+                       href="./pages/institucional.html">
+                       <span class="d-inline-block position-relative z-1">Institucional
+                       <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white" 
+                             style="height: 3px; width: 0; transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link position-relative px-3 py-2" 
+                       style="border-radius: 50px; transition: all 0.3s;" 
+                       href="./pages/contacto.html">
+                       <span class="d-inline-block position-relative z-1">Contacto</span>
+                       <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white" 
+                             style="height: 3px; width: 0; transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link position-relative px-3 py-2" 
+                       style="border-radius: 50px; transition: all 0.3s;" 
+                       href="./pages/catalogoApi.html">
+                       <span class="d-inline-block position-relative z-1">Propuestas</span>
+                       <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white" 
+                             style="height: 3px; width: 0; transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link position-relative px-3 py-2" 
+                       style="border-radius: 50px; transition: all 0.3s;" 
+                       href="./pages/catalogoApi.html">
+                       <span class="d-inline-block position-relative z-1">Salones</span>
+                       <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white" 
+                             style="height: 3px; width: 0; transition: width 0.3s;"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>                                                              
+    </div>
+</nav>
+
+    <!-- Grid de imágenes con Bootstrap -->
+    <section class="container my-5">
+        <h1 class="text-center mb-5 display-4 fw-bold" style="color: var(--color-dark);">Salones Temáticos🎉</h1>
+        <div class="row g-4">
+            <!-- Card 1 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 card-theme card-princesas">
+                    <img src="./img/tp_des_web_portada_0.webp" class="card-img-top" alt="Princesas">
+                    <div class="card-img-overlay card-overlay d-flex flex-column justify-content-end p-4">
+                        <h3 class="card-title text-white fw-bold">Princesas Encantadas</h3>
+                        <p class="card-text text-white">Temática niñas • 3-10 años</p>
+                        <a href="salon-princesas.html" class="btn btn-light btn-sm align-self-start">Ver más</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 card-theme card-bebes">
+                    <img src="./img/tp_desweb_portada_1.webp" class="card-img-top" alt="Superhéroes">
+                    <div class="card-img-overlay card-overlay d-flex flex-column justify-content-end p-4">
+                        <h3 class="card-title text-white fw-bold">Mi Primer Año</h3>
+                        <p class="card-text text-white">Celebración para bebés</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 card-theme card-videojuegos">
+                    <img src="./img/tp_desweb_portada_2.webp" class="card-img-top" alt="Videojuegos">
+                    <div class="card-img-overlay card-overlay d-flex flex-column justify-content-end p-4">
+                        <h3 class="card-title text-white fw-bold">Game Over Party</h3>
+                        <p class="card-text text-white">Videojuegos y series</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 card-theme card-maquillaje">
+                    <img src="./img/tp_desweb_portada_3.webp" class="card-img-top" alt="Maquillaje">
+                    <div class="card-img-overlay card-overlay d-flex flex-column justify-content-end p-4">
+                        <h3 class="card-title text-white fw-bold">Caritas Creativas</h3>
+                        <p class="card-text text-white">Maquillaje personalizado</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="grid-item">
-            <img src="./img/tp_desweb_portada_1.webp" alt="Fiesta temática superhéroes">
-            <div class="overlay"> Salón "Mi Primer Año" (Celebración para bebés)</div>
-        </div>
-        <div class="grid-item">
-            <img src="./img/tp_desweb_portada_2.webp" alt="Juegos infantiles">
-            <div class="overlay">Salón "Game Over Party" (Videojuegos y series)</div>
-        </div>
-        <div class="grid-item">
-            <img src="./img/tp_desweb_portada_3.webp" alt="Decoración personalizada">
-            <div class="overlay">Salón "Caritas Creativas" (Maquillaje personalizado)</div>
+    </section>
+
+    <!-- Descripción -->
+    <div class="container">
+        <div class="hero-section text-center">
+            <h2 class="display-5 fw-bold mb-4">🎉 ¡Bienvenidos a IDW Kids Parties!
+            <p class="lead mb-4">Somos una empresa especializada en salones de fiestas infantiles temáticos, diseñados para convertir los sueños de tus pequeños en realidades inolvidables.</p>
+            <a href="./pages/catalogoApi.html"  class="btn btn-theme pulse">¡Reserva Ahora!</a>
         </div>
     </div>
 
-    <div class="description">
-        <p>🎉 ¡Bienvenidos a IDW Kids Parties! 🎉
-
-            Somos una empresa especializada en salones de fiestas infantiles temáticos, diseñados para convertir los sueños de tus pequeños en realidades inolvidables. Ofrecemos 4 espacios únicos, ¡cada uno creado para experiencias memorables!
-            
-            </p>
-        <a href="./pages/contacto.html" class="btn">¡Contactanos!</a>
-    </div>
-
-    <body>
-        <footer class="footer">
-            <!-- Sección superior -->
-            <div class="footer-top container">
+    <!-- Footer -->
+    <footer class="footer-custom">
+        <div class="container">
+            <div class="row g-4">
                 <!-- Columna 1 -->
-                <div class="footer-column">
-                    <h3 class="footer-title">Navegación</h3>
-                    <ul class="footer-list">
-                        <li><a href="./pages/institucional.html" class="footer-link">Institucional</a></li>
-                        <li><a href="./pages/contacto.html" class="footer-link">Contacto</a></li>
-                        <li><a href="./pages/api.html" class="footer-link">Ejemplo api</a></li>
-                        <li><a href="#" class="footer-link">Categorías</a></li>
-                    </ul>
+                <div class="col-md-6 col-lg-3">
+                    <h3 class="footer-title">IDW Kids Parties</h3>
+                    <p class="mb-4">Creando momentos inolvidables para los más pequeños desde 2010.</p>
+                    <div class="social-icons">
+                        <a href="#" class="me-3"><ion-icon name="logo-facebook" class="social-icon"></ion-icon></a>
+                        <a href="#" class="me-3"><ion-icon name="logo-instagram" class="social-icon"></ion-icon></a>
+                        <a href="#" class="me-3"><ion-icon name="logo-twitter" class="social-icon"></ion-icon></a>
+                    </div>
                 </div>
-    
                 <!-- Columna 2 -->
-                <div class="footer-column">
-                    <h3 class="footer-title">Ayuda</h3>
-                    <ul class="footer-list">
-                        <li><a href="#" class="footer-link">Centro de ayuda</a></li>
-                        <li><a href="#" class="footer-link">Estado del salon</a></li>
-                        <li><a href="#" class="footer-link">Devoluciones</a></li>
-                        <li><a href="./pages/contacto.html" class="footer-link">Contacto</a></li>
+                <div class="col-md-6 col-lg-3">
+                    <h3 class="footer-title">Navegación</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./pages/institucional.html" class="text-white text-decoration-none">Institucional</a></li>
+                        <li class="mb-2"><a href="./pages/contacto.html" class="text-white text-decoration-none">Contacto</a></li>
+                        <li class="mb-2"><a href="./pages/catalogoApi.html" class="text-white text-decoration-none">CatalogoAPI</a></li> 
+                         <li class="mb-2"><a href="./pages/carritoApi.html" class="text-white text-decoration-none">CarritoApi</a></li> 
+                          <li class="mb-2"><a href="./pages/documentacionCarritoApi.html" class="text-white text-decoration-none">DocumentacionAPIs</a></li> 
                     </ul>
                 </div>
-    
                 <!-- Columna 3 -->
-                <div class="footer-column">
+                <div class="col-md-6 col-lg-3">
                     <h3 class="footer-title">Legal</h3>
-                    <ul class="footer-list">
-                        <li><a href="#" class="footer-link">Quiénes somos</a></li>
-                        <li><a href="#" class="footer-link">Contacto</a></li>
-                        <li><a href="#" class="footer-link">Aviso legal</a></li>
-                        <li><a href="#" class="footer-link">Cookies</a></li>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Aviso legal</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Cookies</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Política de privacidad</a></li>
                     </ul>
                 </div>
-    
                 <!-- Columna 4 - Contacto -->
-                <div class="footer-column">
+                <div class="col-md-6 col-lg-3">
                     <h3 class="footer-title">Contacto</h3>
-                    <div class="footer-contact">
-                        <div class="contact-item">
-                            <ion-icon name="headset" class="contact-icon"></ion-icon>
-                            <span class="contact-text">Soporte 24/7</span>
-                        </div>
-                        <p class="contact-email">contacto@salonesdefiesta.com</p>
-                        <div class="social-icons">
-                            <a href="#" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a>
-                            <a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a>
-                            <a href="#" class="social-link"><ion-icon name="logo-instagram"></ion-icon></a>
-                            <a href="#" class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a>
-                        </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <ion-icon name="headset" class="me-2 social-icon"></ion-icon>
+                        <span>Soporte 24/7</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <ion-icon name="mail" class="me-2 social-icon"></ion-icon>
+                        <span>contacto@IDW.com</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <ion-icon name="location" class="me-2 social-icon"></ion-icon>
+                        <span>Av Corrientes 123, Caba</span>
                     </div>
                 </div>
             </div>
-    
-            <!-- Sección de pagos y seguridad -->
-            <div class="footer-middle">
-                <div class="container footer-middle-content">
-                    <div class="payment-item">
-                        <ion-icon name="card" class="payment-icon"></ion-icon>
-                        <span class="payment-text">Métodos de pago seguros</span>
-                    </div>
-                    <div class="security-item">
-                        <ion-icon name="shield-checkmark" class="security-icon"></ion-icon>
-                        <span class="security-text">Compra protegida</span>
-                    </div>
-                </div>
+            <hr class="my-4 bg-light opacity-25">
+            <div class="text-center pt-3">
+                © <span id="current-year"></span> IDW S.A - Reserva de Salones de Eventos.
             </div>
-    
-            <!-- Copyright -->
-            <div class="footer-bottom">
-                <div class="container copyright">
-                    © <span id="current-year"></span> Fiestas Infantiles. Todos los derechos reservados.
-                </div>
-            </div>
-        </footer>
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Año actual en el footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
     <script src="js/api.js"></script>
 </body>
 </html>
