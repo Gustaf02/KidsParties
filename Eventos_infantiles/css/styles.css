@@ -335,84 +335,15 @@ button:hover {
 }
 
 
-/* LEO */
+/* LEO 
 
-.header {
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    padding: 20px; 
-    font-family: Arial, sans-serif; 
-}
-
-.header-title {
-    font-size: 32px; 
-    font-weight: bold;                                                                                                          
-}
-
-.nav-menu ul {
-    list-style-type: none; 
-    margin: 0; 
-    padding: 0; 
-    display: flex; 
-}
-
-.nav-menu li {
-    margin-left: 30px; 
-}
-
-.nav-menu a {
-    text-decoration: none; 
-    color: #333; 
-    font-size: 20px; 
-}
-
-.nav-menu a:hover {
-    text-decoration: underline; 
-}
-
-
-/* GUSTAVO */
+ GUSTAVO */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
 }
-
-
-/* Estilos para el header */
-.header {
-    text-align: center;
-    padding: 20px;
-    background-color: var(--color-footer-header);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-
-
-header h1 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-}
-
-header ul {
-    list-style: none;
-    padding: 0;
-}
-
-header li {
-    display: inline;
-    margin: 0 10px;
-}
-
-header a {
-    text-decoration: none;
-    color: #3F5EFB;
-    font-weight: bold;
-}
-
-/* Sección de Mapa y Horarios  */
  
 .map-container {
     border-radius: 10px;
@@ -538,7 +469,7 @@ button:hover {
     background-color: #cf4116;
 }
 
-<<<<<<< HEAD
+
 /* Azu */
  .institucional-hero {
         background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
@@ -577,21 +508,3 @@ button:hover {
     }
      
  
-=======
-/* Efectos hover personalizados */
-.nav-link:hover {
-    background-color: rgba(255,255,255,0.15) !important;
-}
-
-.nav-link:hover span:last-child {
-    width: 60% !important;
-}
-
-.nav-link.active {
-    font-weight: 600;
-}
-
-.nav-link.active span:last-child {
-    width: 60% !important;
-}
->>>>>>> origin/walter_windos11
