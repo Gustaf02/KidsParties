@@ -159,7 +159,7 @@ body {
     100% { transform: scale(1); }
 }
 
-/* Azu */
+/* Específico institucional */
 .institucional-hero {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
     color: white;
