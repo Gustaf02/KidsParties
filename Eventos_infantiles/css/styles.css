@@ -470,6 +470,7 @@ button:hover {
 }
 
 
+<<<<<<< HEAD
 /* Azu */
  .institucional-hero {
         background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
@@ -507,4 +508,6 @@ button:hover {
         transform: translateY(-5px);
     }
      
+=======
+>>>>>>> f792cfe (Actualizo estilos y agrego archivos de contacto e institucional)
  
