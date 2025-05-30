@@ -208,13 +208,21 @@ window.editSalon = function(id) {
         document.getElementById('fecha').value = salon.fecha;
     }
 };
-
-// Eliminar salón
+// Función para eliminar un salón (versión corregida)
 window.deleteSalon = function(id) {
-    deleteSalon(parseInt(id)); 
-    loadSalones(); 
+    if (confirm('¿Estás seguro de eliminar este salón?')) {
+        try {
+            id = parseInt(id); // Convertir a número
+            const salones = getSalones().filter(salon => salon.id !== id);
+            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(salones));
+            loadSalones(); // Actualizar la vista
+            console.log(`Salón con ID ${id} eliminado correctamente`);
+        } catch (error) {
+            console.error("Error al eliminar salón:", error);
+            alert("Ocurrió un error al eliminar el salón");
+        }
+    }
 };
-
 // Cargar salones al inicio
         loadSalones();
     });
