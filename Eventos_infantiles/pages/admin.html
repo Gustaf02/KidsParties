@@ -144,11 +144,10 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const form = document.getElementById('salon-form');
-        const salonList = document.getElementById('salones-list');
+    const form = document.getElementById('salon-form');
+    const salonList = document.getElementById('salones-list');
 
-        // Cargar salones al inicio
-       function loadSalones() {
+   function loadSalones() {
     salonList.innerHTML = ''; 
     const salones = getSalones(); 
     salones.forEach(salon => {
@@ -168,38 +167,38 @@
     });
 }
 
-        // Manejar el envío del formulario
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const salon = {
-        id: parseInt(document.getElementById('salon-id').value) || null, 
-        nombre: document.getElementById('nombre').value,
-        capacidad: document.getElementById('capacidad').value,
-        precio: document.getElementById('precio').value,
-        fecha: document.getElementById('fecha').value
-    };
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const salon = {
+            id: parseInt(document.getElementById('salon-id').value) || null, 
+            nombre: document.getElementById('nombre').value,
+            capacidad: document.getElementById('capacidad').value,
+            precio: document.getElementById('precio').value,
+            fecha: document.getElementById('fecha').value
+        };
 
-   
-    if (!salon.nombre || !salon.capacidad || !salon.precio || !salon.fecha) {
-        alert("Todos los campos son obligatorios.");
-        return;
-    }
+        if (!salon.nombre || !salon.capacidad || !salon.precio || !salon.fecha) {
+            alert("Todos los campos son obligatorios.");
+            return;
+        }
 
-    if (salon.id) {
-        updateSalon(salon);
-        alert("Salón actualizado con éxito.");
-    } else {
-        addSalon(salon);
-        alert("Salón agregado con éxito.");
-    }
-    loadSalones();
-    form.reset();
-});
+        if (salon.id) {
+            updateSalon(salon);
+            alert("Salón actualizado con éxito.");
+        } else {
+            addSalon(salon);
+            alert("Salón agregado con éxito.");
+        }
+        loadSalones();
+        form.reset();
+    });
 
-// Editar salón
-window.editSalon = function(id) {
+    // Editar salón
+  window.editSalon = function(id) {
+    console.log("Editando salón con ID:", id); 
     const salones = getSalones();
-    const salon = salones.find(s => s.id === parseInt(id)); 
+    const salon = salones.find(s => s.id === id);
+    console.log("Salon encontrado:", salon); 
     if (salon) {
         document.getElementById('salon-id').value = salon.id;
         document.getElementById('nombre').value = salon.nombre;
@@ -210,14 +209,13 @@ window.editSalon = function(id) {
 };
 
 // Eliminar salón
-window.deleteSalon = function(id) {
-    deleteSalon(parseInt(id)); 
-    loadSalones(); 
+    window.deleteSalon = function(id) {
+        deleteSalon(parseInt(id)); 
+        loadSalones(); 
 };
 
-// Cargar salones al inicio
-        loadSalones();
-    });
+    loadSalones(); 
+});
 </script>
 </body>
 </html>
