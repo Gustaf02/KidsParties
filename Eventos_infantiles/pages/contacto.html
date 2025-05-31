@@ -1,117 +1,95 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - IDW S.A</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Fuentes Google -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
-    <!-- Iconos de Ionicons -->
+    <title>Contacto - IDW S.A.</title>   
+    <!-- Bootstrap para layout responsive y componentes pre-diseñados --> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
+    <!-- Fuentes utilizadas en el diseño: Monserrat, Dancing Script - Pacífico y Quicksand -->   
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet"> 
+    <!-- Ionicons, librería desde la que usamos íconos -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <!-- CSS personalizado -->
-    <link rel="stylesheet" href="../css/contacto.css">
-</head>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>   
+    <!-- CSS de institucional.html --> 
+    <link rel="stylesheet" href="../css/contacto.css"> </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, #ff9a9e 0%, #6749ec 100%); box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+    <!-- Navbar que usamos todos -->
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar-bg custom-navbar-shadow">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center position-relative px-3 py-2" 
-            href="#" 
-            style="border-radius: 50px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; font-weight: 700; color: #4a6fa5;">
-            
+            <a class="navbar-brand custom-navbar-brand d-flex align-items-center position-relative px-3 py-2" 
+            href="#">
             <ion-icon name="sparkles" 
-                    class="me-2 d-none d-sm-inline-block" 
-                    style="font-size: 1.5em; color: #ffb347; transition: transform 0.3s;">
-            </ion-icon>
-            
+                            class="me-2 d-none d-sm-inline-block brand-sparkle-icon">
+            </ion-icon>             
             <span class="d-none d-lg-inline position-relative z-1">
                 IDW Eventos
-                <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white" 
-                    style="height: 3px; width: 0; transition: width 0.3s;">
+                <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect">
                 </span>
-            </span>
-            
+            </span>             
             <span class="d-lg-none position-relative z-1">
                 IDW 
-                <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white" 
-                    style="height: 3px; width: 0; transition: width 0.3s;">
+                <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect">
                 </span>
             </span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            </a>             
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <!-- Links a cada una de las páginas html -->
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                
-                    <li class="nav-item mx-2">
-                        <a class="nav-link position-relative px-3 py-2" 
-                        style="border-radius: 50px; transition: all 0.3s;" 
+                <ul class="navbar-nav ms-auto">                     
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-link position-relative px-3 py-2" 
                         href="../index.html">
                         <span class="d-inline-block position-relative z-1">Inicio 
-                        <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white" 
-                                style="height: 3px; width: 0; transition: width 0.3s;"></span>
+                        <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
+                        </span>
                         </a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link position-relative px-3 py-2" 
-                        style="border-radius: 50px; transition: all 0.3s;" 
+                    </li>                     
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-link position-relative px-3 py-2" 
                         href="./institucional.html">
                         <span class="d-inline-block position-relative z-1">Institucional
-                        <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white" 
-                                style="height: 3px; width: 0; transition: width 0.3s;"></span>
+                        <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
+                        </span>
                         </a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link position-relative px-3 py-2" 
-                        style="border-radius: 50px; transition: all 0.3s;" 
+                    </li>                     
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-link position-relative px-3 py-2" 
                         href="./contacto.html">
                         <span class="d-inline-block position-relative z-1">Contacto</span>
-                        <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white" 
-                                style="height: 3px; width: 0; transition: width 0.3s;"></span>
+                        <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
                         </a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link position-relative px-3 py-2" 
-                        style="border-radius: 50px; transition: all 0.3s;" 
+                    </li>                     
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-link position-relative px-3 py-2" 
                         href="./catalogoApi.html">
                         <span class="d-inline-block position-relative z-1">Propuestas</span>
-                        <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white" 
-                                style="height: 3px; width: 0; transition: width 0.3s;"></span>
+                        <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
+                        </a>
+                    </li>                     
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-link position-relative px-3 py-2" 
+                        href="./catalogoApi.html"> <span class="d-inline-block position-relative z-1">Salones</span>
+                        <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
                         </a>
                     </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link position-relative px-3 py-2" 
-                        style="border-radius: 50px; transition: all 0.3s;" 
-                        href="./catalogoApi.html">
-                        <span class="d-inline-block position-relative z-1">Salones</span>
-                        <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white" 
-                                style="height: 3px; width: 0; transition: width 0.3s;"></span>
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-link position-relative px-3 py-2" 
+                        href="./admin.html">
+                        <span class="d-inline-block position-relative z-1">Admin</span>
+                        <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
                         </a>
-
-                    <li class="nav-item mx-2">
-                    <a class="nav-link position-relative px-3 py-2" 
-                       style="border-radius: 50px; transition: all 0.3s;" 
-                       href="./admin.html">
-                       <span class="d-inline-block position-relative z-1">Admin</span>
-                       <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white" 
-                             style="height: 3px; width: 0; transition: width 0.3s;"></span>
-                    </a>
-                </li>
-
                     </li>
                 </ul>
-            </div>                                                              
+            </div>                                                                  
         </div>
     </nav>
 
-    <!-- Encabezado Contacto -->
+    <!-- Header específico para contacto.html -->
     <header class="contacto-hero">
         <div class="container text-center">
             <h1 class="display-4 fw-bold mb-3">Contactate con Nosotros</h1>
@@ -119,40 +97,36 @@
         </div>
     </header>
 
-    <!-- Contacto -->
+    <!-- Sección principal de contacto con formulario y flyer -->
     <section class="contact-form-section container py-4 fade show">
         <div class="row align-items-stretch justify-content-center">
+            <!-- Columna izquierda para formulario de contacto y sus secciones-->
             <div class="col-md-6 mb-4 mb-md-0">
                 <div class="contact-form">
                     <h2 class="text-center mb-3">Formulario de Contacto</h2>
                     <p class="text-center mb-4">Completá el siguiente formulario y nos pondremos en contacto con vos lo antes posible.</p>
-                    
                     <form action="#" method="POST" class="contact-form">
                         <div class="mb-3">
                             <label for="fullName" class="form-label">Nombre y Apellido:</label>
                             <input type="text" class="form-control" id="fullName" name="fullName" required>
                         </div>
-
                         <div class="mb-3">
                             <label for="email" class="form-label">Correo Electrónico:</label>
                             <input type="email" class="form-control" id="email" name="email" required>
                         </div>
-
                         <div class="mb-3">
                             <label for="phone" class="form-label">Teléfono:</label>
                             <input type="tel" class="form-control" id="phone" name="phone" required>
                         </div>
-
                         <div class="mb-4">
                             <label for="message" class="form-label">Mensaje:</label>
                             <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
                         </div>
-
                         <button type="submit" class="btn btn-outline-primary">Enviar Mensaje</button>
                     </form>
                 </div>
             </div>
-
+            <!-- Columna derecha para el flyer -->
             <div class="col-md-6">
                 <div class="contact-image-container">
                     <img src="../img/imagen_contacto.png" alt="IDW Eventos" class="img-fluid rounded shadow-lg">
@@ -160,13 +134,14 @@
             </div>
         </div>
     </section>
- 
+    
+    <!-- Sección para mapa y horario de atención al público -->
     <section class="map-and-hours text-center"> 
         <div class="container">
             <h2 class="display-5 mb-3">Nuestra Ubicación</h2>
             <p class="lead mb-5">Visítanos en nuestra sede para conocer más sobre nuestros salones de fiestas.</p>
-            
             <div class="row">
+                <!-- Columna con mapa de Google incrustado -->
                 <div class="col-lg-6 mb-4 mb-lg-0">
                     <div class="map-container">
                         <div class="embed-responsive embed-responsive-16by9" style="height: 450px;">
@@ -175,7 +150,7 @@
                         </div>
                     </div>
                 </div>
-    
+                <!-- Columna con tablas de horario de atención -->
                 <div class="col-lg-6">
                     <div class="hours-container">
                         <h3 class="mb-4">Horario de Atención</h3>
@@ -210,33 +185,30 @@
         </div>
     </section>
 
-    <!-- Footer -->
+         <!-- Footer corporativo con información de contacto y enlaces relevantes -->
     <footer class="footer-custom">
         <div class="container">
             <div class="row g-4">
-                <!-- Columna 1 -->
-                <div class="col-md-6 col-lg-3">
+                <div class="col-lg-3 col-md-6">
                     <h3 class="footer-title">IDW Kids Parties</h3>
-                    <p class="mb-4">Creando momentos inolvidables para los más pequeños desde 2010.</p>
+                    <p class="mb-3 mb-md-4">Creando momentos inolvidables para los más pequeños desde 2010.</p>
                     <div class="social-icons">
-                        <a href="#" class="me-3"><ion-icon name="logo-facebook" class="social-icon"></ion-icon></a>
-                        <a href="#" class="me-3"><ion-icon name="logo-instagram" class="social-icon"></ion-icon></a>
-                        <a href="#" class="me-3"><ion-icon name="logo-twitter" class="social-icon"></ion-icon></a>
+                        <a href="#" class="me-3 social-icon"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="#" class="me-3 social-icon"><ion-icon name="logo-instagram"></ion-icon></a>
+                        <a href="#" class="me-3 social-icon"><ion-icon name="logo-twitter"></ion-icon></a>
                     </div>
                 </div>
-                <!-- Columna 2 -->
-                <div class="col-md-6 col-lg-3">
+                <div class="col-lg-3 col-md-6">
                     <h3 class="footer-title">Navegación</h3>
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="./institucional.html" class="text-white text-decoration-none">Institucional</a></li>
                         <li class="mb-2"><a href="./contacto.html" class="text-white text-decoration-none">Contacto</a></li>
                         <li class="mb-2"><a href="./catalogoApi.html" class="text-white text-decoration-none">CatalogoAPI</a></li> 
-                         <li class="mb-2"><a href="./carritoApi.html" class="text-white text-decoration-none">CarritoApi</a></li> 
-                          <li class="mb-2"><a href="./documentacionCarritoApi.html" class="text-white text-decoration-none">DocumentacionAPIs</a></li> 
+                        <li class="mb-2"><a href="./carritoApi.html" class="text-white text-decoration-none">CarritoApi</a></li> 
+                        <li class="mb-2"><a href="./documentacionCarritoApi.html" class="text-white text-decoration-none">DocumentacionAPIs</a></li> 
                     </ul>
                 </div>
-                <!-- Columna 3 -->
-                <div class="col-md-6 col-lg-3">
+                 <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
                     <h3 class="footer-title">Legal</h3>
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="#" class="text-white text-decoration-none">Aviso legal</a></li>
@@ -244,8 +216,7 @@
                         <li class="mb-2"><a href="#" class="text-white text-decoration-none">Política de privacidad</a></li>
                     </ul>
                 </div>
-                <!-- Columna 4 - Contacto -->
-                <div class="col-md-6 col-lg-3">
+                <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
                     <h3 class="footer-title">Contacto</h3>
                     <div class="d-flex align-items-center mb-3">
                         <ion-icon name="headset" class="me-2 social-icon"></ion-icon>
@@ -263,17 +234,15 @@
             </div>
             <hr class="my-4 bg-light opacity-25">
             <div class="text-center pt-3">
-                © <span id="current-year"></span> IDW S.A - Reserva de Salones de Eventos.
+                © <span id="current-year"></span> IDW S.A. - Reserva de Salones de Eventos.
             </div>
         </div>
-    </footer>
-
-    <!-- Bootstrap JS -->
+    </footer> 
+    <!-- Bootstrap JS para funcionalidad de componentes interactivos -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Año actual en el footer
+        <script>
+        // Actualización dinámica del año para evitar mantenimiento manual
         document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
-    <script src="../js/api.js"></script>
-</body>
+    </script>     
+    </body>
 </html>

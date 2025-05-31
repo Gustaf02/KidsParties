@@ -3,118 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Información Institucional - IDW S.A</title>
-    
-    <!-- Bootstrap para layout responsive y componentes pre-diseñados -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Montserrat: fuente principal para textos corporativos elegantes -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Dancing Script y Pacifico: fuentes lúdicas para elementos temáticos infantiles -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap" rel="stylesheet">
-    
-    <!-- Quicksand: fuente amigable y redondeada para títulos infantiles -->
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
-    
-    <!-- Ionicons: librería de iconos para elementos decorativos -->
+    <title>Información Institucional - IDW S.A.</title>   
+    <!-- Bootstrap para layout responsive y componentes pre-diseñados --> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
+    <!-- Fuentes utilizadas en el diseño: Monserrat, Dancing Script - Pacífico y Quicksand -->   
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet"> 
+    <!-- Ionicons, librería desde la que usamos íconos -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    
-    <!-- CSS personalizado para Institucional -->
-    <link rel="stylesheet" href="../css/institucional.css">
-</head>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>   
+    <!-- CSS de institucional.html --> 
+    <link rel="stylesheet" href="../css/institucional.css"> </head>
 <body>
 
-    <!-- Navbar principal con efectos hover personalizados -->
+    <!-- Navbar que usamos todos -->
     <nav class="navbar navbar-expand-lg navbar-dark custom-navbar-bg custom-navbar-shadow">
         <div class="container">
             <a class="navbar-brand custom-navbar-brand d-flex align-items-center position-relative px-3 py-2" 
             href="#">
             <ion-icon name="sparkles" 
                             class="me-2 d-none d-sm-inline-block brand-sparkle-icon">
-            </ion-icon>            
-            <!-- Texto de marca con efecto underline animado para desktop -->
+            </ion-icon>             
             <span class="d-none d-lg-inline position-relative z-1">
                 IDW Eventos
                 <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect">
                 </span>
-            </span>            
-            <!-- Versión condensada del brand para móviles -->
+            </span>             
             <span class="d-lg-none position-relative z-1">
                 IDW 
                 <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect">
                 </span>
             </span>
-            </a>            
-            <!-- Botón hamburguesa para navegación móvil -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            </a>             
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <!-- Menu de navegación con efectos hover personalizados -->
+            <!-- Links a cada una de las páginas html -->
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">                
-                    <!-- Link a index con underline animado -->
-                    <li class="nav-item mx-2">
+                <ul class="navbar-nav ms-auto">                     
+                    <li class="nav-item">
                         <a class="nav-link custom-nav-link position-relative px-3 py-2" 
                         href="../index.html">
                         <span class="d-inline-block position-relative z-1">Inicio 
                         <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
+                        </span>
                         </a>
-                    </li>                    
-                    <!-- Página actual - estado activo en navegación -->
-                    <li class="nav-item mx-2">
+                    </li>                     
+                    <li class="nav-item">
                         <a class="nav-link custom-nav-link position-relative px-3 py-2" 
                         href="./institucional.html">
                         <span class="d-inline-block position-relative z-1">Institucional
                         <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
+                        </span>
                         </a>
-                    </li>                    
-                    <!-- Formulario de contacto para consultas de eventos -->
-                    <li class="nav-item mx-2">
+                    </li>                     
+                    <li class="nav-item">
                         <a class="nav-link custom-nav-link position-relative px-3 py-2" 
                         href="./contacto.html">
                         <span class="d-inline-block position-relative z-1">Contacto</span>
                         <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
                         </a>
-                    </li>                    
-                    <!-- Catálogo de propuestas temáticas API -->
-                    <li class="nav-item mx-2">
+                    </li>                     
+                    <li class="nav-item">
                         <a class="nav-link custom-nav-link position-relative px-3 py-2" 
                         href="./catalogoApi.html">
                         <span class="d-inline-block position-relative z-1">Propuestas</span>
                         <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
                         </a>
-                    </li>                    
-                    <!-- Galería de salones temáticos disponibles -->
-                    <li class="nav-item mx-2">
+                    </li>                     
+                    <li class="nav-item">
                         <a class="nav-link custom-nav-link position-relative px-3 py-2" 
-                        href="./catalogoApi.html">
-                        <span class="d-inline-block position-relative z-1">Salones</span>
+                        href="./catalogoApi.html"> <span class="d-inline-block position-relative z-1">Salones</span>
                         <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
                         </a>
-                    <!-- Panel administrativo para gestión interna -->
-                    <li class="nav-item mx-2">
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link custom-nav-link position-relative px-3 py-2" 
                         href="./admin.html">
                         <span class="d-inline-block position-relative z-1">Admin</span>
                         <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
-                    </a>
-                </li>
+                        </a>
                     </li>
                 </ul>
-            </div>                                                               
+            </div>                                                                  
         </div>
     </nav>
-    <!-- Hero section específico para página institucional-->
+
+    <!-- Header específico de institucional.html -->
     <header class="institucional-hero">
         <div class="container text-center">
             <h1 class="display-4 fw-bold mb-3">Sobre IDW Kids Parties</h1>
             <p class="lead mb-4">Conocé más sobre nuestra empresa, nuestra historia y lo que nos impulsa a crear momentos mágicos para los más peques.</p>
         </div>
     </header>
-    <!-- Contenido principal estructurado en secciones informativas -->
-    <main class="container py-4">        
+     <!-- Contenido principal estructurado en secciones informativas -->
+    <main class="container py-4">         
         <section class="mb-5">
             <div class="card section-card">
                 <div class="card-body p-4 p-md-5">
@@ -136,6 +120,7 @@
                             <div class="text-center mb-3">
                                 <ion-icon name="star" class="section-icon-size section-icon-color"></ion-icon>
                             </div>
+                            <!-- Misión-->
                             <h2 class="card-title text-center mb-3 section-heading-color">Misión</h2>
                             <div class="card-text">
                                 <p>En IDW Kids Parties, nuestra misión es crear experiencias memorables que nutran la imaginación y la felicidad de los niños, ofreciendo espacios temáticos seguros, divertidos y adaptados a cada edad.</p>
@@ -161,7 +146,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Valores corporativos  -->
+                <!-- Valores corporativos-->
                 <div class="col-md-12 col-lg-4">
                     <div class="card section-card">
                         <div class="card-body p-4">
@@ -170,7 +155,6 @@
                             </div>
                             <h2 class="card-title text-center mb-3 section-heading-color">Valores</h2>
                             <div class="card-text">
-                                <!-- Lista de valores con iconos -->
                                 <ul class="list-unstyled valores-lista">
                                     <li><ion-icon name="checkmark-circle" class="me-2 values-icon-color"></ion-icon> <strong>Creatividad:</strong> Nos reinventamos constantemente para ofrecer propuestas únicas.</li>
                                     <li><ion-icon name="checkmark-circle" class="me-2 values-icon-color"></ion-icon> <strong>Seguridad:</strong> Priorizamos el bienestar de los niños en cada aspecto.</li>
@@ -185,57 +169,54 @@
                 </div>
             </div>
         </section>
-
         <!-- Sección de equipo de trabajo -->
         <section class="mb-5">
-            <h2 class="text-center mb-5 section-heading-color">Nuestro Equipo</h2>
+            <h2 class="text-center mb-4 mb-md-5 section-heading-color">Nuestro Equipo</h2>
             <div class="row g-4">
-                
                 <!-- Directora Creativa -->
                 <div class="col-md-4">
                     <div class="card text-center section-card">
                         <div class="card-body p-4">
-                            <img src="../img/equipo1.jpg" alt="Directora Creativa" class="img-fluid equipo-img mb-4">
+                            <img src="../img/equipo1.jpg" alt="Directora Creativa" class="img-fluid equipo-img mb-3 mb-md-4" onerror="this.onerror=null;this.src='https://placehold.co/150x150/FF6B6B/FFFFFF?text=Laura';">
                             <h4 class="card-title fw-bold">Laura Martínez</h4>
                             <h6 class="text-muted mb-3">Directora Creativa</h6>
                             <p class="card-text">Con más de 15 años de experiencia en organización de eventos infantiles, Laura es el alma creativa detrás de nuestras temáticas.</p>
                             <div class="mt-3">
-                                <ion-icon name="logo-instagram" class="mx-1 team-social-icon"></ion-icon>
-                                <ion-icon name="logo-linkedin" class="mx-1 team-social-icon"></ion-icon>
-                                <ion-icon name="mail" class="mx-1 team-social-icon"></ion-icon>
+                                <a href="#" class="mx-1 team-social-icon"><ion-icon name="logo-instagram"></ion-icon></a>
+                                <a href="#" class="mx-1 team-social-icon"><ion-icon name="logo-linkedin"></ion-icon></a>
+                                <a href="#" class="mx-1 team-social-icon"><ion-icon name="mail"></ion-icon></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Coordinador de Eventos -->
+                <!-- Coordinador de eventos -->
                 <div class="col-md-4">
                     <div class="card text-center section-card">
                         <div class="card-body p-4">
-                            <img src="../img/equipo2.jpg" alt="Coordinador de Eventos" class="img-fluid equipo-img mb-4">
+                            <img src="../img/equipo2.jpg" alt="Coordinador de Eventos" class="img-fluid equipo-img mb-3 mb-md-4" onerror="this.onerror=null;this.src='https://placehold.co/150x150/4ECDC4/FFFFFF?text=Carlos';">
                             <h4 class="card-title fw-bold">Carlos Ramírez</h4>
                             <h6 class="text-muted mb-3">Coordinador de Eventos</h6>
                             <p class="card-text">Especialista en logística y planificación, Carlos asegura todos los detalles detrás de escena, asegurando que cada celebración transcurra perfectamente.</p>
                             <div class="mt-3">
-                                <ion-icon name="logo-instagram" class="mx-1 team-social-icon"></ion-icon>
-                                <ion-icon name="logo-linkedin" class="mx-1 team-social-icon"></ion-icon>
-                                <ion-icon name="mail" class="mx-1 team-social-icon"></ion-icon>
+                                <a href="#" class="mx-1 team-social-icon"><ion-icon name="logo-instagram"></ion-icon></a>
+                                <a href="#" class="mx-1 team-social-icon"><ion-icon name="logo-linkedin"></ion-icon></a>
+                                <a href="#" class="mx-1 team-social-icon"><ion-icon name="mail"></ion-icon></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                
                 <!-- Chef Pastelera -->
                 <div class="col-md-4">
                     <div class="card text-center section-card">
                         <div class="card-body p-4">
-                            <img src="../img/equipo3.jpg" alt="Chef Pastelera" class="img-fluid equipo-img mb-4">
+                            <img src="../img/equipo3.jpg" alt="Chef Pastelera" class="img-fluid equipo-img mb-3 mb-md-4" onerror="this.onerror=null;this.src='https://placehold.co/150x150/FFBE0B/3A405A?text=Maria';">
                             <h4 class="card-title fw-bold">María González</h4>
                             <h6 class="text-muted mb-3">Chef Pastelera</h6>
                             <p class="card-text">Creadora de nuestras deliciosas tortas temáticas y mesas dulces, María combina sabor y diseño en cada una de sus creaciones.</p>
                             <div class="mt-3">
-                                <ion-icon name="logo-instagram" class="mx-1 team-social-icon"></ion-icon>
-                                <ion-icon name="logo-linkedin" class="mx-1 team-social-icon"></ion-icon>
-                                <ion-icon name="mail" class="mx-1 team-social-icon"></ion-icon>
+                                <a href="#" class="mx-1 team-social-icon"><ion-icon name="logo-instagram"></ion-icon></a>
+                                <a href="#" class="mx-1 team-social-icon"><ion-icon name="logo-linkedin"></ion-icon></a>
+                                <a href="#" class="mx-1 team-social-icon"><ion-icon name="mail"></ion-icon></a>
                             </div>
                         </div>
                     </div>
@@ -243,25 +224,21 @@
             </div>
         </section>
     </main>
-
-    <!-- Footer corporativo con información de contacto y enlaces relevantes -->
+    
+     <!-- Footer corporativo con información de contacto y enlaces relevantes -->
     <footer class="footer-custom">
         <div class="container">
             <div class="row g-4">
-                
-                <!-- Información principal de la empresa -->
-                <div class="col-md-6 col-lg-3">
+                <div class="col-lg-3 col-md-6">
                     <h3 class="footer-title">IDW Kids Parties</h3>
-                    <p class="mb-4">Creando momentos inolvidables para los más pequeños desde 2010.</p>
-                    <!-- Íconos de redes sociales  -->
+                    <p class="mb-3 mb-md-4">Creando momentos inolvidables para los más pequeños desde 2010.</p>
                     <div class="social-icons">
-                        <a href="#" class="me-3"><ion-icon name="logo-facebook" class="social-icon"></ion-icon></a>
-                        <a href="#" class="me-3"><ion-icon name="logo-instagram" class="social-icon"></ion-icon></a>
-                        <a href="#" class="me-3"><ion-icon name="logo-twitter" class="social-icon"></ion-icon></a>
+                        <a href="#" class="me-3 social-icon"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="#" class="me-3 social-icon"><ion-icon name="logo-instagram"></ion-icon></a>
+                        <a href="#" class="me-3 social-icon"><ion-icon name="logo-twitter"></ion-icon></a>
                     </div>
                 </div>
-                <!-- Navegación secundaria para facilitar exploración -->
-                <div class="col-md-6 col-lg-3">
+                <div class="col-lg-3 col-md-6">
                     <h3 class="footer-title">Navegación</h3>
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="./institucional.html" class="text-white text-decoration-none">Institucional</a></li>
@@ -271,7 +248,7 @@
                         <li class="mb-2"><a href="./documentacionCarritoApi.html" class="text-white text-decoration-none">DocumentacionAPIs</a></li> 
                     </ul>
                 </div>
-                <div class="col-md-6 col-lg-3">
+                 <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
                     <h3 class="footer-title">Legal</h3>
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="#" class="text-white text-decoration-none">Aviso legal</a></li>
@@ -279,21 +256,16 @@
                         <li class="mb-2"><a href="#" class="text-white text-decoration-none">Política de privacidad</a></li>
                     </ul>
                 </div>
-                
-                <!-- Información de contacto directo  -->
-                <div class="col-md-6 col-lg-3">
+                <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
                     <h3 class="footer-title">Contacto</h3>
-                    <!-- Soporte 24/7  -->
                     <div class="d-flex align-items-center mb-3">
                         <ion-icon name="headset" class="me-2 social-icon"></ion-icon>
                         <span>Soporte 24/7</span>
                     </div>
-                    <!-- Email corporativo  -->
                     <div class="d-flex align-items-center mb-3">
                         <ion-icon name="mail" class="me-2 social-icon"></ion-icon>
                         <span>info@idwsa.com</span>
                     </div>
-                    <!-- Dirección física  -->
                     <div class="d-flex align-items-center">
                         <ion-icon name="location" class="me-2 social-icon"></ion-icon>
                         <span>Av Corrientes 123, Caba</span>
@@ -302,18 +274,15 @@
             </div>
             <hr class="my-4 bg-light opacity-25">
             <div class="text-center pt-3">
-                © <span id="current-year"></span> IDW S.A - Reserva de Salones de Eventos.
+                © <span id="current-year"></span> IDW S.A. - Reserva de Salones de Eventos.
             </div>
         </div>
     </footer> 
     <!-- Bootstrap JS para funcionalidad de componentes interactivos -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Script para actualizar automáticamente el año del copyright -->
-    <script>
+        <script>
         // Actualización dinámica del año para evitar mantenimiento manual
         document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>    
-    <!-- API personalizada para funcionalidades específicas de IDW -->
-    <script src="../js/api.js"></script>
-</body>
+    </script>     
+    </body>
 </html>
