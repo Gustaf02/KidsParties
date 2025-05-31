@@ -123,7 +123,7 @@
                 <label for="fecha" class="form-label">Fecha</label>
                 <input type="date" class="form-control" id="fecha" required>
             </div>
-            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button type="submit" class="btn btn-primary" onclick="">Guardar</button>
         </form>
         <hr>
         <h2 class="text-center">Lista de Salones</h2>
@@ -165,6 +165,8 @@
             </td>
         `;
         salonList.appendChild(row); 
+       
+        console.log(salones)
     });
 }
 
@@ -223,9 +225,10 @@ window.deleteSalon = function(id) {
         }
     }
 };
-// Cargar salones al inicio
-        loadSalones();
+loadSalones()
+
     });
+    
 </script>
 </body>
 </html>
