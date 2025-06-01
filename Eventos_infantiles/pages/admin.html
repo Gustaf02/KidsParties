@@ -6,6 +6,18 @@
     <title>Administración de Salones</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="../js/salones.js" defer></script>
+
+    
+    
+    <title>Catálogo de Salones</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <!-- Iconos de Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+     <link rel="stylesheet" href="../css/carritoApi.css">
 </head>
 <body>
 
@@ -141,7 +153,61 @@
             <tbody id="salones-list"></tbody>
         </table>
     </div>
-
+ <!-- Footer -->
+     <footer class="footer-custom">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Columna 1 -->
+                <div class="col-md-6 col-lg-3">
+                    <h3 class="footer-title">IDW Kids Parties</h3>
+                    <p class="mb-4">Creando momentos inolvidables para los más pequeños desde 2010.</p>
+                    <div class="social-icons">
+                        <a href="#" class="me-3"><ion-icon name="logo-facebook" class="social-icon"></ion-icon></a>
+                        <a href="#" class="me-3"><ion-icon name="logo-instagram" class="social-icon"></ion-icon></a>
+                        <a href="#" class="me-3"><ion-icon name="logo-twitter" class="social-icon"></ion-icon></a>
+                    </div>
+                </div>
+                <!-- Columna 2 -->
+                <div class="col-md-6 col-lg-3">
+                    <h3 class="footer-title">Navegación</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./institucional.html" class="text-white text-decoration-none">Institucional</a></li>
+                        <li class="mb-2"><a href="./contacto.html" class="text-white text-decoration-none">Contacto</a></li>
+                        <li class="mb-2"><a href="./catalogoApi.html" class="text-white text-decoration-none">CatalogoAPI</a></li> 
+                    </ul>
+                </div>
+                <!-- Columna 3 -->
+                <div class="col-md-6 col-lg-3">
+                    <h3 class="footer-title">Legal</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Aviso legal</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Cookies</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Política de privacidad</a></li>
+                    </ul>
+                </div>
+                <!-- Columna 4 - Contacto -->
+                <div class="col-md-6 col-lg-3">
+                    <h3 class="footer-title">Contacto</h3>
+                    <div class="d-flex align-items-center mb-3">
+                        <ion-icon name="headset" class="me-2 social-icon"></ion-icon>
+                        <span>Soporte 24/7</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <ion-icon name="mail" class="me-2 social-icon"></ion-icon>
+                        <span>info@idwsa.com</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <ion-icon name="location" class="me-2 social-icon"></ion-icon>
+                        <span>Av Corrientes 123, Caba</span>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-light opacity-25">
+            <div class="text-center pt-3">
+                © <span id="current-year"></span> IDW S.A - Reserva de Salones de Eventos.
+            </div>
+        </div>
+    </footer>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const form = document.getElementById('salon-form');
