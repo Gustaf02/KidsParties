@@ -9,7 +9,15 @@ if (!localStorage.getItem(LOCAL_STORAGE_KEY)) {
       capacidad: 30,
       precio: 20000,
       fecha: "2025-12-01",
-      imagen: "./img/tp_des_web_portada_0.webp",
+      imagen: "../img/tp_des_web_portada_0.webp",
+    },
+      {
+      id: 3,
+      nombre: "Mi primer año",
+      capacidad: 40,
+      precio: 85000,
+      fecha: "2025-12-02",
+      imagen: "../img/tp_desweb_portada_1.webp",
     },
     {
       id: 2,
@@ -17,23 +25,16 @@ if (!localStorage.getItem(LOCAL_STORAGE_KEY)) {
       capacidad: 25,
       precio: 25000,
       fecha: "2025-12-02",
-      imagen: "../img/tp_des_web_portada_0",
+      imagen: "../img/tp_desweb_portada_2.webp",
     },
-    {
-      id: 3,
-      nombre: "Mi primer año",
-      capacidad: 40,
-      precio: 85000,
-      fecha: "2025-12-02",
-      imagen: "/KidsParties/Eventos_infantiles/img/tp_des_web_portada_0.webp",
-    },
+  
     {
       id: 4,
       nombre: "Caritas Creativas",
       capacidad: 20,
       precio: 90000,
       fecha: "2025-12-02",
-      imagen: "/img/tp_des_web_portada_3.webp",
+      imagen: "../img/tp_desweb_portada_3.webp",
     },
   ];
   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(initialSalones));
@@ -113,7 +114,7 @@ function renderizarSalones(salones = getSalones()) {
    <img src="${salon.imagen}" 
            class="card-img-top" 
            alt="${salon.nombre}"
-           onerror="this.onerror=null;this.src='/KidsParties/Eventos_infantiles/img/tp_des_web_portada_0.webp'">
+         onerror="this.onerror=null;this.src='../img/tp_des_web_portada_0.webp'">
         
                     <h5 class="card-title">${salon.nombre}</h5>
                     <p class="card-text">
