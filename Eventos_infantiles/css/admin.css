@@ -1,6 +1,28 @@
     
    
           
-    body {
-        background: linear-gradient(135deg, #f5f7fa 0%, #f8f9fa 100%);
-    }
+   :root {
+    --color-primary: #FF6B6B;
+    --color-secondary: #4ECDC4;
+    --color-accent: #FFBE0B;
+    --color-dark: #3A405A;
+    --color-light: #F8F9FA;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f5 100%);
+    min-height: 100vh;
+}
+
+/* Navbar */
+.navbar-brand {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: white !important;
+}
+
+.navbar-custom {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
