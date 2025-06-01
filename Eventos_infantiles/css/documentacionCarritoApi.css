@@ -1,0 +1,29 @@
+
+        .api-card {
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            height: 100%;
+        }
+        .api-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .api-image {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+        }
+        .response-pre {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .badge-custom {
+            font-size: 0.85rem;
+        }
+        .loading-spinner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+  

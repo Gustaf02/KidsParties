@@ -48,7 +48,7 @@ function getSalones() {
     salones = salones.map((salon) => {
       return {
         ...salon,
-        imagen: salon.imagen || "img/placeholder.jpg", // Valor por defecto
+        imagen: salon.imagen || "img/placeholder.jpg", 
       };
     });
 
@@ -97,7 +97,7 @@ function deleteSalon(id) {
 // Función para renderizar los salones en la galería
 function renderizarSalones(salones = getSalones()) {
   const galeria = document.getElementById("galeriaSalones");
-  galeria.innerHTML = ""; // Limpiar galería
+  galeria.innerHTML = ""; 
 
   if (salones.length === 0) {
     galeria.innerHTML =
