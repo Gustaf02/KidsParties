@@ -97,7 +97,7 @@ body {
     margin-bottom: 2rem;
 }
 
-/* Formulario de Contacto */
+/* Estilos de sección de Formulario de Contacto */
 .contact-form-section {
     max-width: 1200px;
     margin: 20px auto;
@@ -172,7 +172,7 @@ body {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* Estilo de imagen de contacto */
+/* Estilo para imagen de contacto */
 .contact-image-container {
     height: 100%;
     display: flex;
@@ -249,7 +249,7 @@ body {
     font-style: italic;
 }
 
-/* Footer compartido por todos */
+/* Footer que compartimos todos*/
 .footer-custom {
     background-color: var(--color-dark);
     color: white;
@@ -287,8 +287,47 @@ body {
 
 /* Media Queries para responsividad */
 
+/* Estilos para pantallas grandes (escritorios desde 992px en adelante) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .custom-navbar-brand {
+        font-size: 1.75rem;
+    }
+
+    .contact-form-section {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .contact-form,
+    .contact-image-container {
+        flex: 1;
+    }
+
+    .map-and-hours {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .map-container,
+    .hours-container {
+        flex: 1;
+    }
+
+    .footer-title {
+        font-size: 1.5rem;
+    }
+
+    .social-icon {
+        font-size: 1.75rem;
+    }
+
+    .footer-title:after {
+        width: 60px;
+    }
+}
+
 /* Estilos adaptados para pantallas medianas (tablets desde 768px en adelante) */
-@media (min-width: 768px) {
+@media (min-width: 576px) and (max-width: 767.98px) {
     .contacto-hero {
         padding: 4rem 0;
     }
@@ -345,32 +384,20 @@ body {
     .social-icon {
         font-size: 1.5rem;
     }
-}
 
-/* Estilos para pantallas grandes (escritorios desde 992px en adelante) */
-@media (min-width: 992px) {
-    .custom-navbar-brand {
-        font-size: 1.75rem;
+    .footer-custom {
+        padding: 3rem 0 1rem;
+    }
+    .footer-title {
+        font-size: 1.5rem;
+    }
+    .footer-title:after {
+        width: 50px;
+        height: 3px;
     }
 
-    .contact-form-section {
-        display: flex;
-        gap: 2rem;
-    }
-
-    .contact-form,
-    .contact-image-container {
-        flex: 1;
-    }
-
-    .map-and-hours {
-        display: flex;
-        gap: 2rem;
-    }
-
-    .map-container,
-    .hours-container {
-        flex: 1;
+    .social-icon {
+        font-size: 1.5rem;
     }
 }
 
@@ -432,7 +459,7 @@ body {
     }
 }
 
-/* Estilos par pantallas muy pequeñas (menos de 576px) */
+/* Estilos para pantallas muy pequeñas (menos de 576px) */
 @media (max-width: 575.98px) {
     body {
         font-size: 14px;

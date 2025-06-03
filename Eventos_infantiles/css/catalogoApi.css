@@ -1,30 +1,78 @@
 :root {
-    --color-primary: #FF6B6B;
-    --color-secondary: #4ECDC4;
-    --color-accent: #FFBE0B;
-    --color-dark: #3A405A;
-    --color-light: #F8F9FA;
+    /* Paleta principal de colores del sitio */
+    --color-primary: #FF6B6B;      /* Rojo como color primario */
+    --color-secondary: #4ECDC4;    /* Verde agua color secundario */
+    --color-accent: #FFBE0B;        /* Amarillo mostaza para acentos */
+    --color-dark: #3A405A;          /* Azul oscuro para fondos o texto */
+    --color-light: #F8F9FA;         /* Blanco para fondos claros */
+
+    /* Estilo visual de la barra de navegación */
+    --navbar-gradient-start: #ff9a9e;  /* Inicio del degradado rosa */
+    --navbar-gradient-end: #6749ec;    /* Fin del degradado violeta */
+    --navbar-box-shadow: 0 4px 20px rgba(0,0,0,0.1); /* Sombra sutil para profundidad */
+    --sparkle-icon-color: #ffb347;     /* Color dorado para íconos decorativos */
+
+    /* Color de hover sobre los enlaces del menú */
+    --nav-link-hover-color: white;
 }
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f5 100%);
+    font-weight: 400;
+    background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
 }
 
-/* Navbar */
-.navbar-brand {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2rem;
-    color: white !important;
+/* Navbar compartida por todos */
+.custom-navbar-bg {
+    background: linear-gradient(135deg, var(--navbar-gradient-start), var(--navbar-gradient-end));
+    min-height: 70px;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    display: flex;
+    align-items: center;
 }
 
-.navbar-custom {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+.custom-navbar-shadow {
+    box-shadow: var(--navbar-box-shadow);
 }
 
-/* Hero Section */
+/* Marca del sitio (nombre) */
+.custom-navbar-brand {
+    border-radius: 50px;
+    transition: all 0.3s;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    color: white;
+    font-size: 1.75rem; /* 28px */
+    text-decoration: none;
+}
+
+.custom-navbar-brand:hover {
+    color: white;
+    text-decoration: none;
+}
+
+/* Ícono decorativo junto al nombre de marca */
+.brand-sparkle-icon {
+    font-size: 1.5em; /* Relative to parent font-size */
+    color: var(--sparkle-icon-color);
+    transition: transform 0.3s;
+}
+
+.custom-nav-link:hover {
+    color: var(--nav-link-hover-color);
+    text-decoration: none;
+}
+.navbar-nav .nav-item {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+/* Estilos de Hero-Section */
 .hero-section {
     background: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
     background-size: cover;
@@ -47,7 +95,7 @@ body {
     color: white;
 }
 
-/* Cards */
+/* Especificaciones para cards */
 .card-theme {
     border: none;
     border-radius: 15px;
@@ -82,7 +130,7 @@ body {
     color: white;
 }
 
-/* Categorías temáticas */
+/* Categorías temáticas de los salones */
 .card-princesas .card-overlay {
     background: linear-gradient(to top, rgba(231, 76, 60, 0.9), transparent);
 }
@@ -99,7 +147,7 @@ body {
     background: linear-gradient(to top, rgba(26, 188, 156, 0.9), transparent);
 }
 
-/* Botones */
+/* Efectos para botones */
 .btn-theme {
     background-color: var(--color-accent);
     color: var(--color-dark);
@@ -117,12 +165,12 @@ body {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* Footer */
+/* Footer que compartimos todos*/
 .footer-custom {
     background-color: var(--color-dark);
     color: white;
-    padding: 3rem 0;
-    margin-top: 3rem;
+    padding: 3rem 0 1rem;
+    margin-top: auto;
 }
 
 .footer-title {
@@ -146,7 +194,6 @@ body {
     font-size: 1.5rem;
     color: white;
     transition: all 0.3s;
-    margin-right: 1rem;
 }
 
 .social-icon:hover {
@@ -167,13 +214,408 @@ body {
     100% { transform: scale(1); }
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
+/* MEDIA QUERIES PARA RESPONSIVIDAD */
+
+/* Estilos para pantallas grandes (escritorios desde 992px en adelante) */
+@media (min-width: 992px) {
+    .custom-navbar-brand {
+        font-size: 1.75rem;
+    }
+
+    .hero-section {
+        height: 70vh;
+        margin-bottom: 4rem;
+    }
+
+    .hero-overlay h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero-overlay p.lead {
+        font-size: 1.5rem;
+    }
+
+    .card-img-top {
+        height: 280px;
+    }
+
+    .card-overlay {
+        padding: 2rem;
+    }
+
+    .card-overlay h3 {
+        font-size: 1.5rem;
+    }
+
+    .btn-theme {
+        padding: 1rem 2.5rem;
+        font-size: 1.1rem;
+    }
+
+    #servicios .card-body {
+        padding: 2.5rem;
+    }
+
+    #servicios ion-icon {
+        font-size: 4rem !important;
+    }
+
+    .footer-title {
+        font-size: 1.5rem;
+    }
+
+    .footer-title:after {
+        width: 60px;
+        height: 4px;
+    }
+
+    .social-icon {
+        font-size: 1.75rem;
+    }
+}
+
+/* Estilos adaptados para pantallas medianas (tablets desde 768px en adelante) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .custom-navbar-brand {
+        font-size: 1.6rem;
+    }
+
+    .hero-section {
+        height: 55vh;
+        margin-bottom: 3rem;
+    }
+
+    .hero-overlay h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-overlay p.lead {
+        font-size: 1.3rem;
+    }
+
+    .card-img-top {
+        height: 220px;
+    }
+
+    .card-overlay {
+        padding: 1.5rem;
+    }
+
+    .card-overlay h3 {
+        font-size: 1.3rem;
+    }
+
+    .btn-theme {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+    }
+
+    #servicios .card-body {
+        padding: 2rem;
+    }
+
+    #servicios ion-icon {
+        font-size: 3.5rem !important;
+    }
+
+    .footer-custom {
+        padding: 3rem 0 1rem;
+    }
+
+    .footer-title {
+        font-size: 1.4rem;
+    }
+
+    .footer-title:after {
+        width: 55px;
+        height: 3px;
+    }
+
+    .social-icon {
+        font-size: 1.6rem;
+    }
+}
+
+/* Estilos para dispositivos pequeños (desde 576px hasta 767.98px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .custom-navbar-brand {
+        font-size: 1.4rem;
+    }
+
+    .navbar-nav {
+        align-items: center;
+        padding-top: 1rem;
+    }
+
+    .navbar-nav .nav-item {
+        margin: 0 0 0.5rem 0;
+    }
+
+    .custom-nav-link {
+        display: block;
+        text-align: center;
+        padding: 0.5rem 1rem;
+    }
+
+    .hero-section {
+        height: 45vh;
+        margin-bottom: 2.5rem;
+    }
+
+    .hero-overlay h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-overlay p.lead {
+        font-size: 1.1rem;
+    }
+
+    .card-img-top {
+        height: 200px;
+    }
+
+    .card-overlay {
+        padding: 1.2rem;
+    }
+
+    .card-overlay h3 {
+        font-size: 1.2rem;
+    }
+
+    .card-overlay p {
+        font-size: 0.9rem;
+    }
+
+    .btn-theme {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    #servicios h2 {
+        font-size: 2rem;
+    }
+
+    #servicios .card-body {
+        padding: 1.5rem;
+    }
+
+    #servicios ion-icon {
+        font-size: 2.8rem !important;
+    }
+
+    #servicios h3 {
+        font-size: 1.2rem;
+    }
+
+    .footer-custom .col-md-6,
+    .footer-custom .col-lg-3 {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .footer-custom .col-md-6:last-child,
+    .footer-custom .col-lg-3:last-child {
+        margin-bottom: 0;
+    }
+
+    .footer-title:after {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50px;
+    }
+
+    .social-icons {
+        justify-content: center;
+        display: flex;
+    }
+}
+
+/* Estilos para pantallas muy pequeñas (menos de 576px) */
+@media (max-width: 575.98px) {
+    body {
+        font-size: 14px;
+    }
+
+    .custom-navbar-brand {
+        font-size: 1.2rem;
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+    }
+
+    .brand-sparkle-icon {
+        font-size: 1.2em;
+    }
+
+    .navbar-nav {
+        align-items: center;
+        padding-top: 1rem;
+    }
+
+    .navbar-nav .nav-item {
+        margin: 0 0 0.5rem 0;
+        width: 100%;
+    }
+
+    .custom-nav-link {
+        display: block;
+        text-align: center;
+        padding: 0.5rem;
+        border-radius: 20px;
+    }
+
     .hero-section {
         height: 40vh;
+        margin-bottom: 2rem;
     }
-    
-    .navbar-brand {
+
+    .hero-overlay {
+        padding: 1rem;
+    }
+
+    .hero-overlay h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-overlay p.lead {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .card-theme {
+        margin-bottom: 1.5rem;
+    }
+
+    .card-img-top {
+        height: 180px;
+    }
+
+    .card-overlay {
+        padding: 1rem;
+    }
+
+    .card-overlay h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-overlay p {
+        font-size: 0.85rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .btn-theme {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.85rem;
+    }
+
+    #salones h2,
+    #servicios h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    #servicios .card {
+        margin-bottom: 1.5rem;
+    }
+
+    #servicios .card-body {
+        padding: 1.2rem;
+    }
+
+    #servicios ion-icon {
+        font-size: 2.5rem !important;
+    }
+
+    #servicios h3 {
+        font-size: 1.1rem;
+        margin-top: 1rem;
+    }
+
+    #servicios p {
+        font-size: 0.9rem;
+    }
+
+    .footer-custom {
+        padding: 2rem 0 1rem;
+    }
+
+    .footer-custom .col-md-6,
+    .footer-custom .col-lg-3 {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .footer-custom .col-md-6:last-child,
+    .footer-custom .col-lg-3:last-child {
+        margin-bottom: 0;
+    }
+
+    .footer-title {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .footer-title:after {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 2px;
+    }
+
+    .footer-custom ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-custom .d-flex {
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+    .social-icons {
+        justify-content: center;
+        display: flex;
+    }
+
+    .social-icon {
+        font-size: 1.3rem;
+        margin: 0 0.5rem;
+    }
+}
+
+/* Ajustes adicionales para pantallas extra pequeñas (menos de 400px) */
+@media (max-width: 399.98px) {
+    .hero-overlay h1 {
         font-size: 1.5rem;
+    }
+
+    .hero-overlay p.lead {
+        font-size: 0.9rem;
+    }
+
+    .card-img-top {
+        height: 160px;
+    }
+
+    .card-overlay h3 {
+        font-size: 1rem;
+    }
+
+    .btn-theme {
+        padding: 0.4rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    #salones h2,
+    #servicios h2 {
+        font-size: 1.6rem;
+    }
+
+    #servicios ion-icon {
+        font-size: 2rem !important;
+    }
+
+    .footer-title {
+        font-size: 1.1rem;
     }
 }

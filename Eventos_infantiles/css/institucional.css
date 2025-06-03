@@ -230,11 +230,11 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-/* Footer compartido por todos */
+/* Footer que compartimos todos*/
 .footer-custom {
     background-color: var(--color-dark);
     color: white;
-    padding: 2.5rem 1rem 1rem; 
+    padding: 3rem 0 1rem;
     margin-top: auto;
 }
 
@@ -243,7 +243,6 @@ body {
     font-weight: 700;
     margin-bottom: 1.5rem;
     position: relative;
-    font-size: 1.25rem; 
 }
 
 .footer-title:after {
@@ -251,17 +250,13 @@ body {
     position: absolute;
     left: 0;
     bottom: -10px;
-    width: 40px; 
-    height: 2px; 
+    width: 50px;
+    height: 3px;
     background-color: var(--color-accent);
 }
-.footer-custom p, .footer-custom ul li a, .footer-custom span {
-    font-size: 0.9rem;
-}
 
-/* Íconos sociales en el footer */
 .social-icon {
-    font-size: 1.4rem; 
+    font-size: 1.5rem;
     color: white;
     transition: all 0.3s;
 }
@@ -293,7 +288,7 @@ body {
     }
 
     .institucional-hero h1 {
-         font-size: 3.5rem;
+        font-size: 3.5rem;
     }
 
     .card-img-top {
@@ -301,7 +296,19 @@ body {
     }
 
     .section-card .card-body.p-md-5 { 
-         padding: 3rem !important; 
+        padding: 3rem !important; 
+    }
+
+    .footer-title {
+        font-size: 1.5rem;
+    }
+
+    .social-icon {
+        font-size: 1.75rem;
+    }
+
+    .footer-title:after {
+        width: 60px;
     }
 }
 
@@ -363,10 +370,6 @@ body {
     .footer-title:after {
         width: 50px;
         height: 3px;
-    }
-
-    .footer-custom p, .footer-custom ul li a, .footer-custom span {
-        font-size: 1rem;
     }
 
     .social-icon {

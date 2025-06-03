@@ -56,7 +56,7 @@ body {
     border: 1px solid #ced4da;
 }
 
-/* Responsividad */
+/* Medias queries para responsividad */
 @media (max-width: 768px) {
     .card-img-top {
         height: 150px;
