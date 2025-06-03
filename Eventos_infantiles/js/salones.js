@@ -11,7 +11,7 @@ if (!localStorage.getItem(LOCAL_STORAGE_KEY)) {
       fecha: "2025-12-01",
       imagen: "../img/tp_des_web_portada_0.webp",
     },
-      {
+    {
       id: 3,
       nombre: "Mi primer año",
       capacidad: 40,
@@ -27,7 +27,7 @@ if (!localStorage.getItem(LOCAL_STORAGE_KEY)) {
       fecha: "2025-12-02",
       imagen: "../img/tp_desweb_portada_2.webp",
     },
-  
+
     {
       id: 4,
       nombre: "Caritas Creativas",
@@ -49,7 +49,7 @@ function getSalones() {
     salones = salones.map((salon) => {
       return {
         ...salon,
-        imagen: salon.imagen || "img/placeholder.jpg", 
+        imagen: salon.imagen || "img/placeholder.jpg",
       };
     });
 
@@ -98,7 +98,7 @@ function deleteSalon(id) {
 // Función para renderizar los salones en la galería
 function renderizarSalones(salones = getSalones()) {
   const galeria = document.getElementById("galeriaSalones");
-  galeria.innerHTML = ""; 
+  galeria.innerHTML = "";
 
   if (salones.length === 0) {
     galeria.innerHTML =
@@ -110,25 +110,39 @@ function renderizarSalones(salones = getSalones()) {
     const card = document.createElement("div");
     card.className = "col";
     card.innerHTML = `
-            <div class="card card-salon h-100">
-   <img src="${salon.imagen}" 
-           class="card-img-top" 
-           alt="${salon.nombre}"
-         onerror="this.onerror=null;this.src='../img/tp_des_web_portada_0.webp'">
-        
-                    <h5 class="card-title">${salon.nombre}</h5>
-                    <p class="card-text">
-                        <span class="badge badge-capacidad text-white me-2">Capacidad: ${
-                          salon.capacidad
-                        } personas</span>
-                        <span class="badge badge-precio text-white">$${salon.precio.toLocaleString()}</span>
-                    </p>
-                    <p class="card-text"><small class="text-muted">Disponible: ${new Date(
-                      salon.fecha
-                    ).toLocaleDateString()}</small></p>
-                </div>
+<div class="card card-salon h-100">
+    <div class="card-img-container">
+        <img src="${salon.imagen}" 
+             class="card-img-top img-fluid" 
+             alt="${salon.nombre}"
+             onerror="this.onerror=null;this.src='../img/tp_des_web_portada_0.webp'">
+        <div class="card-img-overlay d-flex justify-content-end align-items-start">
+            <span class="badge bg-dark opacity-75">${
+              salon.tipo || "Salón"
+            }</span>
+        </div>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">${salon.nombre}</h5>
+        <div class="salon-features mb-3">
+            <div class="d-flex align-items-center mb-2">
+                <i class="bi bi-people-fill me-2 text-primary"></i>
+                <span class="text-muted">${salon.capacidad} personas</span>
             </div>
-        `;
+            <div class="d-flex align-items-center">
+                <i class="bi bi-currency-dollar me-2 text-success"></i>
+                <span class="text-muted">$${salon.precio.toLocaleString()}</span>
+            </div>
+        </div>
+        <p class="card-text"><small class="text-muted"><i class="bi bi-calendar3 me-1"></i> ${new Date(
+          salon.fecha
+        ).toLocaleDateString()}</small></p>
+    </div>
+    <div class="card-footer bg-transparent border-top-0">
+        <button class="btn btn-outline-primary w-100">Reservar</button>
+    </div>
+</div>
+`;
     galeria.appendChild(card);
     console.log(salon.imagen);
   });
@@ -164,4 +178,89 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("filtroCapacidadMin")
     .addEventListener("input", aplicarFiltros);
+});
+
+//Amin
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("salon-form");
+  const salonList = document.getElementById("salones-list");
+
+  // Cargar salones al inicio
+  function loadSalones() {
+    salonList.innerHTML = "";
+    const salones = getSalones();
+    salones.forEach((salon) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+            <td>${salon.id}</td>
+            <td>${salon.nombre}</td>
+            <td>${salon.capacidad}</td>
+            <td>${salon.precio}</td>
+            <td>${salon.fecha}</td>
+            <td>
+                <button class="btn btn-warning btn-sm" onclick="editSalon(${salon.id})">Editar</button>
+                <button class="btn btn-danger btn-sm" onclick="deleteSalon(${salon.id})">Eliminar</button>
+            </td>
+        `;
+      salonList.appendChild(row);
+
+      console.log(salones);
+    });
+  }
+
+  // Manejar el envío del formulario
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const salon = {
+      id: parseInt(document.getElementById("salon-id").value) || null,
+      nombre: document.getElementById("nombre").value,
+      capacidad: document.getElementById("capacidad").value,
+      precio: document.getElementById("precio").value,
+      fecha: document.getElementById("fecha").value,
+    };
+
+    if (!salon.nombre || !salon.capacidad || !salon.precio || !salon.fecha) {
+      alert("Todos los campos son obligatorios.");
+      return;
+    }
+
+    if (salon.id) {
+      updateSalon(salon);
+      alert("Salón actualizado con éxito.");
+    } else {
+      addSalon(salon);
+      alert("Salón agregado con éxito.");
+    }
+    loadSalones();
+    form.reset();
+  });
+
+  // Editar salón
+  window.editSalon = function (id) {
+    const salones = getSalones();
+    const salon = salones.find((s) => s.id === parseInt(id));
+    if (salon) {
+      document.getElementById("salon-id").value = salon.id;
+      document.getElementById("nombre").value = salon.nombre;
+      document.getElementById("capacidad").value = salon.capacidad;
+      document.getElementById("precio").value = salon.precio;
+      document.getElementById("fecha").value = salon.fecha;
+    }
+  };
+  // Función para eliminar un salón (versión corregida)
+  window.deleteSalon = function (id) {
+    if (confirm("¿Estás seguro de eliminar este salón?")) {
+      try {
+        id = parseInt(id); // Convertir a número
+        const salones = getSalones().filter((salon) => salon.id !== id);
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(salones));
+        loadSalones(); // Actualizar la vista
+        console.log(`Salón con ID ${id} eliminado correctamente`);
+      } catch (error) {
+        console.error("Error al eliminar salón:", error);
+        alert("Ocurrió un error al eliminar el salón");
+      }
+    }
+  };
+  loadSalones();
 });

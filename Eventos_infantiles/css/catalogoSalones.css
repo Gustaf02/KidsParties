@@ -1,64 +1,145 @@
-/* Estilos generales */
+/* Estilos generales mejorados */
 body {
     background-color: #f8f9fa;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 2rem;
 }
 
-/* Estilos para las tarjetas de salones */
+/* Contenedor de galería */
+#galeriaSalones {
+    --gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--gap);
+    padding: 1rem 0;
+}
+
+/* Tarjetas mejoradas */
 .card-salon {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 10px;
+    transition: all 0.3s ease;
+    border-radius: 12px;
     overflow: hidden;
-    margin-bottom: 20px;
     border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    position: relative;
 }
 
 .card-salon:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-container {
+    position: relative;
+    overflow: hidden;
 }
 
 .card-img-top {
-    height: 200px;
+    height: 220px;
     object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card-salon:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.card-img-overlay .badge {
+    font-size: 0.8rem;
+    font-weight: 500;
+    backdrop-filter: blur(2px);
 }
 
 .card-body {
-    padding: 1.5rem;
+    padding: 1.25rem 1.5rem;
 }
 
 .card-title {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 0.75rem;
-    color: #333;
+    color: #2c3e50;
 }
 
 .card-text {
-    color: #666;
+    color: #7f8c8d;
     margin-bottom: 0.5rem;
-}
-
-.badge-capacidad {
-    background-color: #0d6efd;
     font-size: 0.9rem;
 }
 
-.badge-precio {
-    background-color: #198754;
-    font-size: 0.9rem;
+.card-footer {
+    padding: 0 1.5rem 1.5rem;
 }
 
-/* Estilos para los filtros */
-#filtroNombre, #filtroCapacidadMin {
-    border-radius: 5px;
-    padding: 10px;
-    border: 1px solid #ced4da;
+/* Badges modernos */
+.badge {
+    padding: 0.5em 0.75em;
+    font-weight: 500;
+    border-radius: 8px;
 }
 
-/* Medias queries para responsividad */
+/* Botón de reserva */
+.btn-outline-primary {
+    border-width: 2px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+/* Efecto de carga para imágenes */
+.card-img-top {
+    background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+    background-size: 200% 100%;
+    animation: 1.5s shine linear infinite;
+}
+
+/* Estilos para la sección de características */
+.salon-features {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+}
+
+.salon-features i {
+    font-size: 1.1rem;
+    min-width: 24px;
+    text-align: center;
+}
+
+.card-title {
+    margin-bottom: 1rem !important;
+}
+
+/* Ajuste para la fecha */
+.card-text small {
+    display: flex;
+    align-items: center;
+}
+
+@keyframes shine {
+    to {
+        background-position-x: -200%;
+    }
+}
+
+/* Responsividad mejorada */
 @media (max-width: 768px) {
+    #galeriaSalones {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        --gap: 1rem;
+    }
+    
     .card-img-top {
-        height: 150px;
+        height: 180px;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-img-top {
+        height: 160px;
+    }
+    
+    .card-title {
+        font-size: 1.1rem;
     }
 }
