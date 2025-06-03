@@ -1,55 +1,59 @@
-     .shadow-hover {
-        transition: all 0.3s ease;
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    }
-    
-    .shadow-hover:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
-    
-    .salon-image {
-        height: 200px;
-        object-fit: cover;
-        transition: transform 0.5s ease;
-    }
-    
-    .shadow-hover:hover .salon-image {
-        transform: scale(1.05);
-    }
-    
-    .image-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 40%;
-        background: linear-gradient(to top, rgba(255,241,235,0.8) 0%, rgba(255,241,235,0) 100%);
-    }
-    
-    .price-bubble {
-        width: 70px;
-        height: 70px;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-    }
-    
-    .btn-reservar {
-        background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-        border: none;
-        color: #fff;
-        font-weight: 600;
-        border-radius: 50px;
-        transition: all 0.3s ease;
-    }
-    
-    .btn-reservar:hover {
-        background: linear-gradient(135deg, #fad0c4 0%, #ff9a9e 100%);
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(255,154,158,0.4);
-    }
-    
-    body {
-        background: linear-gradient(135deg, #f5f7fa 0%, #f8f9fa 100%);
-    }
+/* Estilo base de hover */
+.shadow-hover {
+    transition: all 0.3s ease; 
+    border-radius: 15px;      
+    overflow: hidden;          
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+}
+
+.shadow-hover:hover {
+    transform: translateY(-5px); /* Levanta el bloque 5px hacia arriba */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Sombra más intensa, más dramatismo visual */
+}
+
+/* Estilo para imagenes */
+.salon-image {
+    height: 200px;
+    object-fit: cover; 
+    transition: transform 0.5s ease; 
+}
+
+.shadow-hover:hover .salon-image {
+    transform: scale(1.05); /* Aumenta el tamaño al 105% */
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(to top, rgba(255,241,235,0.8) 0%, rgba(255,241,235,0) 100%);
+}
+
+.price-bubble {
+    width: 70px;
+    height: 70px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2); /* Sombra media, da efecto de "etiqueta flotante" */
+}
+
+/* Estilo de botones */
+.btn-reservar {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 50px; /* El botón queda tipo cápsula */
+    transition: all 0.3s ease;
+}
+
+.btn-reservar:hover {
+    background: linear-gradient(135deg, #fad0c4 0%, #ff9a9e 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255,154,158,0.4); 
+}
+
+/* Fondo general del sitio en gradiente */
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #f8f9fa 100%);
+}

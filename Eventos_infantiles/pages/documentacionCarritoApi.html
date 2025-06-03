@@ -10,12 +10,13 @@
     <link rel="stylesheet" href="../css/documentacionCarritoApi.css">
 </head>
 <body>
+    <!-- Header con título -->
     <div class="container py-5">
         <header class="text-center mb-5">
             <h1 class="display-4">Documentación de APIs del Sistema</h1>
             <p class="lead">Visualización en tiempo real de las APIs utilizadas en la aplicación</p>
         </header>
-
+        <!-- Sección donde se cargan las tarjetas de las APIs dinámicamente -->
         <div class="row g-4" id="apis-container">
             <div class="col-12 text-center loading-spinner">
                 <div class="spinner-border text-primary" role="status">
@@ -24,7 +25,7 @@
                 <p class="mt-2">Obteniendo datos de las APIs...</p>
             </div>
         </div>
-
+        <!-- Sección que explica cómo se integran los datos de las APIs -->
         <div class="row mt-5">
             <div class="col-12">
                 <div class="card api-card border-info">

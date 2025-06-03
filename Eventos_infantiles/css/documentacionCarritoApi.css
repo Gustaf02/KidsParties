@@ -1,29 +1,40 @@
+/* Card con animación suave y altura completa */
+.api-card {
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    height: 100%;
+}
 
-        .api-card {
-            transition: all 0.3s ease;
-            margin-bottom: 20px;
-            height: 100%;
-        }
-        .api-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        .api-image {
-            height: 250px;
-            object-fit: cover;
-            width: 100%;
-        }
-        .response-pre {
-            max-height: 300px;
-            overflow-y: auto;
-        }
-        .badge-custom {
-            font-size: 0.85rem;
-        }
-        .loading-spinner {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 200px;
-        }
+/* Al pasar el mouse, la tarjeta "flota" con sombra */
+.api-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Imagen ajustada a la tarjeta, sin deformaciones */
+.api-image {
+    height: 250px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Área de respuesta con scroll si se pasa de alto */
+.response-pre {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Tamaño más compacto para insignias */
+.badge-custom {
+    font-size: 0.85rem;
+}
+
+/* Spinner centrado vertical y horizontalmente */
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
   

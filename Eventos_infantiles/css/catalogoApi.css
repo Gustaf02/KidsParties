@@ -47,7 +47,7 @@ body {
     font-family: 'Quicksand', sans-serif;
     font-weight: 700;
     color: white;
-    font-size: 1.75rem; /* 28px */
+    font-size: 1.75rem; 
     text-decoration: none;
 }
 
@@ -58,7 +58,7 @@ body {
 
 /* Ícono decorativo junto al nombre de marca */
 .brand-sparkle-icon {
-    font-size: 1.5em; /* Relative to parent font-size */
+    font-size: 1.5em; 
     color: var(--sparkle-icon-color);
     transition: transform 0.3s;
 }
