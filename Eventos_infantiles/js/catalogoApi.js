@@ -1,5 +1,5 @@
- const API_KEY = '9tNEjFhwUIus25QDwOd8iywPhg5QEyYDWiVS9NlvWfD2MeSClgYAU125';
-        
+ 
+        const API_KEY = '9tNEjFhwUIus25QDwOd8iywPhg5QEyYDWiVS9NlvWfD2MeSClgYAU125';
         async function fetchData() {
             try {
                 // Mostrar spinner de carga
@@ -8,7 +8,7 @@
                 
                 // Hacer ambas llamadas a API simultáneamente
                 const [imagesResponse, salonesResponse] = await Promise.all([
-                    fetch('https://api.pexels.com/v1/search?query=birthday&per_page=6', {
+                    fetch('https://api.pexels.com/v1/search?query=birthday&per_page=8856', {
                         headers: { 'Authorization': API_KEY }
                     }),
                     fetch('https://681a090f1ac1155635078a8f.mockapi.io/salones')
@@ -58,6 +58,41 @@
             }
             
             container.innerHTML = data.map(item => `
+                 <!-- Modal de Reserva -->
+<div class="modal fade" id="reservaModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">Completar Reserva</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="reservaForm">
+          <div class="mb-3">
+            <label class="form-label">Nombre Completo</label>
+            <input type="text" class="form-control" id="nombreCliente" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Teléfono</label>
+            <input type="tel" class="form-control" id="telefonoCliente" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Fecha del Evento</label>
+            <input type="date" class="form-control" id="fechaEvento" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Cantidad de Personas</label>
+            <input type="number" class="form-control" id="cantidadPersonas" min="1" required>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="confirmarReserva" onclick="confirmarReserva()">Confirmar Reserva</button>
+      </div>
+    </div>
+  </div>
+</div>
                 <div class="col-lg-4 col-md-8 mb-4">
     <div class="card h-100 border-0 shadow-hover">
         <!-- Encabezado con imagen y etiqueta -->
@@ -103,10 +138,12 @@
 
         <!-- Pie de tarjeta -->
         <div class="card-footer bg-transparent border-0 pt-0 pb-3">
-            <button class="btn btn-reservar w-100 py-2">
+            <button class="btn btn-reservar w-100 py-2"
+            onClick="reservar('${item.id}')">
                 <i class="bi bi-balloon-heart-fill me-2"></i> Reservar ahora
             </button>
         </div>
+       
     </div>
 </div>
                
@@ -121,3 +158,67 @@
         
         // Iniciar la carga de datos cuando la página esté lista
         document.addEventListener('DOMContentLoaded', fetchData);
+
+
+// Función para reservar
+async function reservar(salonId) {
+    try {
+        // Mostrar modal de reserva
+        const modal = new bootstrap.Modal(document.getElementById('reservaModal'));
+        modal.show();
+
+        // Guardar ID en el botón confirmar
+        document.getElementById('confirmarReserva').dataset.salonId = salonId;
+    } catch (error) {
+        console.error('Error al iniciar reserva:', error);
+        alert('Error al iniciar el proceso de reserva');
+    }
+}
+
+// Confirmar reserva (llamada desde el modal)
+async function confirmarReserva() {
+    const salonId = document.getElementById('confirmarReserva').dataset.salonId;
+    const nombreCliente = document.getElementById('nombreCliente').value;
+    const telefonoCliente = document.getElementById('telefonoCliente').value;
+    const fechaEvento = document.getElementById('fechaEvento').value;
+    const cantidadPersonas = document.getElementById('cantidadPersonas').value;
+
+    if (!nombreCliente || !telefonoCliente || !fechaEvento || !cantidadPersonas) {
+        alert('Por favor complete todos los campos');
+        return;
+    }
+
+    try {
+        // Crear objeto de reserva
+        const reservaData = {
+            salonId: salonId,
+            cliente: nombreCliente,
+            telefono: telefonoCliente,
+            fechaEvento: fechaEvento,
+            cantidadPersonas: cantidadPersonas,
+            fechaReserva: new Date().toISOString().split('T')[0]
+        };
+
+        // Enviar reserva a la API
+        const response = await fetch('https://681a090f1ac1155635078a8f.mockapi.io/salones', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(reservaData)
+        });
+
+        if (!response.ok) throw new Error('Error en la respuesta de la API');
+
+        alert('¡Reserva realizada con éxito!');
+        
+        // Cerrar modal y limpiar formulario
+        const modal = bootstrap.Modal.getInstance(document.getElementById('reservaModal'));
+        modal.hide();
+        document.getElementById('reservaForm').reset();
+        
+    } catch (error) {
+        console.error('Error en reserva:', error);
+        alert('Error al realizar la reserva: ' + error.message);
+    }
+}

@@ -1,0 +1,75 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.navbar {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+}
+.salon-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: white;
+}
+.salon-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+.salon-image {
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+.salon-card:hover .salon-image {
+    transform: scale(1.05);
+}
+.price-bubble {
+    width: 70px;
+    height: 70px;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.btn-reservar {
+    background: linear-gradient(to right, #ff416c, #ff4b2b);
+    color: white;
+    font-weight: bold;
+    border: none;
+    transition: all 0.3s;
+}
+.btn-reservar:hover {
+    background: linear-gradient(to right, #ff4b2b, #ff416c);
+    transform: scale(1.03);
+}
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4));
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+.salon-card:hover .image-overlay {
+    opacity: 0.4;
+}
+.footer {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+}
+.feature-icon {
+    font-size: 1.2rem;
+    width: 30px;
+}
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

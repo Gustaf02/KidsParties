@@ -35,7 +35,7 @@
                 
                 // Hacer ambas llamadas a API simultáneamente
                 const [imagesResponse, salonesResponse] = await Promise.all([
-                    fetch('https://api.pexels.com/v1/search?query=kids+party+paint&colorful=true&per_page=88', {
+                    fetch('https://api.pexels.com/v1/search?query=birthday+backdrop+colorful&per_page=100', {
                         headers: { 'Authorization': API_KEY }
                     }),
                     fetch('https://681a090f1ac1155635078a8f.mockapi.io/salones')
@@ -118,7 +118,6 @@
                 document.getElementById('add-form').reset();
                 bootstrap.Modal.getInstance(document.getElementById('addModal')).hide();
                 await cargarSalones();
-                localStorage.setItem(salonData.nombre)
                 
             } catch (error) {
                 console.error('Error:', error);

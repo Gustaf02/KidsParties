@@ -178,67 +178,7 @@ async function fetchCombinedData() {
     throw error;
   }
 }
-
-/**
- * Renderiza el catálogo en el DOM
- * @param {Array} data - Array de servicios a mostrar
- */
-function renderCatalog(data) {
-  console.log('Iniciando renderizado del catálogo...');
-  
-  const container = document.getElementById('catalogo-container');
-  if (!container) {
-    console.error('Elemento con ID "catalogo-container" no encontrado en el DOM');
-    throw new Error('Error al renderizar el catálogo');
-  }
-
-  if (!Array.isArray(data) || data.length === 0) {
-    console.warn('No hay datos para renderizar');
-    container.innerHTML = '<div class="col-12 text-center py-5"><h4>No hay salones disponibles en este momento</h4></div>';
-    return;
-  }
-
-  try {
-    container.innerHTML = data.map(item => {
-      // Validar item
-      if (!item.id || !item.nombre || !item.precio || !item.fecha) {
-        console.warn('Item incompleto:', item);
-        return '';
-      }
-
-      return `
-        <div class="col-md-4 mb-4">
-          <div class="card h-100 shadow-sm">
-            <img src="${item.imagen || 'https://via.placeholder.com/300?text=Imagen+no+disponible'}" 
-                 class="card-img-top" 
-                 alt="${item.nombre}"
-                 style="height: 200px; object-fit: cover;"
-                 onerror="this.src='https://via.placeholder.com/300?text=Imagen+no+disponible'">
-            <div class="card-body">
-              <h5 class="card-title">${item.nombre}</h5>
-              <div class="d-flex justify-content-between align-items-center">
-                <span class="badge bg-primary">Capacidad: ${item.capacidad || 'N/A'}</span>
-                <h5 class="text-success mb-0">$${(item.precio || 0).toLocaleString('es-AR')}</h5>
-              </div>
-              <p class="mt-2"><small class="text-muted">Disponible en: ${item.fecha || 'Fecha no especificada'}</small></p>
-              <button class="btn btn-primary w-100" 
-                      onclick="addToCart(${JSON.stringify(item).replace(/"/g, '&quot;')})">
-                <i class="bi bi-cart-plus"></i> Reservar
-              </button>
-            </div>
-          </div>
-        </div>
-      `;
-    }).join('');
-
-    console.log('Catálogo renderizado correctamente');
-  } catch (error) {
-    console.error('Error al renderizar catálogo:', error);
-    container.innerHTML = '<div class="col-12 text-center py-5"><h4 class="text-danger">Error al cargar el catálogo</h4></div>';
-  }
-}
-
-/**
+/* /
  * Agrega un servicio al carrito
  * @param {Object} item - Servicio a agregar
  */

@@ -337,3 +337,4 @@ function mostrarToast(tipo, mensaje) {
     const toast = new bootstrap.Toast(toastElement);
     toast.show();
 }
+
