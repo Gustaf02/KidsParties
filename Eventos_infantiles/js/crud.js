@@ -53,13 +53,15 @@
                 console.log(salonesData)
                 console.log(imagesData)
                 // Combinar datos
-                salonesData= salonesDataApi.map((salon, index) => {
-                    const imageIndex = index % imagesData.photos.length;
-                    return {
-                        ...salon,
-                        imagen: imagesData.photos[imageIndex]?.src.medium || 'https://via.placeholder.com/300'
-                    };
-                });
+            salonesData = salonesDataApi.map((salon) => {
+    // Convertir el ID a número y usarlo como índice
+    const idNum = parseInt(salon.id);
+    const imageIndex = idNum % imagesData.photos.length;
+    return {
+        ...salon,
+        imagen: imagesData.photos[imageIndex]?.src.medium || PLACEHOLDER_IMAGE
+    };
+});
                // salonesData = await response.json();
                 renderizarCatalogo(salonesData);
                 

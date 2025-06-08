@@ -24,20 +24,21 @@ const API_KEY = '9tNEjFhwUIus25QDwOd8iywPhg5QEyYDWiVS9NlvWfD2MeSClgYAU125';
                 if (!imagesResponse.ok) throw new Error('Error en API de imágenes');
                 if (!salonesResponse.ok) throw new Error('Error en API de salones');
                 
-                const [imagesData, salonesData] = await Promise.all([
+                const [imagesData, salonesDataApi] = await Promise.all([
                     imagesResponse.json(),
                     salonesResponse.json()
                 ]);
                 
-                const combinedData = salonesData.map((salon, index) => {
-                    const imageIndex = index % imagesData.photos.length;
-                    return {
-                        ...salon,
-                        imagen: imagesData.photos[imageIndex]?.src.medium || 'https://via.placeholder.com/300'
-                    };
-                });
-                
-                renderCatalog(combinedData);
+             salonesData = salonesDataApi.map((salon) => {
+    // Convertir el ID a número y usarlo como índice
+    const idNum = parseInt(salon.id);
+    const imageIndex = idNum % imagesData.photos.length;
+    return {
+        ...salon,
+        imagen: imagesData.photos[imageIndex]?.src.medium || PLACEHOLDER_IMAGE
+    };
+});
+                renderCatalog(salonesData);
                 
             } catch (error) {
                 console.error('Error:', error);
