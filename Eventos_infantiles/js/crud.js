@@ -62,7 +62,7 @@
                 });
                // salonesData = await response.json();
                 renderizarCatalogo(salonesData);
-                //actualizarEstadisticas(salonesData);
+                
                 
             } catch (error) {
                 console.error('Error:', error);
@@ -111,7 +111,7 @@
                     },
                     body: JSON.stringify(salonData)
                 });
-                localStorage.setItem("nombre salon:", salonData.nombre)
+                
                 if (!response.ok) throw new Error('Error al crear el salón');
                 
                 mostrarToast('success', 'Salón creado correctamente');
@@ -266,12 +266,14 @@
                                  class="card-img-top salon-image" 
                                  alt="${item.nombre}"
                                  onerror="this.src='${PLACEHOLDER_IMAGE}'">
-                            <div class="price-bubble bg-success text-white rounded-circle d-flex align-items-center justify-content-center">
-                                <span class="fw-bold">$${parseFloat(item.precio).toLocaleString('es-AR', {minimumFractionDigits: 2})}</span>
+                          <div class="position-relative top-0 end-0 translate-middle-y">
+                                <div class="bg-success text-white rounded-circle price-bubble d-flex align-items-center justify-content-center">
+                                    <span class="fw-bold">$${(item.precio || 0).toLocaleString('es-AR')}</span>
+                                </div>
                             </div>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title fw-bold">${item.nombre}</h5>
+                            <h5 class="card-title fw-bold mt-4">${item.nombre}</h5>
                             <div class="d-flex flex-column gap-2 mb-3">
                                 <div class="d-flex align-items-center">
                                     <i class="bi bi-people-fill text-info me-2"></i>
@@ -281,10 +283,7 @@
                                     <i class="bi bi-geo-alt-fill text-danger me-2"></i>
                                     <span>${item.ubicacion}</span>
                                 </div>
-                                <div class="d-flex align-items-center">
-                                    <i class="bi bi-calendar2-check-fill text-success me-2"></i>
-                                    <span>${traducirDia(item.fecha)}</span>
-                                </div>
+                            
                                 ${item.catering ? `<div class="d-flex align-items-center">
                                     <i class="bi bi-cup-straw text-warning me-2"></i>
                                     <span>Incluye catering</span>
@@ -309,31 +308,7 @@
                 catalogoContainer.appendChild(salonCard);
             });
         }
-        
-        // Función para actualizar estadísticas
-        function actualizarEstadisticas(data) {
-            const totalSalones = data.length;
-            const totalCapacidad = data.reduce((sum, salon) => sum + parseInt(salon.capacidad), 0);
-            const totalValor = data.reduce((sum, salon) => sum + parseFloat(salon.precio), 0);
-            
-            document.getElementById('total-salones').textContent = totalSalones;
-            document.getElementById('total-capacidad').textContent = totalCapacidad;
-            document.getElementById('total-valor').textContent = totalValor.toLocaleString('es-AR', {minimumFractionDigits: 2});
-        }
-        
-        // Función para traducir días de la semana
-        function traducirDia(day) {
-            const dias = {
-                'Monday': 'Lunes',
-                'Tuesday': 'Martes',
-                'Wednesday': 'Miércoles',
-                'Thursday': 'Jueves',
-                'Friday': 'Viernes',
-                'Saturday': 'Sábado',
-                'Sunday': 'Domingo'
-            };
-            return dias[day] || day;
-        }
+
         
         // Función para mostrar/ocultar carga
         function mostrarCarga(mostrar) {

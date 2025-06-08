@@ -77,7 +77,7 @@ const API_KEY = '9tNEjFhwUIus25QDwOd8iywPhg5QEyYDWiVS9NlvWfD2MeSClgYAU125';
                                 </div>
                             </div>
                             
-                            <h5 class="card-title fw-bold text-primary mb-3">${item.nombre}</h5>
+                            <h5 class="card-title fw-bold text-primary mb-3 mt-4">${item.nombre}</h5>
                             
                             <div class="d-flex flex-column gap-2 mb-3">
                                 <div class="d-flex align-items-center">
@@ -95,7 +95,7 @@ const API_KEY = '9tNEjFhwUIus25QDwOd8iywPhg5QEyYDWiVS9NlvWfD2MeSClgYAU125';
 
                         <div class="card-footer bg-transparent border-0 pt-0 pb-3">
                             <button class="btn btn-reservar w-100 py-2"
-                                onclick="reservar('${item.id}', ${item.capacidad}, '${item.nombre}')">
+                                onclick="reservar('${item.id}', ${item.capacidad}, '${item.nombre}','${item.precio}')">
                                 <i class="bi bi-balloon-heart-fill me-2"></i> Reservar ahora
                             </button>
                         </div>
@@ -110,15 +110,17 @@ const API_KEY = '9tNEjFhwUIus25QDwOd8iywPhg5QEyYDWiVS9NlvWfD2MeSClgYAU125';
             errorDiv.classList.remove('d-none');
         }
         
-        function reservar(salonId, capacidad, nombreSalon) {
+        function reservar(salonId, capacidad, nombreSalon, precioSalon) {
             salonSeleccionado = {
                 id: salonId,
                 capacidad: capacidad,
-                nombre: nombreSalon
+                nombre: nombreSalon,
+                precio: precioSalon,
             };
             
             // Actualizar título del modal
             document.getElementById('modalSalonTitle').textContent = `Reservar: ${nombreSalon}`;
+            //document.getElementById('modalPrecio').textContent = `Precio: ${precioSalon}`;
             
             // Mostrar modal
             const modal = new bootstrap.Modal(document.getElementById('reservaModal'));
