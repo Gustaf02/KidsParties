@@ -1,0 +1,178 @@
+:root {
+            --primary: #6749ec;
+            --secondary: #ff9a9e;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --light: #f8f9fa;
+            --dark: #343a40;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .admin-container {
+            margin-top: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .admin-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        
+        .admin-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            font-weight: 700;
+            padding: 15px 20px;
+        }
+        
+        .btn-admin {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-admin:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        
+        .salon-card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .salon-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .salon-image {
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .price-bubble {
+            width: 70px;
+            height: 70px;
+            position: absolute;
+            top: -35px;
+            right: 20px;
+            z-index: 10;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .action-buttons .btn {
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-radius: 50px;
+            min-width: 100px;
+        }
+        
+        .stats-card {
+            border-radius: 15px;
+            overflow: hidden;
+            color: white;
+            text-align: center;
+            padding: 20px 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .stats-card i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .stats-card h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .stats-card p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        
+        .stats-card:nth-child(1) { background: linear-gradient(135deg, #5c6bc0 0%, #3949ab 100%); }
+        .stats-card:nth-child(2) { background: linear-gradient(135deg, #66bb6a 0%, #43a047 100%); }
+        .stats-card:nth-child(3) { background: linear-gradient(135deg, #ffa726 0%, #fb8c00 100%); }
+        .stats-card:nth-child(4) { background: linear-gradient(135deg, #ef5350 0%, #e53935 100%); }
+        
+        .admin-section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .admin-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(103, 73, 236, 0.2);
+        }
+        
+        .spinner-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+        }
+        
+        .toast-container {  
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+        
+        .toast {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+        }
+        
+        .modal-footer .btn {
+            border-radius: 50px;
+            padding: 8px 20px;
+        }
+        
+        .table-container {
+            max-height: 400px;
+            overflow-y: auto;
+        }
