@@ -1,0 +1,15 @@
+.reserva-card {
+      transition: transform 0.2s;
+    }
+    .reserva-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .badge {
+      font-size: 0.9rem;
+      padding: 0.5em 0.75em;
+    }
+    .total-card {
+      border-left: 4px solid var(--bs-primary);
+    }
+  </sty
