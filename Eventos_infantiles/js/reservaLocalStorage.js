@@ -110,7 +110,7 @@ function renderCatalog(data) {
                                 onclick="reservar('${item.id}', ${
         item.capacidad
       }, '${item.nombre}','${item.precio}')">
-                                <i class="bi bi-balloon-heart-fill me-2"></i> Reservar ahora
+                                <i class="bi  me-2"></i> Reservar ahora
                             </button>
                         </div>
                     </div>
@@ -158,7 +158,7 @@ async function guardarReserva(reserva) {
     return false;
   }
 
-  // 2. Guardar en localStorage (tu código actual)
+  // 2. Guardar en localStorage 
   reservas.push(reserva);
   localStorage.setItem("reservas", JSON.stringify(reservas));
 

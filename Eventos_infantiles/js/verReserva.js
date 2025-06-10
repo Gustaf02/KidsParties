@@ -58,8 +58,8 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="card mb-4 reserva-card">
         <div class="card-header d-flex justify-content-between align-items-center">
           <div>
-            <h5 class="mb-0">Reserva #${index + 1}</h5>
-            <small class="text-muted">Acumulado: $${calcularAcumuladoHastaIndex(reservas, index).toFixed(2)}</small>
+            <h5 class="mb-0">Reserva #${reserva.id.slice(-4)}</h5>
+           <!-- <small class="text-muted">Acumulado: $${calcularAcumuladoHastaIndex(reservas, index).toFixed(2)}</small> -->
           </div>
           <span class="badge ${obtenerClaseEstado(reserva.estado)}">
             ${reserva.estado || 'confirmada'}
