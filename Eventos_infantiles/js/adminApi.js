@@ -144,13 +144,13 @@ async function actualizarSalon() {
   const capacidad = document.getElementById("edit-capacidad").value;
   const precio = document.getElementById("edit-precio").value;
   const ubicacion = document.getElementById("edit-ubicacion").value;
-  const fecha = document.getElementById("edit-fecha").value;
-  const imagen = document.getElementById("edit-imagen").value;
+  //const fecha = document.getElementById("edit-fecha").value;
+  //const imagen = document.getElementById("edit-imagen").value;
   const descripcion = document.getElementById("edit-descripcion").value;
   const catering = document.getElementById("edit-catering").checked;
   const maquillaje = document.getElementById("edit-maquillaje").checked;
 
-  if (!nombre || !capacidad || !precio || !ubicacion || !fecha) {
+  if (!nombre || !capacidad || !precio || !ubicacion ) {
     mostrarToast("error", "Por favor complete todos los campos obligatorios");
     return;
   }
@@ -160,8 +160,6 @@ async function actualizarSalon() {
     capacidad: parseInt(capacidad),
     precio: precio.toString(),
     ubicacion,
-    fecha,
-    imagen,
     descripcion,
     catering,
     maquillaje,
@@ -225,8 +223,8 @@ function abrirModalEditar(id) {
   document.getElementById("edit-capacidad").value = salon.capacidad;
   document.getElementById("edit-precio").value = salon.precio;
   document.getElementById("edit-ubicacion").value = salon.ubicacion;
-  document.getElementById("edit-fecha").value = salon.fecha;
-  document.getElementById("edit-imagen").value = salon.imagen;
+  //document.getElementById("edit-fecha").value = salon.fecha;
+  //document.getElementById("edit-imagen").value = salon.imagen;
   document.getElementById("edit-descripcion").value = salon.descripcion || "";
   document.getElementById("edit-catering").checked = salon.catering || false;
   document.getElementById("edit-maquillaje").checked =
