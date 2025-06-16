@@ -22,20 +22,39 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
         const data = await response.json();
 
         if (response.ok) {
+            // Verificar si es el usuario admin (emilys)
+            const isAdmin = username === 'emilys' && password === 'emilyspass';
+            
+            // Guardar estado de admin en localStorage
+            localStorage.setItem('admin', isAdmin.toString());
+            
+            // Guardar token de autenticación
+            if (data.token) {
+                localStorage.setItem('token', data.token);
+            }
+
             // Ocultar formulario y mostrar datos del usuario
             document.getElementById('login-container').style.display = 'none';
             document.getElementById('user-container').style.display = 'block';
 
             // Renderizar datos del usuario
-            document.getElementById('avatar').src = data.image || 'https://i.imgur.com/6VBx3io.png'; // Imagen por defecto si no hay avatar
+            document.getElementById('avatar').src = data.image || 'https://i.imgur.com/6VBx3io.png';
             document.getElementById('name').textContent = `${data.firstName} ${data.lastName}`;
-            document.getElementById('accessToken').textContent = data.accessToken; 
+            document.getElementById('accessToken').textContent = data.accessToken || 'No token provided';
+            
+            // Mostrar si es admin (opcional, para propósitos de demostración)
+            document.getElementById('admin-status').textContent = isAdmin ? 
+                '✅ Usuario ADMIN' : '❌ Usuario normal';
 
         } else {
             errorMessage.textContent = data.message || "Error en el login";
+            // Asegurarse de marcar como no admin si el login falla
+            localStorage.setItem('admin', 'false');
         }
     } catch (error) {
         errorMessage.textContent = "Error de conexión";
         console.error(error);
+        // Asegurarse de marcar como no admin si hay error
+        localStorage.setItem('admin', 'false');
     }
 });
