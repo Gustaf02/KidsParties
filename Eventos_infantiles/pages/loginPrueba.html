@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login con DummyJSON</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+        .user-avatar {
+            width: 128px;
+            height: 128px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+        .user-name {
+            font-size: 1.5rem;
+            margin: 0;
+            color: #333;
+        }
+        .token-box {
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            word-wrap: break-word;
+            margin-top: 20px;
+            font-size: 0.8rem;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .error {
+            color: red;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="login-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Ingresar</button>
+        </form>
+        <p class="error" id="error-message"></p>
+    </div>
+
+    <div class="container" id="user-container" style="display: none;">
+        <img id="avatar" class="user-avatar" src="" alt="Avatar">
+        <h1 id="name" class="user-name"></h1>
+        <div class="token-box">
+            <strong>accesToken:</strong>
+            <p id="accessToken"></p>
+        </div>
+    </div>
+
+    <script src="../js/loginPrueba.js"></script>
+</body>
+</html>
