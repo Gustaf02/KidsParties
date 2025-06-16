@@ -49,6 +49,7 @@ async function fetchData() {
 }
 
 function renderCatalog(data) {
+  console.log(data)
   const container = document.getElementById("catalogo-container");
 
   if (!data || data.length === 0) {

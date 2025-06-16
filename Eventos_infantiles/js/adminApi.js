@@ -269,7 +269,7 @@ function renderizarCatalogo(data) {
 
   data.forEach((item) => {
     const salonCard = document.createElement("div");
-    salonCard.className = "col";
+    salonCard.className = "col-lg-4 col-md-6 mb-4";
     salonCard.innerHTML = `
                     <div class="card h-100 salon-card">
                         <div class="position-relative">
