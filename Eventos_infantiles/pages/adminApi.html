@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Gestión de Salones</title>
+    <!-- Bootstrap para layout responsive y componentes pre-diseñados --> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Fuentes utilizadas en el diseño: Monserrat, Dancing Script - Pacífico y Quicksand -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+    <!-- Ionicons, librería desde la que usamos íconos -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- CSS compartido por todas las páginas -->
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body class="body-admin">
+
+    <!-- Navbar que usamos todos -->
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar-bg custom-navbar-shadow">
+        <div class="container">
+            <a class="navbar-brand custom-navbar-brand d-flex align-items-center position-relative px-3 py-2" href="#">
+                <ion-icon name="sparkles" class="me-2 d-none d-sm-inline-block brand-sparkle-icon"></ion-icon>
+                <span class="d-none d-lg-inline position-relative z-1">
+                    IDW Eventos
+                    <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
+                </span>
+                <!-- Versión condensada del brand para móviles -->
+                <span class="d-lg-none position-relative z-1">
+                    IDW 
+                    <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
+                </span>
+            </a>
+            <!-- Menú hamburguesa para celular -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Menu de navegación con efectos hover personalizados -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <!-- Link a index con underline animado -->
+                    <li class="nav-item mx-2"><a class="nav-link custom-nav-link position-relative px-3 py-2" href="../index.html"><span class="d-inline-block position-relative z-1">Inicio <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span></span></a></li>
+                    <!-- Página con información sobre los valores de la empresa -->   
+                    <li class="nav-item mx-2"><a class="nav-link custom-nav-link position-relative px-3 py-2" href="./institucional.html"><span class="d-inline-block position-relative z-1">Institucional<span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span></span></a></li>
+                    <!-- Formulario de contacto para consultas de eventos -->
+                    <li class="nav-item mx-2"><a class="nav-link custom-nav-link position-relative px-3 py-2" href="./contacto.html"><span class="d-inline-block position-relative z-1">Contacto</span><span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span></a></li>
+                    <!-- Catálogo de propuestas temáticas API -->
+                    <li class="nav-item mx-2"><a class="nav-link custom-nav-link position-relative px-3 py-2" href="./propuestas.html"><span class="d-inline-block position-relative z-1">Propuestas</span><span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span></a></li>
+                    <!-- Galería con los salones temáticos -->
+                    <li class="nav-item mx-2"><a class="nav-link custom-nav-link position-relative px-3 py-2" href="./catalogoSalones.html"><span class="d-inline-block position-relative z-1">Salones</span><span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span></a></li>
+                    <!-- Página actual - estado activo en navegación -->
+                    <li class="nav-item mx-2"><a class="nav-link custom-nav-link position-relative px-3 py-2" href="./adminApi.html"><span class="d-inline-block position-relative z-1">Admin</span><span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenedor principal para la info de admin -->
+    <main class="container-fluid p-4">
+    <!-- Tarjeta con sombra y bordes redondeados -->
+        <div class="card shadow-sm rounded-3">
+            <div class="card-body">
+                <!-- Encabezado de sección y botones de acción -->
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="section-heading-color">Administrar salones</h2>
+                    <div>
+                        <!-- Botón para actualizar la lista de salones -->
+                        <button class="btn btn-admin" id="refresh-btn">
+                            <i class="bi bi-arrow-repeat me-1"></i> Actualizar
+                        </button>                        
+                        <!-- Botón para abrir el modal de nuevo salón -->
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addModal">
+                            <i class="bi bi-plus-circle me-1"></i> Nuevo Salón
+                        </button>
+                    </div>
+                </div>
+                <!-- Spinner de carga para los salones -->
+                <div id="loading" class="spinner-container">
+                    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;"></div>
+                    <span class="ms-3">Cargando salones...</span>
+                </div>
+                <!-- Mensaje de error oculto -->
+                <div id="error-message" class="alert alert-danger d-none"></div>
+                <!-- Contenedor donde se mostrarán los salones -->
+                <div id="catalogo-container" class="row g-4">
+                    </div>
+            </div>
+        </class>
+    </main>
+    <!-- Modal para agregar un nuevo salón -->
+    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addModalLabel">
+                        <i class="bi bi-plus-circle me-2"></i> Nuevo Salón
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulario para ingreso de datos y creación -->
+                    <form id="add-form">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="add-nombre" class="form-label">Nombre del Salón</label>
+                                <input type="text" class="form-control" id="add-nombre" placeholder="Ej: Salón de Fiestas Infantiles" required>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="add-capacidad" class="form-label">Capacidad (niños)</label>
+                                <input type="number" class="form-control" id="add-capacidad" min="1" max="100" value="20" required>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="add-precio" class="form-label">Precio ($)</label>
+                                <input type="number" class="form-control" id="add-precio" min="100" step="50" value="2500" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="add-ubicacion" class="form-label">Ubicación</label>
+                                <input type="text" class="form-control" id="add-ubicacion" placeholder="Ej: Av. Corrientes 123, CABA" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="add-fecha" class="form-label">Fecha Disponible</label>
+                                <select class="form-select" id="add-fecha" required>
+                                    <option value="">Seleccionar día</option>
+                                    <option value="Monday">Lunes</option>
+                                    <option value="Tuesday">Martes</option>
+                                    <option value="Wednesday">Miércoles</option>
+                                    <option value="Thursday">Jueves</option>
+                                    <option value="Friday">Viernes</option>
+                                    <option value="Saturday">Sábado</option>
+                                    <option value="Sunday">Domingo</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="add-imagen" class="form-label">URL de la Imagen</label>
+                            <input type="url" class="form-control" id="add-imagen" placeholder="https://ejemplo.com/imagen.jpg" required>
+                            <div class="form-text">Usar imágenes de 300x200px para mejor resultado</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="add-descripcion" class="form-label">Descripción</label>
+                            <textarea class="form-control" id="add-descripcion" rows="3" placeholder="Describe las características del salón..."></textarea>
+                        </div>
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" id="add-catering">
+                            <label class="form-check-label" for="add-catering">Incluye catering</label>
+                        </div>
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" id="add-maquillaje">
+                            <label class="form-check-label" for="add-maquillaje">Incluye servicio de maquillaje</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <!-- Botones del modal: cancelar y crear -->
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="bi bi-x-circle me-1"></i> Cancelar
+                    </button>
+                    <button type="button" class="btn btn-success" id="btn-add-saloon">
+                        <i class="bi bi-plus-circle me-1"></i> Crear Salón
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal para editar un salón existente -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">
+                        <i class="bi bi-pencil-square me-2"></i> Editar Salón
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulario de edición con campos similares al de agregar -->
+                    <form id="edit-form">
+                        <input type="hidden" id="edit-id">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="edit-nombre" class="form-label">Nombre del Salón</label>
+                                <input type="text" class="form-control" id="edit-nombre" required>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="edit-capacidad" class="form-label">Capacidad (niños)</label>
+                                <input type="number" class="form-control" id="edit-capacidad" min="1" max="100" required>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="edit-precio" class="form-label">Precio ($)</label>
+                                <input type="number" class="form-control" id="edit-precio" min="100" step="50" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="edit-ubicacion" class="form-label">Ubicación</label>
+                                <input type="text" class="form-control" id="edit-ubicacion" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-descripcion" class="form-label">Descripción</label>
+                            <textarea class="form-control" id="edit-descripcion" rows="3"></textarea>
+                        </div>
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" id="edit-catering">
+                            <label class="form-check-label" for="edit-catering">Incluye catering</label>
+                        </div>
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" id="edit-maquillaje">
+                            <label class="form-check-label" for="edit-maquillaje">Incluye servicio de maquillaje</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">             
+                    <!-- Formulario de edición con campos similares al de agregar -->
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="bi bi-x-circle me-1"></i> Cancelar
+                    </button>
+                    <button type="button" class="btn btn-primary" id="btn-update-saloon">
+                        <i class="bi bi-save me-1"></i> Guardar Cambios
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal de confirmación para eliminar un salón -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="deleteModalLabel">
+                        <i class="bi bi-exclamation-triangle me-2"></i> Confirmar Eliminación
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Mensaje de advertencia y detalles del salón a eliminar -->
+                    <div class="text-center mb-4">
+                        <i class="bi bi-trash text-danger" style="font-size: 3rem;"></i>
+                        <h4 class="mt-3">¿Está seguro de eliminar este salón?</h4>
+                    </div>
+                    <div class="alert alert-warning">
+                        <i class="bi bi-exclamation-circle me-2"></i> Esta acción no se puede deshacer. Todos los datos relacionados con este salón serán eliminados permanentemente. 
+                    </div>
+                    <div class="card border-danger mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title" id="delete-saloon-name"></h5>
+                            <p class="card-text mb-1">Ubicación: <span id="delete-saloon-location"></span></p>
+                            <p class="card-text mb-1">Capacidad: <span id="delete-saloon-capacity"></span> niños</p>
+                            <p class="card-text">Precio: $<span id="delete-saloon-price"></span></p>
+                        </div>
+                    </div>
+                    <input type="hidden" id="delete-id">
+                </div>
+                <div class="modal-footer">                    
+                    <!-- Botones del modal: cancelar y eliminar permanentemente -->
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="bi bi-x-circle me-1"></i> Cancelar
+                    </button>
+                    <button type="button" class="btn btn-danger" id="btn-delete-saloon">
+                        <i class="bi bi-trash me-1"></i> Eliminar Permanentemente
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Notificación para operación exitosa -->
+    <div class="toast-container">
+        <div class="toast" id="successToast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header bg-success text-white">
+                <strong class="me-auto"><i class="bi bi-check-circle-fill me-2"></i> Éxito</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Operación realizada con éxito. 
+            </div>
+        </div>       
+        <!-- Notificación de error -->
+        <div class="toast" id="errorToast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header bg-danger text-white">
+                <strong class="me-auto"><i class="bi bi-exclamation-triangle-fill me-2"></i> Error</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Ocurrió un error al procesar su solicitud. 
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer corporativo con información de contacto y enlaces relevantes -->
+    <footer class="footer-custom">
+        <div class="container">
+            <div class="row g-4">                
+                <!-- Información principal de la empresa -->
+                <div class="col-md-6 col-lg-3">
+                    <h3 class="footer-title">IDW Kids Parties</h3>
+                    <p class="mb-4">Creando momentos inolvidables para los más pequeños desde 2010.</p>
+                    <!-- Íconos de redes sociales  -->
+                    <div class="social-icons">
+                        <a href="#" class="me-3"><ion-icon name="logo-facebook" class="social-icon"></ion-icon></a>
+                        <a href="#" class="me-3"><ion-icon name="logo-instagram" class="social-icon"></ion-icon></a>
+                        <a href="#" class="me-3"><ion-icon name="logo-twitter" class="social-icon"></ion-icon></a>
+                    </div>
+                </div>
+                <!-- Navegación secundaria para facilitar exploración -->
+                <div class="col-md-6 col-lg-3">
+                    <h3 class="footer-title">Navegación</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./institucional.html" class="text-white text-decoration-none">Institucional</a></li>
+                        <li class="mb-2"><a href="./contacto.html" class="text-white text-decoration-none">Contacto</a></li>
+                        <li class="mb-2"><a href="./propuestas.html" class="text-white text-decoration-none">Propuestas</a></li> 
+                        <li class="mb-2"><a href="./catalogoSalones.html" class="text-white text-decoration-none">Catalogo</a></li> 
+                        <li class="mb-2"><a href="./adminApi.html" class="text-white text-decoration-none">Admin</a></li> 
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h3 class="footer-title">Legal</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Aviso legal</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Cookies</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Política de privacidad</a></li>
+                    </ul>
+                </div>                
+                <!-- Información de contacto directo  -->
+                <div class="col-md-6 col-lg-3">
+                    <h3 class="footer-title">Contacto</h3>
+                    <!-- Soporte 24/7  -->
+                    <div class="d-flex align-items-center mb-3">
+                        <ion-icon name="headset" class="me-2 social-icon"></ion-icon>
+                        <span>Soporte 24/7</span>
+                    </div>
+                    <!-- Email corporativo  -->
+                    <div class="d-flex align-items-center mb-3">
+                        <ion-icon name="mail" class="me-2 social-icon"></ion-icon>
+                        <span>info@idwsa.com</span>
+                    </div>
+                    <!-- Dirección física  -->
+                    <div class="d-flex align-items-center">
+                        <ion-icon name="location" class="me-2 social-icon"></ion-icon>
+                        <span>Av Corrientes 123, Caba</span>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-light opacity-25">
+            <div class="text-center pt-3">
+                © <span id="current-year"></span> IDW S.A - Reserva de Salones de Eventos.
+            </div>
+        </div>
+    </footer> 
+    <!-- Bootstrap JS para funcionalidad de componentes interactivos -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Archivo JS para funcionalidades de nav bar -->
+    <script src="../js/main.js"></script>
+    <!-- Archivo JS para funcionalidades de adminApi -->
+    <script src="../js/adminApi.js"></script>   
+    </body>
+</html>

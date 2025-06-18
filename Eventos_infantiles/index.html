@@ -13,9 +13,11 @@
     <!-- Ionicons, librería desde la que usamos íconos -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>   
-    <!-- CSS de index.html -->   
-    <link rel="stylesheet" href="css/index.css"> </head>
-<body>
+    <!-- CSS compartido por todas las páginas -->   
+    <link rel="stylesheet" href="css/styles.css"> 
+</head>
+
+<body class="body-public">
 
     <!-- Navbar que usamos todos con enlaces de index.html -->
     <nav class="navbar navbar-expand-lg navbar-dark custom-navbar-bg custom-navbar-shadow">
@@ -29,19 +31,22 @@
                 IDW Eventos
                 <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect">
                 </span>
-            </span>             
+            </span>   
+            <!-- Versión condensada del brand para móviles -->          
             <span class="d-lg-none position-relative z-1">
                 IDW 
                 <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect">
                 </span>
             </span>
-            </a>             
+            </a> 
+            <!-- Menú hamburguesa para celular -->            
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <!-- Links a cada una de las páginas html -->
+            <!-- Menu de navegación con efectos hover personalizados -->
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">                     
+                <ul class="navbar-nav ms-auto"> 
+                    <!-- Página actual - estado activo en navegación -->                    
                     <li class="nav-item">
                         <a class="nav-link custom-nav-link position-relative px-3 py-2" 
                         href="./">
@@ -49,7 +54,8 @@
                         <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
                         </span>
                         </a>
-                    </li>                     
+                    </li> 
+                    <!-- Página con información sobre los valores de la empresa -->                    
                     <li class="nav-item">
                         <a class="nav-link custom-nav-link position-relative px-3 py-2" 
                         href="./pages/institucional.html">
@@ -57,30 +63,34 @@
                         <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
                         </span>
                         </a>
-                    </li>                     
+                    </li>            
+                    <!-- Formulario de contacto para consultas de eventos -->         
                     <li class="nav-item">
                         <a class="nav-link custom-nav-link position-relative px-3 py-2" 
-                        href=".pages/contacto.html">
+                        href="./pages/contacto.html">
                         <span class="d-inline-block position-relative z-1">Contacto</span>
                         <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
                         </a>
-                    </li>                     
+                    </li>
+                    <!-- Catálogo de propuestas temáticas API -->                     
                     <li class="nav-item">
                         <a class="nav-link custom-nav-link position-relative px-3 py-2" 
-                        href=".pages/catalogoApi.html">
+                        href="./pages/propuestas.html">
                         <span class="d-inline-block position-relative z-1">Propuestas</span>
                         <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
                         </a>
-                    </li>                     
+                    </li>  
+                    <!-- Galería con los salones temáticos -->                   
                     <li class="nav-item">
                         <a class="nav-link custom-nav-link position-relative px-3 py-2" 
-                        href="pages./catalogoApi.html"> <span class="d-inline-block position-relative z-1">Salones</span>
+                        href="./pages/catalogoSalones.html"> <span class="d-inline-block position-relative z-1">Salones</span>
                         <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
                         </a>
                     </li>
+                    <!-- Panel administrativo para gestión interna -->
                     <li class="nav-item">
                         <a class="nav-link custom-nav-link position-relative px-3 py-2" 
-                        href="pages./admin.html">
+                        href="./pages/adminApi.html">
                         <span class="d-inline-block position-relative z-1">Admin</span>
                         <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
                         </a>
@@ -92,7 +102,7 @@
 
     <!-- Sección de grid de cards temáticas utilizando Bootstrap -->
     <section class="container my-5">
-        <h1 class="text-center mb-5 display-4 fw-bold" style="color: var(--color-dark);">
+        <h1 class="text-center mb-5 display-4 fw-bold -color-dark">
             Salones Temáticos🎉
         </h1>
         <div class="row g-4">
@@ -113,22 +123,22 @@
                 <div class="card h-100 card-theme card-bebes">
                     <img src="./img/tp_desweb_portada_1.webp" class="card-img-top" alt="Superhéroes">
                     <div class="card-img-overlay card-overlay d-flex flex-column justify-content-end p-4">
-                        <h3 class="card-title text-white fw-bold">Mi Primer Año</h3>
-                        <p class="card-text text-white">Celebración para bebés</p>
+                        <h3 class="card-title fw-bold">Mi Primer Año</h3>
+                        <p class="card-text ">Celebración para bebés</p>
                     </div>
                 </div>
             </div>
-            <!-- Card 3: Game Over Party -->
+            <!-- Card 3: Game Over Party (sin botón) -->
             <div class="col-md-6 col-lg-3">
                 <div class="card h-100 card-theme card-videojuegos">
                     <img src="./img/tp_desweb_portada_2.webp" class="card-img-top" alt="Videojuegos">
                     <div class="card-img-overlay card-overlay d-flex flex-column justify-content-end p-4">
-                        <h3 class="card-title text-white fw-bold">Game Over Party</h3>
-                        <p class="card-text text-white">Videojuegos y series</p>
+                        <h3 class="card-title fw-bold">Game Over Party</h3>
+                        <p class="card-text ">Videojuegos y series</p>
                     </div>
                 </div>
             </div>
-            <!-- Card 4: Caritas Creativas -->
+            <!-- Card 4: Caritas Creativas (sin botón)-->
             <div class="col-md-6 col-lg-3">
                 <div class="card h-100 card-theme card-maquillaje">
                     <img src="./img/tp_desweb_portada_3.webp" class="card-img-top" alt="Maquillaje">
@@ -143,41 +153,45 @@
     
     <!-- Sección descriptiva con botón de reserva -->
     <div class="container">
-        <div class="hero-section text-center">
+        <div class="hero-section hero-section-rounded-box text-center">
             <!-- Título de bienvenida -->
             <h2 class="display-5 fw-bold mb-4">🎉 ¡Bienvenidos a IDW Kids Parties!</h2>
             <p class="lead mb-4">
                 Somos una empresa especializada en salones de fiestas infantiles temáticos, 
                 diseñados para convertir los sueños de tus pequeños en realidades inolvidables.
             </p>
-            <a href="./pages/catalogoApi.html" class="btn btn-theme pulse">¡Reservá Ahora!</a>
+            <a href="./pages/catalogoSalones.html" class="btn btn-theme pulse">¡Reservá Ahora!</a>
         </div>
     </div>
 
-         <!-- Footer corporativo con información de contacto y enlaces relevantes -->
+    <!-- Footer corporativo con información de contacto y enlaces relevantes -->
     <footer class="footer-custom">
         <div class="container">
             <div class="row g-4">
-                <div class="col-lg-3 col-md-6">
+                
+                <!-- Información principal de la empresa -->
+                <div class="col-md-6 col-lg-3">
                     <h3 class="footer-title">IDW Kids Parties</h3>
-                    <p class="mb-3 mb-md-4">Creando momentos inolvidables para los más pequeños desde 2010.</p>
+                    <p class="mb-4">Creando momentos inolvidables para los más pequeños desde 2010.</p>
+                    <!-- Íconos de redes sociales  -->
                     <div class="social-icons">
-                        <a href="#" class="me-3 social-icon"><ion-icon name="logo-facebook"></ion-icon></a>
-                        <a href="#" class="me-3 social-icon"><ion-icon name="logo-instagram"></ion-icon></a>
-                        <a href="#" class="me-3 social-icon"><ion-icon name="logo-twitter"></ion-icon></a>
+                        <a href="#" class="me-3"><ion-icon name="logo-facebook" class="social-icon"></ion-icon></a>
+                        <a href="#" class="me-3"><ion-icon name="logo-instagram" class="social-icon"></ion-icon></a>
+                        <a href="#" class="me-3"><ion-icon name="logo-twitter" class="social-icon"></ion-icon></a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <!-- Navegación secundaria para facilitar exploración -->
+                <div class="col-md-6 col-lg-3">
                     <h3 class="footer-title">Navegación</h3>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="./institucional.html" class="text-white text-decoration-none">Institucional</a></li>
-                        <li class="mb-2"><a href="./contacto.html" class="text-white text-decoration-none">Contacto</a></li>
-                        <li class="mb-2"><a href="./catalogoApi.html" class="text-white text-decoration-none">CatalogoAPI</a></li> 
-                        <li class="mb-2"><a href="./carritoApi.html" class="text-white text-decoration-none">CarritoApi</a></li> 
-                        <li class="mb-2"><a href="./documentacionCarritoApi.html" class="text-white text-decoration-none">DocumentacionAPIs</a></li> 
+                        <li class="mb-2"><a href="./pages/institucional.html" class="text-white text-decoration-none">Institucional</a></li>
+                        <li class="mb-2"><a href="./pages/contacto.html" class="text-white text-decoration-none">Contacto</a></li>
+                        <li class="mb-2"><a href="./pages/propuestas.html" class="text-white text-decoration-none">Propuestas</a></li> 
+                        <li class="mb-2"><a href="./pages/catalogoSalones.html" class="text-white text-decoration-none">Catálogo</a></li> 
+                        <li class="mb-2"><a href="./pages/admin.html" class="text-white text-decoration-none">Admin</a></li> 
                     </ul>
                 </div>
-                 <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
+                <div class="col-md-6 col-lg-3">
                     <h3 class="footer-title">Legal</h3>
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="#" class="text-white text-decoration-none">Aviso legal</a></li>
@@ -185,16 +199,21 @@
                         <li class="mb-2"><a href="#" class="text-white text-decoration-none">Política de privacidad</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
+                
+                <!-- Información de contacto directo  -->
+                <div class="col-md-6 col-lg-3">
                     <h3 class="footer-title">Contacto</h3>
+                    <!-- Soporte 24/7  -->
                     <div class="d-flex align-items-center mb-3">
                         <ion-icon name="headset" class="me-2 social-icon"></ion-icon>
                         <span>Soporte 24/7</span>
                     </div>
+                    <!-- Email corporativo  -->
                     <div class="d-flex align-items-center mb-3">
                         <ion-icon name="mail" class="me-2 social-icon"></ion-icon>
                         <span>info@idwsa.com</span>
                     </div>
+                    <!-- Dirección física  -->
                     <div class="d-flex align-items-center">
                         <ion-icon name="location" class="me-2 social-icon"></ion-icon>
                         <span>Av Corrientes 123, Caba</span>
@@ -203,15 +222,14 @@
             </div>
             <hr class="my-4 bg-light opacity-25">
             <div class="text-center pt-3">
-                © <span id="current-year"></span> IDW S.A. - Reserva de Salones de Eventos.
+                © <span id="current-year"></span> IDW S.A - Reserva de Salones de Eventos.
             </div>
         </div>
     </footer> 
+
     <!-- Bootstrap JS para funcionalidad de componentes interactivos -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script>
-        // Actualización dinámica del año para evitar mantenimiento manual
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>     
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> 
+    <!-- Archivo JS para funcionalidades de nav bar -->
+    <script src="./js/main.js"></script>    
     </body>
 </html>
