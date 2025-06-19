@@ -860,6 +860,25 @@ body {
     padding: 0.5em 0.75em;
 }
 
+
+/* --- Botón del login ---*/
+.btn-custom {
+    background-color: #6749ec;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+    white-space: nowrap;
+}
+
+.btn-custom:hover {
+    background-color: #FFBE0B;
+    transform: scale(1.05);
+}
+
+
 /* ==========================================================================
    6. MEDIA QUERIES (DISEÑO RESPONSIVO)
    ========================================================================== */

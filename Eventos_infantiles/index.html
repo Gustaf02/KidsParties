@@ -15,6 +15,10 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>   
     <!-- CSS compartido por todas las páginas -->   
     <link rel="stylesheet" href="css/styles.css"> 
+     <!-- Alertas en el  --> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body class="body-public">
@@ -95,10 +99,53 @@
                         <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
                         </a>
                     </li>
+                    <!-- Inicio de sesión -->
+                    <li class="nav-item">
+                       <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesión</button>
+                    </li>
                 </ul>
             </div>                                                                  
         </div>
     </nav>
+
+<!-- Contenedor del usuario -->
+<div id="user-container" style="display: none;" class="text-center mt-4">
+  <img id="avatar" src="" alt="Avatar" width="100" class="rounded-circle mb-2">
+  <h5 id="name"></h5>
+  <p id="admin-status"></p>
+</div>
+
+<!-- Modal de inicio de sesión -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <form id="login-form">
+          <div class="mb-3">
+            <label for="username" class="form-label">Usuario</label>
+            <input type="text" class="form-control" id="username" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="password" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
+          <div id="error-message" class="text-danger mt-2 text-center"></div>
+        </form>
+        <div id="spinner" class="text-center mt-3" style="display: none;">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Cargando...</span>
+          </div>
+        </div>
+        <p class="text-center mt-3"><a href="#">¿Olvidaste tu contraseña?</a></p>
+      </div>
+    </div>
+  </div>
+</div>
 
     <!-- Sección de grid de cards temáticas utilizando Bootstrap -->
     <section class="container my-5">
@@ -231,5 +278,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> 
     <!-- Archivo JS para funcionalidades de nav bar -->
     <script src="./js/main.js"></script>    
+     <!-- Archivo JS para funcionalidades de login -->
+    <script src="./js/login.js"></script>  
+
+   
     </body>
 </html>
