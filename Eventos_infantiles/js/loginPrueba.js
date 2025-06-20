@@ -30,7 +30,7 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
             
             // Guardar token de autenticación
             if (data.token) {
-                localStorage.setItem('token', data.token);
+                localStorage.setItem('token', data.accessTokentoken);
             }
 
             // Ocultar formulario y mostrar datos del usuario
