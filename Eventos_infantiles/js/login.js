@@ -25,11 +25,16 @@ document.addEventListener('DOMContentLoaded', () => {
       spinner.style.display = 'none';
       console.log('Respuesta:', data);
 
-      if (response.ok && data.token) {
+      
+
+      if (response.ok) {
+        const isAdmin = username === 'emilys' && password === 'emilyspass';
+        localStorage.setItem('admin', isAdmin.toString());
+            
         sessionStorage.setItem('accessToken', data.token);
         sessionStorage.setItem('isAdmin', 'false');
 
-        document.getElementById('login-container').style.display = 'none';
+        //document.getElementById('login-container').style.display = 'none';
         document.getElementById('user-container').style.display = 'block';
         document.getElementById('avatar').src = data.image || 'https://i.pravatar.cc/100';
         document.getElementById('name').textContent = `${data.firstName} ${data.lastName}`;
