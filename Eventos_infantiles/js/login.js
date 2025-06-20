@@ -31,8 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const isAdmin = username === 'emilys' && password === 'emilyspass';
         localStorage.setItem('admin', isAdmin.toString());
             
-        sessionStorage.setItem('accessToken', data.token);
-        sessionStorage.setItem('isAdmin', 'false');
+        // sessionStorage.setItem('accessToken', data.token);
+        // sessionStorage.setItem('isAdmin', 'false');
 
         //document.getElementById('login-container').style.display = 'none';
         document.getElementById('user-container').style.display = 'block';

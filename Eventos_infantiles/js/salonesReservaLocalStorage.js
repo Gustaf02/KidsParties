@@ -61,7 +61,7 @@ function renderCatalog(data) {
     return;
   }
 
-  container.innerHTML = data
+ container.innerHTML = data
     .map(
       (item) => `
                 <div class="col-lg-4 col-md-6 mb-4">
@@ -106,20 +106,19 @@ function renderCatalog(data) {
                             </div>
                         </div>
 
+                        ${localStorage.getItem('admin') !== null ? `
                         <div class="card-footer bg-transparent border-0 pt-0 pb-3">
                             <button class="btn btn-reservar w-100 py-2"
-                                onclick="reservar('${item.id}', ${
-        item.capacidad
-      }, '${item.nombre}','${item.precio}')">
-                                <i class="bi  me-2"></i> Reservar ahora
+                                onclick="reservar('${item.id}', ${item.capacidad}, '${item.nombre}','${item.precio}')">
+                                <i class="bi bi-calendar-check me-2"></i> Reservar ahora
                             </button>
                         </div>
+                        ` : ''}
                     </div>
                 </div>
             `
     )
-    .join("");
-}
+    .join("");}
 
 function showError(message) {
   const errorDiv = document.getElementById("error-message");
