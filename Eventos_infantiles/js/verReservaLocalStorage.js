@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // Calcular la suma de todos los precios
   function calcularTotalPrecios(reservas) {
     return reservas.reduce((total, reserva) => {
-      const precio = parseFloat(reserva.precio) || 0;
+      // Usamos precioTotal si existe, si no usamos precio
+      const precio = parseFloat(reserva.precioTotal || reserva.precio) || 0;
       return total + precio;
     }, 0);
   }
@@ -23,12 +24,14 @@ document.addEventListener('DOMContentLoaded', function() {
   // Obtener todas las reservas del localStorage
   function obtenerTodasLasReservas() {
     try {
-      const historial = localStorage.getItem('reservas_historial');
-      if (historial) {
-        return JSON.parse(historial);
+      // Primero intentamos con 'reservas' (formato nuevo)
+      const reservasNuevas = localStorage.getItem('reservas');
+      if (reservasNuevas) {
+        return JSON.parse(reservasNuevas);
       }
-      const reservasAntiguas = localStorage.getItem('reservas');
-      return reservasAntiguas ? JSON.parse(reservasAntiguas) : [];
+      // Si no hay, intentamos con 'reservas_historial' (formato antiguo)
+      const historial = localStorage.getItem('reservas_historial');
+      return historial ? JSON.parse(historial) : [];
     } catch (error) {
       console.error('Error al leer reservas:', error);
       return [];
@@ -72,9 +75,51 @@ document.addEventListener('DOMContentLoaded', function() {
               <h6 class="text-primary fw-bold"><i class="bi bi-calendar-event-fill me-2"></i>Detalles del Evento</h6>
               <p class="mb-1"><strong>Fecha:</strong> ${formatearFecha(reserva.fechaEvento)}</p>
               <p class="mb-1"><strong>N° Personas:</strong> ${reserva.cantidadPersonas}</p>
-              <p class="mb-0"><strong>Precio:</strong> $${(parseFloat(reserva.precio) || 0).toFixed(2)}</p>
+              <p class="mb-0"><strong>Precio Total:</strong> $${(parseFloat(reserva.precioTotal || reserva.precio) || 0).toFixed(2)}</p>
             </div>
           </div>
+          
+          ${reserva.precioDesglose ? `
+          <div class="row mt-3">
+            <div class="col-12">
+              <h6 class="text-primary fw-bold"><i class="bi bi-receipt me-2"></i>Desglose de Precios</h6>
+              <table class="table table-sm">
+                <tbody>
+                  <tr>
+                    <td>Precio Base:</td>
+                    <td class="text-end">$${reserva.precioDesglose.base.toFixed(2)}</td>
+                  </tr>
+                  ${reserva.servicios && reserva.servicios.length > 0 ? reserva.servicios.map(servicio => `
+                    <tr>
+                      <td>${servicio.nombre}:</td>
+                      <td class="text-end">$${servicio.costo}</td>
+                    </tr>
+                  `).join('') : ''}
+                  <tr class="table-active fw-bold">
+                    <td>Total:</td>
+                    <td class="text-end">$${reserva.precioDesglose.total.toFixed(2)}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          ` : ''}
+          
+          ${reserva.servicios && reserva.servicios.length > 0 && !reserva.precioDesglose ? `
+          <div class="row mt-3">
+            <div class="col-12">
+              <h6 class="text-primary fw-bold"><i class="bi bi-list-check me-2"></i>Servicios Adicionales</h6>
+              <ul class="list-group list-group-flush">
+                ${reserva.servicios.map(servicio => `
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    ${servicio.nombre}
+                    <span class="badge bg-primary rounded-pill">$${servicio.costo}</span>
+                  </li>
+                `).join('')}
+              </ul>
+            </div>
+          </div>
+          ` : ''}
         </div>
         <div class="card-footer bg-light text-muted text-end">
           <small>Reserva registrada el: ${formatearFechaCompleta(reserva.fechaRegistro)}</small>

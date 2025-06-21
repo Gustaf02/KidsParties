@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const cartCounter = document.querySelector('.notificacion-carrito');
             if (cartCounter) {
                 try {
-                    const reservas = JSON.parse(localStorage.getItem('reservas_historial') || '[]');
+                    const reservas = JSON.parse(localStorage.getItem('reservas') || '[]');
                     cartCounter.textContent = reservas.length.toString();
                     cartCounter.style.display = reservas.length > 0 ? 'block' : 'none';
                 } catch (e) {
