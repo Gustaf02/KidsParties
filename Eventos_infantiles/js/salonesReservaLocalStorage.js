@@ -14,7 +14,9 @@ async function fetchData() {
 
     const [imagesResponse, salonesResponse] = await Promise.all([
       fetch(
-        "https://api.pexels.com/v1/search?query=birthday+backdrop+colorful&per_page=100",
+        // "https://api.pexels.com/v1/search?query=kids+party+balloons+superhero&per_page=10",
+        // "https://api.pexels.com/v1/search?query=Avengers+party+OR+princess+party+OR+kids+party+balloons&per_page=12",
+        "https://api.pexels.com/v1/search?query=Avengers+party+OR+princess+party+OR+kids+party+balloons+OR+Minecraft+party+OR+Frozen+party&per_page=100",
         {
           headers: { Authorization: API_KEY },
         }

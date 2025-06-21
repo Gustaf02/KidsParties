@@ -7,13 +7,16 @@ document.addEventListener('DOMContentLoaded', function() {
             const adminLinkItem = document.querySelector('a[href*="adminApi.html"]')?.parentElement;
             const reservasLinkItem = document.querySelector('a[href*="verReservaLocalStorage.html"]')?.parentElement;
             const usuariosLinkItem = document.querySelector('a[href*="usuarios.html"]')?.parentElement;
+            const botonIniciarSesion = document.querySelector('botonIniciarSesion')?.parentElement;
 
             // Reglas de visualización
             if (isAdmin) {
                 // Admin verdadero - mostrar todo
                 if (adminLinkItem) adminLinkItem.style.display = 'block';
                 if (reservasLinkItem) reservasLinkItem.style.display = 'block';
-                if (usuariosLinkItem) usuariosLinkItem.style.display = 'block'; 
+                if (usuariosLinkItem) usuariosLinkItem.style.display = 'block';
+                if (botonIniciarSesion) botonIniciarSesion.style.display = 'none'; 
+
             } else if (hasAdminKey) {
                 // Admin falso - ocultar solo admin
                 if (usuariosLinkItem) usuariosLinkItem.style.display = 'none'; 
