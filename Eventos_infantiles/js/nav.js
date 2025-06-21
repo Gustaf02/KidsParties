@@ -3,31 +3,51 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             const isAdmin = localStorage.getItem('admin') === 'true';
             const hasAdminKey = localStorage.getItem('admin') !== null;
+            const userData = JSON.parse(localStorage.getItem('user') || '{}');
             
+            // Elementos del navbar
             const adminLinkItem = document.querySelector('a[href*="adminApi.html"]')?.parentElement;
             const reservasLinkItem = document.querySelector('a[href*="verReservaLocalStorage.html"]')?.parentElement;
             const usuariosLinkItem = document.querySelector('a[href*="usuarios.html"]')?.parentElement;
-            const botonIniciarSesion = document.querySelector('botonIniciarSesion')?.parentElement;
+            
+            // Elementos de usuario
+            const botonIniciarSesion = document.getElementById('botonIniciarSesion');
+            const userContainer = document.getElementById('user-container');
+            const avatar = document.getElementById('avatar');
+            const name = document.getElementById('name');
+            const logoutButton = document.getElementById('logout-button');
 
             // Reglas de visualización
-            if (isAdmin) {
-                // Admin verdadero - mostrar todo
-                if (adminLinkItem) adminLinkItem.style.display = 'block';
-                if (reservasLinkItem) reservasLinkItem.style.display = 'block';
-                if (usuariosLinkItem) usuariosLinkItem.style.display = 'block';
-                if (botonIniciarSesion) botonIniciarSesion.style.display = 'none'; 
-
-            } else if (hasAdminKey) {
-                // Admin falso - ocultar solo admin
-                if (usuariosLinkItem) usuariosLinkItem.style.display = 'none'; 
-                if (adminLinkItem) adminLinkItem.style.display = 'none';
+            if (hasAdminKey) {
+                // Hay clave admin (usuario logueado) - mostrar avatar y nombre, ocultar botón login
+                if (botonIniciarSesion) botonIniciarSesion.style.display = 'none';
+                if (logoutButton) userContainer.style.display = 'block';
+                if (userContainer) userContainer.style.display = 'block';
+                
+                // Actualizar datos del usuario
+                if (avatar && userData.avatar) avatar.src = userData.avatar;
+                if (name && userData.name) name.textContent = userData.name;
+                
+                // Mostrar/ocultar enlaces según si es admin
+                if (isAdmin) {
+                    if (adminLinkItem) adminLinkItem.style.display = 'block';
+                    if (usuariosLinkItem) usuariosLinkItem.style.display = 'block';
+                } else {
+                    if (adminLinkItem) adminLinkItem.style.display = 'none';
+                    if (usuariosLinkItem) usuariosLinkItem.style.display = 'none';
+                }
+                
+                // Mostrar reservas para todos los usuarios logueados
                 if (reservasLinkItem) reservasLinkItem.style.display = 'block';
             } else {
-                // No hay clave admin - ocultar ambos
+                // No hay clave admin (usuario no logueado) - mostrar botón login, ocultar avatar
+                if (botonIniciarSesion) botonIniciarSesion.style.display = 'block';
+                if (userContainer) userContainer.style.display = 'none';
+                
+                // Ocultar enlaces protegidos
                 if (adminLinkItem) adminLinkItem.style.display = 'none';
+                if (usuariosLinkItem) usuariosLinkItem.style.display = 'none';
                 if (reservasLinkItem) reservasLinkItem.style.display = 'none';
-                if (usuariosLinkItem) usuariosLinkItem.style.display = 'none'; 
-
             }
 
             // Actualizar contador del carrito
@@ -52,8 +72,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Escuchar cambios en el localStorage (para cuando se modifique el estado admin)
     window.addEventListener('storage', function(e) {
-        if (e.key === 'admin') {
+        if (e.key === 'admin' || e.key === 'user') {
             updateNavbarVisibility();
         }
     });
 });
+
