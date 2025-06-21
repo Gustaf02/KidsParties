@@ -63,4 +63,17 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
+
+  // Función de logout
+const logout = () => {
+  localStorage.clear(); 
+  document.getElementById('user-container').style.display = 'none'; 
+  document.getElementById('login-container').style.display = 'block'; 
+};
+
+
+const logoutButton = document.getElementById('logout-button');
+if (logoutButton) {
+  logoutButton.addEventListener('click', logout);
+}
 });
