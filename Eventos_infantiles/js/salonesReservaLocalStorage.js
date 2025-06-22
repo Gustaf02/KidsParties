@@ -1,10 +1,10 @@
-// Agrega esta variable global al inicio de tu archivo
-let salonesDataGlobal = []; // Almacenará los datos de los salones
+// Variable para almacenar todos los datos de los salones que se consumen de las APIs
+let salonesDataGlobal = []; 
 
 const API_KEY = "9tNEjFhwUIus25QDwOd8iywPhg5QEyYDWiVS9NlvWfD2MeSClgYAU125";
 const PLACEHOLDER_IMAGE = 'https://images.unsplash.com/photo-1575425186775-b8de9a427e67?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1587&q=80';
 
-// Modifica tu función fetchData para guardar los datos en la variable global
+// Guardar los datos en la variable salonesDataGlobal
 async function fetchData() {
   try {
     document.getElementById("loading").classList.remove("d-none");
@@ -27,7 +27,7 @@ async function fetchData() {
       imagesResponse.json(),
       salonesResponse.json(),
     ]);
-
+    // Se combinan los la data de ambas peticiones para crear el objeto salon
     salonesDataGlobal = salonesDataApi.map((salon) => {
       const idNum = parseInt(salon.id);
       const imageIndex = idNum % imagesData.photos.length;
@@ -46,13 +46,13 @@ async function fetchData() {
   }
 }
 
-// Función de filtrado 
+// Funcion para busqueda avanzada fitra por capacidad, precio y nombre
 function filtrarSalonesAvanzado() {
   const capacidad = parseInt(document.getElementById('filtroCapacidad').value) || 0;
   const precioMax = parseInt(document.getElementById('filtroPrecio').value) || Infinity;
   const nombreBusqueda = document.getElementById('filtroNombre').value.toLowerCase();
   
-  //variable global salonesDataGlobal 
+  //Filtrar salones desde salonesDataGlobal 
   const salonesFiltrados = salonesDataGlobal.filter(salon => 
     salon.capacidad >= capacidad &&
     salon.precio <= precioMax &&
@@ -62,7 +62,7 @@ function filtrarSalonesAvanzado() {
   renderCatalog(salonesFiltrados);
 }
 
-// Función para mostrar los salones en HTML (ya la tienes)
+// Función para mostrar los salones en HTML
 function renderCatalog(data) {
   const container = document.getElementById("catalogo-container");
 
@@ -135,12 +135,15 @@ function showError(message) {
 function reservar(salonId, capacidad, nombreSalon, precioSalon) {
   salonSeleccionado = {
     id: salonId,
-    capacidad: capacidad,
+    capacidad: parseInt(capacidad),
     nombre: nombreSalon,
     precio: parseFloat(precioSalon),
   };
 
+
   document.getElementById("modalSalonTitle").textContent = `Reservar: ${nombreSalon}`;
+  //document.getElementById('capacidad').textContent = capacidad;
+  document.getElementById('capacidadAdvertencia').textContent = `Máximo ${capacidad} personas`
   
   // Actualizar el precio base
   document.getElementById('precioBase').textContent = `$${precioSalon}`;
@@ -149,7 +152,7 @@ function reservar(salonId, capacidad, nombreSalon, precioSalon) {
   // Calcular y mostrar el precio total inicial
   calcularPrecioTotal();
   
-  // Mostrar modal
+  // Constante para mostrar modal
   const modal = new bootstrap.Modal(document.getElementById("reservaModal"));
   modal.show();
 }
@@ -157,13 +160,26 @@ function reservar(salonId, capacidad, nombreSalon, precioSalon) {
 function calcularPrecioTotal() {
   const precioBase = parseFloat(document.getElementById('precioBase').dataset.precio) || 0;
   const cantidadPersonas = parseInt(document.getElementById('cantidadPersonas').value) || 0;
+  const capacidadSalon = salonSeleccionado ? salonSeleccionado.capacidad : 0;
   const incluyeMaquillaje = document.getElementById('toggleMaquillaje').checked;
   const incluyeCatering = document.getElementById('toggleCatering').checked;
   
   let precioTotal = precioBase;
   let servicios = [];
   
-  // Calcular servicios adicionales
+    // Validacion de capacidad
+  if (cantidadPersonas > capacidadSalon) {
+    document.getElementById('errorCapacidad').textContent = 
+      `La cantidad de personas (${cantidadPersonas}) supera la capacidad del salón (${capacidadSalon})`;
+    document.getElementById('btnConfirmarReserva').disabled = true;
+    return;
+
+  } else {
+    document.getElementById('errorCapacidad').textContent = '';
+    document.getElementById('btnConfirmarReserva').disabled = false;
+  }
+  
+  // Calcular servicios adicionales y sumar al total
   if (incluyeMaquillaje) {
     const costoMaquillaje = precioBase * 0.001 * cantidadPersonas;
     precioTotal += costoMaquillaje;
@@ -181,15 +197,18 @@ function calcularPrecioTotal() {
       costo: costoCatering.toFixed(2)
     });
   }
+
   
   // Actualizar el precio total en el modal
   document.getElementById('precioTotal').textContent = `$${precioTotal.toFixed(2)}`;
   
-  // Guardar los datos de servicios en el modal para usarlos después
+  // Guardar los datos de servicios en el modal 
   document.getElementById('reservaModal').dataset.servicios = JSON.stringify(servicios);
 }
 
+ // Funcion para guardar reservas en localStorage
 async function guardarReserva(reservaData) {
+  console.log(reservaData)
   try {
     // Validación de reserva existente
     const reservas = JSON.parse(localStorage.getItem("reservas")) || [];
@@ -198,11 +217,10 @@ async function guardarReserva(reservaData) {
     );
 
     if (reservaExistente) {
-      mostrarError("Ya existe una reserva para este salón en la fecha seleccionada");
+      mostrarError("Ya existe una reserva para este salón en la fecha seleccionada, elige otra fecha..");
       return false;
     }
 
-    // Crear objeto de reserva completo
     const servicios = JSON.parse(document.getElementById('reservaModal').dataset.servicios || '[]');
     
     const reservaCompleta = {
@@ -218,7 +236,7 @@ async function guardarReserva(reservaData) {
       }
     };
 
-    // Guardar en localStorage
+    // Guardar reserva en localStorage
     reservas.push(reservaCompleta);
     localStorage.setItem("reservas", JSON.stringify(reservas));
 
@@ -235,7 +253,7 @@ async function guardarReserva(reservaData) {
 document.getElementById('btnConfirmarReserva').addEventListener('click', async function() {
   // Obtener datos del formulario
   const servicios = JSON.parse(document.getElementById('reservaModal').dataset.servicios || '[]');
-  
+  console.log(servicios)
   const reservaData = {
     salonId: salonSeleccionado.id,
     salonNombre: salonSeleccionado.nombre,
@@ -249,7 +267,7 @@ document.getElementById('btnConfirmarReserva').addEventListener('click', async f
     incluyeCatering: document.getElementById('toggleCatering').checked
   };
 
-  // Validaciones básicas
+  // Validaciones de campos incompletos
   if (!reservaData.cliente || !reservaData.telefono || !reservaData.fechaEvento) {
     mostrarError('Por favor complete todos los campos obligatorios');
     return;
@@ -259,12 +277,17 @@ document.getElementById('btnConfirmarReserva').addEventListener('click', async f
     mostrarError('La cantidad de personas debe ser mayor a cero');
     return;
   }
+  if (reservaData.cantidadPersonas > salonSeleccionado.capacidad) {
+    mostrarError(`La cantidad de personas (${reservaData.cantidadPersonas}) supera la capacidad del salón (${salonSeleccionado.capacidad})`);
+    return;
+  }
+
 
   // Guardar la reserva
   const resultado = await guardarReserva(reservaData);
   
   if (resultado) {
-    // Cerrar modal y resetear formulario
+  // Cerrar modal y resetear formulario
     bootstrap.Modal.getInstance(document.getElementById('reservaModal')).hide();
     document.getElementById('reservaForm').reset();
   }
@@ -309,5 +332,5 @@ function filtrarSalones() {
 
 
 // Inicialmente mostrar todos los salones
-mostrarSalonesEnHTML(salonesDataGlobal);
-console.log(salonesDataGlobal)
+// mostrarSalonesEnHTML(salonesDataGlobal);
+// console.log(salonesDataGlobal)

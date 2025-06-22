@@ -5,17 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salones Infantiles - IDW S.A.</title>
-    <!-- Bootstrap para layout responsive y componentes pre-diseñados -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Fuentes utilizadas en el diseño: Monserrat, Dancing Script - Pacífico y Quicksand -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
-    <!-- Ionicons, librería desde la que usamos íconos -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <!-- CSS compartido por todas las páginas -->
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 
@@ -33,7 +28,6 @@
                         class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect">
                     </span>
                 </span>
-                <!-- Versión condensada del brand para móviles -->
                 <span class="d-lg-none position-relative z-1">
                     IDW
                     <span
@@ -41,14 +35,10 @@
                     </span>
                 </span>
             </a>
-            <!-- Menú hamburguesa para celular -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <!-- Menu de navegación con efectos hover personalizados -->
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <!-- Link a index con underline animado -->
                     <li class="nav-item mx-2">
                         <a class="nav-link custom-nav-link position-relative px-3 py-2" href="../index.html">
                             <span class="d-inline-block position-relative z-1">Inicio
@@ -126,16 +116,14 @@
 </div>
             <div class="card-body">
                 <h2 class="section-heading-color mb-4">Elegí tu Salón Ideal</h2>
-                <!-- Contenedor del spinner de carga, oculto por defecto -->
                 <div id="loading" class="spinner-container d-none">
                     <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                         <span class="visually-hidden">Cargando...</span>
                     </div>
                     <p class="ms-3 fs-5">Cargando salones...</p>
                 </div>
-                <!-- Contenedor para mostrar mensajes de error, oculto por defecto -->
                 <div id="error-message" class="alert alert-danger d-none" role="alert"></div>
-                <!-- Contenedor donde se muestran los salones disponibles -->
+                <!-- Contenedor de salones disponibles -->
                 <div id="catalogo-container" class="row g-4">
                 </div>
             </div>
@@ -151,12 +139,15 @@
                         aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <div id="capacidadAdvertencia" class="text-muted mb-2"></div>
+                      <div id="errorCapacidad" class="text-danger mb-2"></div>
                     <!-- Formulario con campos de datos para completar la reserva -->
                     <form id="reservaForm">
                         <div class="mb-3">
                             <label for="nombreCliente" class="form-label">Nombre Completo</label>
                             <input type="text" class="form-control" id="nombreCliente" required>
                         </div>
+                        
                         <div class="mb-3">
                             <label for="telefonoCliente" class="form-label">Teléfono</label>
                             <input type="tel" class="form-control" id="telefonoCliente" required>
@@ -171,6 +162,11 @@
                         </div>
                     </form>
                 </div>
+                <!-- <div class="mb-3">
+                    <label class="form-label">capacidad:</label>
+                    <span id="capacidad" data-capacidad="0">0</span>
+
+                </div> -->
                 <div class="mb-3">
                     <label class="form-label">Precio Base:</label>
                     <span id="precioBase" data-precio="0">$0</span>
@@ -203,22 +199,19 @@
         </div>
     </div>
 
-    <!-- Footer corporativo con información de contacto y enlaces relevantes -->
     <footer class="footer-custom">
         <div class="container">
             <div class="row g-4">
-                <!-- Información principal de la empresa -->
+                <!-- Informaciónde la empresa -->
                 <div class="col-md-6 col-lg-3">
                     <h3 class="footer-title">IDW Kids Parties</h3>
                     <p class="mb-4">Creando momentos inolvidables para los más pequeños desde 2010.</p>
-                    <!-- Íconos de redes sociales  -->
                     <div class="social-icons">
                         <a href="#" class="me-3"><ion-icon name="logo-facebook" class="social-icon"></ion-icon></a>
                         <a href="#" class="me-3"><ion-icon name="logo-instagram" class="social-icon"></ion-icon></a>
                         <a href="#" class="me-3"><ion-icon name="logo-twitter" class="social-icon"></ion-icon></a>
                     </div>
                 </div>
-                <!-- Navegación secundaria para facilitar exploración -->
                 <div class="col-md-6 col-lg-3">
                     <h3 class="footer-title">Navegación</h3>
                     <ul class="list-unstyled">
@@ -242,20 +235,16 @@
                         </li>
                     </ul>
                 </div>
-                <!-- Información de contacto directo  -->
                 <div class="col-md-6 col-lg-3">
                     <h3 class="footer-title">Contacto</h3>
-                    <!-- Soporte 24/7  -->
                     <div class="d-flex align-items-center mb-3">
                         <ion-icon name="headset" class="me-2 social-icon"></ion-icon>
                         <span>Soporte 24/7</span>
                     </div>
-                    <!-- Email corporativo  -->
                     <div class="d-flex align-items-center mb-3">
                         <ion-icon name="mail" class="me-2 social-icon"></ion-icon>
                         <span>info@idwsa.com</span>
                     </div>
-                    <!-- Dirección física  -->
                     <div class="d-flex align-items-center">
                         <ion-icon name="location" class="me-2 social-icon"></ion-icon>
                         <span>Av Corrientes 123, Caba</span>
@@ -268,9 +257,7 @@
             </div>
         </div>
     </footer>
-    <!-- Bootstrap JS para funcionalidad de componentes interactivos -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Archivo JS para funcionalidades de salonesReservaLocalStorage -->
     <script src="../js/salonesReservaLocalStorage.js"></script>
     <script src="../js/nav.js"></script>
 </body>
