@@ -1038,5 +1038,16 @@ strong {
     .card-salon .card-title {
         font-size: 1.1rem;
     }
+    .btn-presupuesto {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    transition: all 0.3s;
 }
+
+.btn-presupuesto:hover {
+    background-color: #5a6268;
+    color: white;
+}
+} 
 

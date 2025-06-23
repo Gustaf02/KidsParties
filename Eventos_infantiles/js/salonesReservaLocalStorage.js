@@ -121,6 +121,11 @@ function renderCatalog(data) {
               </button>
             </div>
             ` : ''}
+             <!-- Botón de presupuesto siempre visible -->
+  <button class="btn btn-presupuesto w-100 py-2 ${localStorage.getItem('admin') !== null ? 'mt-2' : ''}"
+    onclick="solicitarPresupuesto('${item.id}', ${item.capacidad}, '${item.nombre}','${item.precio}')">
+    <i class="bi bi-calculator me-2"></i> Solicitar Presupuesto
+  </button>
           </div>
         </div>
       `
@@ -145,7 +150,7 @@ function reservar(salonId, capacidad, nombreSalon, precioSalon) {
 
   document.getElementById("modalSalonTitle").textContent = `Reservar: ${nombreSalon}`;
   //document.getElementById('capacidad').textContent = capacidad;
-  document.getElementById('capacidadAdvertencia').textContent = `Máximo ${capacidad} personas`
+  //document.getElementById('capacidadAdvertencia').textContent = `Máximo ${capacidad} personas`
   
   // Actualizar el precio base
   document.getElementById('precioBase').textContent = `$${precioSalon}`;
@@ -177,7 +182,7 @@ function calcularPrecioTotal() {
     return;
 
   } else {
-    document.getElementById('errorCapacidad').textContent = '';
+    //document.getElementById('errorCapacidad').textContent = '';
     document.getElementById('btnConfirmarReserva').disabled = false;
   }
   
@@ -334,3 +339,155 @@ function filtrarSalones() {
 // Inicialmente mostrar todos los salones
 // mostrarSalonesEnHTML(salonesDataGlobal);
 // console.log(salonesDataGlobal)
+
+// En el archivo JS, después de las funciones existentes
+
+// Función para solicitar presupuesto
+function solicitarPresupuesto(salonId, capacidad, nombreSalon, precioSalon) {
+    salonSeleccionado = {
+        id: salonId,
+        capacidad: parseInt(capacidad),
+        nombre: nombreSalon,
+        precio: parseFloat(precioSalon),
+    };
+
+    document.getElementById("modalPresupuestoTitle").textContent = `Presupuesto: ${nombreSalon}`;
+    //document.getElementById('capacidadAdvertenciaPresupuesto').textContent = `Máximo ${capacidad} personas`;
+    document.getElementById('precioBasePresupuesto').textContent = `$${precioSalon}`;
+    document.getElementById('precioBasePresupuesto').dataset.precio = precioSalon;
+    calcularPrecioTotalPresupuesto();
+    
+    const modal = new bootstrap.Modal(document.getElementById("presupuestoModal"));
+    modal.show();
+}
+
+// Función para calcular precio total en presupuesto
+function calcularPrecioTotalPresupuesto() {
+    const precioBase = parseFloat(document.getElementById('precioBasePresupuesto').dataset.precio) || 0;
+    const cantidadPersonas = parseInt(document.getElementById('cantidadPersonasPresupuesto').value) || 0;
+    const capacidadSalon = salonSeleccionado ? salonSeleccionado.capacidad : 0;
+    const incluyeMaquillaje = document.getElementById('toggleMaquillajePresupuesto').checked;
+    const incluyeCatering = document.getElementById('toggleCateringPresupuesto').checked;
+    
+    let precioTotal = precioBase;
+    let servicios = [];
+    
+    // Validación de capacidad
+    if (cantidadPersonas > capacidadSalon) {
+        document.getElementById('errorCapacidadPresupuesto').textContent = 
+            `La cantidad de personas (${cantidadPersonas}) supera la capacidad del salón (${capacidadSalon})`;
+        document.getElementById('btnConfirmarPresupuesto').disabled = true;
+        return;
+    } else {
+        document.getElementById('errorCapacidadPresupuesto').textContent = '';
+        document.getElementById('btnConfirmarPresupuesto').disabled = false;
+    }
+    
+    // Calcular servicios adicionales
+    if (incluyeMaquillaje) {
+        const costoMaquillaje = precioBase * 0.05 * cantidadPersonas;
+        precioTotal += costoMaquillaje;
+        servicios.push({
+            nombre: "Maquillaje",
+            costo: costoMaquillaje.toFixed(2)
+        });
+    }
+    
+    if (incluyeCatering) {
+        const costoCatering = precioBase * 0.05 * cantidadPersonas;
+        precioTotal += costoCatering;
+        servicios.push({
+            nombre: "Catering",
+            costo: costoCatering.toFixed(2)
+        });
+    }
+
+    document.getElementById('precioTotalPresupuesto').textContent = `$${precioTotal.toFixed(2)}`;
+    document.getElementById('presupuestoModal').dataset.servicios = JSON.stringify(servicios);
+}
+
+// Función para guardar presupuesto en localStorage
+async function guardarPresupuesto(presupuestoData) {
+    try {
+        const presupuestos = JSON.parse(localStorage.getItem("reservas")) || [];
+        
+        const servicios = JSON.parse(document.getElementById('presupuestoModal').dataset.servicios || '[]');
+        
+        const presupuestoCompleto = {
+            ...presupuestoData,
+            id: generarIdUnico(),
+            fechaRegistro: new Date().toISOString(),
+            estado: 'presupuesto',
+            estadoReserva: false, // Nuevo campo para diferenciar presupuestos
+            servicios: servicios,
+            precioDesglose: {
+                base: parseFloat(presupuestoData.precioBase),
+                serviciosAdicionales: parseFloat(presupuestoData.precioTotal) - parseFloat(presupuestoData.precioBase),
+                total: parseFloat(presupuestoData.precioTotal)
+            }
+        };
+
+        presupuestos.push(presupuestoCompleto);
+        localStorage.setItem("reservas", JSON.stringify(presupuestos));
+
+        mostrarConfirmacionPresupuesto(presupuestoCompleto);
+        return true;
+    } catch (error) {
+        console.error("Error al guardar presupuesto:", error);
+        mostrarError("Error al guardar el presupuesto: " + error.message);
+        return false;
+    }
+}
+
+function mostrarConfirmacionPresupuesto(presupuesto) {
+    alert(`¡Presupuesto solicitado con éxito para ${presupuesto.cliente}!\nSalón: ${presupuesto.salonNombre}\nTotal: $${presupuesto.precioDesglose.total.toFixed(2)}\n\nTe contactaremos a la brevedad.`);
+}
+
+// Event listener para el botón de confirmar presupuesto
+document.getElementById('btnConfirmarPresupuesto').addEventListener('click', async function() {
+    const servicios = JSON.parse(document.getElementById('presupuestoModal').dataset.servicios || '[]');
+    const presupuestoData = {
+        salonId: salonSeleccionado.id,
+        salonNombre: salonSeleccionado.nombre,
+        cliente: document.getElementById('nombreClientePresupuesto').value.trim(),
+        email: document.getElementById('emailClientePresupuesto').value.trim(),
+        telefono: document.getElementById('telefonoClientePresupuesto').value.trim(),
+        cantidadPersonas: parseInt(document.getElementById('cantidadPersonasPresupuesto').value) || 0,
+        precioBase: salonSeleccionado.precio,
+        precioTotal: parseFloat(document.getElementById('precioTotalPresupuesto').textContent.replace('$', '') || 0),
+        incluyeMaquillaje: document.getElementById('toggleMaquillajePresupuesto').checked,
+        incluyeCatering: document.getElementById('toggleCateringPresupuesto').checked
+    };
+
+    // Validaciones
+    if (!presupuestoData.cliente || !presupuestoData.email || !presupuestoData.telefono) {
+        mostrarError('Por favor complete todos los campos obligatorios');
+        return;
+    }
+    
+    if (presupuestoData.cantidadPersonas <= 0) {
+        mostrarError('La cantidad de personas debe ser mayor a cero');
+        return;
+    }
+    if (presupuestoData.cantidadPersonas > salonSeleccionado.capacidad) {
+        mostrarError(`La cantidad de personas (${presupuestoData.cantidadPersonas}) supera la capacidad del salón (${salonSeleccionado.capacidad})`);
+        return;
+    }
+
+    const resultado = await guardarPresupuesto(presupuestoData);
+    
+    if (resultado) {
+        bootstrap.Modal.getInstance(document.getElementById('presupuestoModal')).hide();
+        document.getElementById('presupuestoForm').reset();
+    }
+});
+
+// En window.onload, agregar event listeners para el modal de presupuesto
+window.onload = function() {
+    // ... código existente ...
+    
+    // Para el modal de presupuesto
+    document.getElementById('cantidadPersonasPresupuesto').addEventListener('input', calcularPrecioTotalPresupuesto);
+    document.getElementById('toggleMaquillajePresupuesto').addEventListener('change', calcularPrecioTotalPresupuesto);
+    document.getElementById('toggleCateringPresupuesto').addEventListener('change', calcularPrecioTotalPresupuesto);
+};

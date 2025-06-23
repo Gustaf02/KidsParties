@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Propuestas - IDW S.A.</title>
+  <title>Historial de Reservas - IDW S.A.</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap"
@@ -64,7 +64,7 @@
                                 <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
                         </a>
                     </li>
-                    <!-- Página actual - estado activo en navegación -->
+                    <!-- Galería con los salones temáticos -->
                     <li class="nav-item">
                         <a class="nav-link custom-nav-link position-relative px-3 py-2"
                             href="./salonesReservaLocalStorage.html">
@@ -86,7 +86,7 @@
                             <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
                         </a>
                     </li>
-                    <!-- Ícono de carrito oculto por defecto, lleva a reservas-->
+                    <!-- Página actual - estado activo en navegación -->
                     <li id="carrito-link-item" class="nav-item d-none">
                         <a class="nav-link custom-nav-link position-relative px-3 py-2" href="./verReservaLocalStorage.html">
                             <span class="d-inline-block position-relative z-1">
@@ -150,168 +150,40 @@
         </div>
     </div>
 
-    <!-- Contenedor principal para funcionalidades de reserva -->
-    <main class="container-fluid p-4">
-        <!-- Tarjeta que contiene la sección principal -->
-        <div class="card shadow-sm rounded-3">
+    <!-- Contenedor principal para mostrar el historial de reservas -->
+    <main class="container my-5">
+        <!-- Tarjeta que contiene todo el contenido del historial -->
+        <div class="card section-card">
             <div class="card-body">
-        <div class="row mb-4">
-            <div class="col-md-4">
-                <label for="filtroNombre" class="form-label">Nombre:</label>
-                <input type="text" id="filtroNombre" class="form-control" placeholder="Buscar por nombre" onkeyup="filtrarSalonesAvanzado()">
-            </div>
-            <div class="col-md-4">
-                <label for="filtroCapacidad" class="form-label">Capacidad mínima:</label>
-                <input type="number" id="filtroCapacidad" class="form-control" placeholder="Ej: 100" onchange="filtrarSalonesAvanzado()">
-            </div>
-            <div class="col-md-4">
-                <label for="filtroPrecio" class="form-label">Precio máximo:</label>
-                <input type="number" id="filtroPrecio" class="form-control" placeholder="Ej: 3000" onchange="filtrarSalonesAvanzado()">
-            </div>
-        </div>
-        <!-- Contenedor para visualización de salones-->
-        <div id="contenedorSalones" class="row"></div>
-        <div class="card shadow-sm rounded-3">
-            <div class="card-body">
-                <h2 class="section-heading-color mb-4">Elegí tu Salón Ideal</h2>
-                <!-- Contenedor del spinner de carga, oculto por defecto -->
-                <div id="loading" class="spinner-container d-none">
-                    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;">
-                        <span class="visually-hidden">Cargando...</span>
+                <!-- Título principal con ícono de calendario -->
+                <h1 class="section-heading-color mb-4">
+                    <i class="bi bi-calendar-check-fill me-2"></i>Historial de Reservas
+                </h1>
+                <!-- Fila con dos columnas para mostrar estadísticas generales -->
+                <div class="row mb-4 g-4">
+                    <!-- Columna para mostrar el total de reservas -->
+                    <div class="col-lg-6">
+                        <div id="total-reservas-card" class="total-card h-100">
+                        </div>
                     </div>
-                    <p class="ms-3 fs-5">Cargando salones...</p>
+                    <!-- Columna para mostrar el total de precios acumulados -->
+                    <div class="col-lg-6">
+                        <div id="total-precios-card" class="total-card h-100">
+                        </div>
+                    </div>
                 </div>
-                <!-- Contenedor para mostrar mensajes de error, oculto por defecto -->
-                <div id="error-message" class="alert alert-danger d-none" role="alert"></div>
-                <!-- Contenedor donde se muestran los salones disponibles -->
-                <div id="catalogo-container" class="row g-4">
+                <!-- Contenedor donde se muestran las reservas individuales -->
+                <div id="presupuesto-container" class="mt-4">
                 </div>
             </div>
         </div>
     </main>
-    <!-- Modal para completar la reserva -->
-    <div class="modal fade" id="reservaModal" tabindex="-1" aria-labelledby="reservaModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalSalonTitle">Completar Reserva</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Formulario con campos de datos para completar la reserva -->
-                    <form id="reservaForm">
-                        <div class="mb-3">
-                            <label for="nombreCliente" class="form-label">Nombre Completo</label>
-                            <input type="text" class="form-control" id="nombreCliente" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="telefonoCliente" class="form-label">Teléfono</label>
-                            <input type="tel" class="form-control" id="telefonoCliente" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="fechaEvento" class="form-label">Fecha del Evento</label>
-                            <input type="date" class="form-control" id="fechaEvento" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="cantidadPersonas" class="form-label">Cantidad de Personas</label>
-                            <input type="number" class="form-control" id="cantidadPersonas" min="1" required>
-                        </div>
-                    </form>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Precio Base:</label>
-                    <span id="precioBase" data-precio="0">$0</span>
-                </div>
 
-                <div class="mb-3 form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="toggleMaquillaje"
-                        onchange="calcularPrecioTotal()">
-                    <label class="form-check-label" for="toggleMaquillaje">Incluir servicio de maquillaje (+5% por
-                        persona)</label>
-                </div>
-
-                <div class="mb-3 form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="toggleCatering"
-                        onchange="calcularPrecioTotal()">
-                    <label class="form-check-label" for="toggleCatering">Incluir servicio de catering (+5% por
-                        persona)</label>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Precio Total:</label>
-                    <span id="precioTotal">$0</span>
-                </div>
-                <!-- Botones para cancelar o confirmar la reserva -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" id="btnConfirmarReserva">Confirmar Reserva</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- En la sección de modales, después del modal de reserva -->
-<!-- Modal para presupuesto -->
-<div class="modal fade" id="presupuestoModal" tabindex="-1" aria-labelledby="presupuestoModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalPresupuestoTitle">Solicitar Presupuesto</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                    aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="presupuestoForm">
-                    <div class="mb-3">
-                        <label for="nombreClientePresupuesto" class="form-label">Nombre Completo</label>
-                        <input type="text" class="form-control" id="nombreClientePresupuesto" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="emailClientePresupuesto" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="emailClientePresupuesto" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="telefonoClientePresupuesto" class="form-label">Teléfono</label>
-                        <input type="tel" class="form-control" id="telefonoClientePresupuesto" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="cantidadPersonasPresupuesto" class="form-label">Cantidad de Personas</label>
-                        <input type="number" class="form-control" id="cantidadPersonasPresupuesto" min="1" required>
-                    </div>
-                </form>
-                <div class="mb-3">
-                    <label class="form-label">Precio Base:</label>
-                    <span id="precioBasePresupuesto" data-precio="0">$0</span>
-                </div>
-
-                <div class="mb-3 form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="toggleMaquillajePresupuesto">
-                    <label class="form-check-label" for="toggleMaquillajePresupuesto">Incluir servicio de maquillaje (+5% por persona)</label>
-                </div>
-
-                <div class="mb-3 form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="toggleCateringPresupuesto">
-                    <label class="form-check-label" for="toggleCateringPresupuesto">Incluir servicio de catering (+5% por persona)</label>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Precio Total:</label>
-                    <span id="precioTotalPresupuesto">$0</span>
-                </div>
-                <div id="errorCapacidadPresupuesto" class="text-danger small"></div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" id="btnConfirmarPresupuesto">Solicitar Presupuesto</button>
-            </div>
-        </div>
-    </div>
-</div>
 
     <!-- Footer corporativo con información de contacto y enlaces relevantes -->
     <footer class="footer-custom">
         <div class="container">
-            <div class="row g-4">
+            <div class="row g-4">                
                 <!-- Información principal de la empresa -->
                 <div class="col-md-6 col-lg-3">
                     <h3 class="footer-title">IDW Kids Parties</h3>
@@ -327,26 +199,20 @@
                 <div class="col-md-6 col-lg-3">
                     <h3 class="footer-title">Navegación</h3>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="./institucional.html"
-                                class="text-white text-decoration-none">Institucional</a></li>
-                        <li class="mb-2"><a href="./contacto.html" class="text-white text-decoration-none">Contacto</a>
-                        </li>
-                        <li class="mb-2"><a href="./propuestas.html"
-                                class="text-white text-decoration-none">Propuestas</a></li>
-                        <li class="mb-2"><a href="./catalogoSalones.html"
-                                class="text-white text-decoration-none">Catalogo</a></li>
-                        <li class="mb-2"><a href="./adminApi.html" class="text-white text-decoration-none">Admin</a>
-                        </li>
+                        <li class="mb-2"><a href="./institucional.html" class="text-white text-decoration-none">Institucional</a></li>
+                        <li class="mb-2"><a href="./contacto.html" class="text-white text-decoration-none">Contacto</a></li>
+                        <li class="mb-2"><a href="./propuestas.html" class="text-white text-decoration-none">Propuestas</a></li> 
+                        <li class="mb-2"><a href="./catalogoSalones.html" class="text-white text-decoration-none">Catalogo</a></li> 
+                        <li class="mb-2"><a href="./adminApi.html" class="text-white text-decoration-none">Admin</a></li> 
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <h3 class="footer-title">Legal</h3>
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="#" class="text-white text-decoration-none">Aviso legal</a></li>
                         <li class="mb-2"><a href="#" class="text-white text-decoration-none">Cookies</a></li>
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Política de privacidad</a>
-                        </li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Política de privacidad</a></li>
                     </ul>
-                </div>
+                </div>                
                 <!-- Información de contacto directo  -->
                 <div class="col-md-6 col-lg-3">
                     <h3 class="footer-title">Contacto</h3>
@@ -372,13 +238,13 @@
                 © <span id="current-year"></span> IDW S.A - Reserva de Salones de Eventos.
             </div>
         </div>
-    </footer>
-    <!-- Bootstrap JS para funcionalidad de componentes interactivos -->
+    </footer> 
+    
+     <!-- Bootstrap JS para funcionalidad de componentes interactivos -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Archivo JS para funcionalidades de login -->
     <script src="../js/login.js"></script>
     <script src="../js/nav.js"></script> 
-    <script src="../js/salonesReservaLocalStorage.js"></script>  
+    <script src="../js/verReservaLocalStorage.js"></script>   
     </body>
 </html>
-
