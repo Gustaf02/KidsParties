@@ -150,7 +150,7 @@ function reservar(salonId, capacidad, nombreSalon, precioSalon) {
 
   document.getElementById("modalSalonTitle").textContent = `Reservar: ${nombreSalon}`;
   //document.getElementById('capacidad').textContent = capacidad;
-  //document.getElementById('capacidadAdvertencia').textContent = `Máximo ${capacidad} personas`
+  document.getElementById('capacidadAdvertencia').textContent = `Máximo ${capacidad} personas`
   
   // Actualizar el precio base
   document.getElementById('precioBase').textContent = `$${precioSalon}`;
@@ -176,13 +176,14 @@ function calcularPrecioTotal() {
   
     // Validacion de capacidad
   if (cantidadPersonas > capacidadSalon) {
+    document.getElementById('capacidadAdvertencia').textContent = `Máximo ${capacidadSalon} personas`
     document.getElementById('errorCapacidad').textContent = 
       `La cantidad de personas (${cantidadPersonas}) supera la capacidad del salón (${capacidadSalon})`;
     document.getElementById('btnConfirmarReserva').disabled = true;
     return;
 
   } else {
-    //document.getElementById('errorCapacidad').textContent = '';
+    document.getElementById('errorCapacidad').textContent = '';
     document.getElementById('btnConfirmarReserva').disabled = false;
   }
   
@@ -257,6 +258,17 @@ async function guardarReserva(reservaData) {
   }
 }
 
+// Funciones de validación
+function validarNombre(nombre) {
+  const regex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+  return regex.test(nombre);
+}
+function validarTelefono(telefono) {
+  // Permite números y opcionalmente un + al inicio
+  const regex = /^\+?[0-9]+$/;
+  return regex.test(telefono);
+}
+
 document.getElementById('btnConfirmarReserva').addEventListener('click', async function() {
   // Obtener datos del formulario
   const servicios = JSON.parse(document.getElementById('reservaModal').dataset.servicios || '[]');
@@ -288,7 +300,17 @@ document.getElementById('btnConfirmarReserva').addEventListener('click', async f
     mostrarError(`La cantidad de personas (${reservaData.cantidadPersonas}) supera la capacidad del salón (${salonSeleccionado.capacidad})`);
     return;
   }
-
+  // Validación del nombre
+  if (!validarNombre(reservaData.cliente)) {
+    mostrarError('El nombre solo puede contener letras y espacios (no se permiten números ni caracteres especiales)');
+    return;
+  }
+  //Validacion del telefono
+  if (!validarTelefono(reservaData.telefono)){
+    mostrarError('El telefono no se permiten letras ni caracteres especiales)');
+    return;
+  }
+  
 
   // Guardar la reserva
   const resultado = await guardarReserva(reservaData);
@@ -323,6 +345,7 @@ window.onload = function() {
   
   // Escuchar cambios en cantidad de personas y servicios
   document.getElementById('cantidadPersonas').addEventListener('input', calcularPrecioTotal);
+
   document.getElementById('toggleMaquillaje').addEventListener('change', calcularPrecioTotal);
   document.getElementById('toggleCatering').addEventListener('change', calcularPrecioTotal);
 };
@@ -336,11 +359,6 @@ function filtrarSalones() {
   mostrarSalonesEnHTML(salonesFiltrados);
 }
 
-// Inicialmente mostrar todos los salones
-// mostrarSalonesEnHTML(salonesDataGlobal);
-// console.log(salonesDataGlobal)
-
-// En el archivo JS, después de las funciones existentes
 
 // Función para solicitar presupuesto
 function solicitarPresupuesto(salonId, capacidad, nombreSalon, precioSalon) {
@@ -352,7 +370,7 @@ function solicitarPresupuesto(salonId, capacidad, nombreSalon, precioSalon) {
     };
 
     document.getElementById("modalPresupuestoTitle").textContent = `Presupuesto: ${nombreSalon}`;
-    //document.getElementById('capacidadAdvertenciaPresupuesto').textContent = `Máximo ${capacidad} personas`;
+    document.getElementById('capacidadAdvertenciaPresupuesto').textContent = `Máximo ${capacidad} personas`;
     document.getElementById('precioBasePresupuesto').textContent = `$${precioSalon}`;
     document.getElementById('precioBasePresupuesto').dataset.precio = precioSalon;
     calcularPrecioTotalPresupuesto();
@@ -385,7 +403,7 @@ function calcularPrecioTotalPresupuesto() {
     
     // Calcular servicios adicionales
     if (incluyeMaquillaje) {
-        const costoMaquillaje = precioBase * 0.05 * cantidadPersonas;
+        const costoMaquillaje = precioBase * 0.01 * cantidadPersonas;
         precioTotal += costoMaquillaje;
         servicios.push({
             nombre: "Maquillaje",
@@ -394,7 +412,7 @@ function calcularPrecioTotalPresupuesto() {
     }
     
     if (incluyeCatering) {
-        const costoCatering = precioBase * 0.05 * cantidadPersonas;
+        const costoCatering = precioBase * 0.02 * cantidadPersonas;
         precioTotal += costoCatering;
         servicios.push({
             nombre: "Catering",
@@ -406,7 +424,7 @@ function calcularPrecioTotalPresupuesto() {
     document.getElementById('presupuestoModal').dataset.servicios = JSON.stringify(servicios);
 }
 
-// Función para guardar presupuesto en localStorage
+// Función para guardar presupuesto en localStorage, aca lo guardo en la misma key que reservas....
 async function guardarPresupuesto(presupuestoData) {
     try {
         const presupuestos = JSON.parse(localStorage.getItem("reservas")) || [];
@@ -443,6 +461,24 @@ function mostrarConfirmacionPresupuesto(presupuesto) {
     alert(`¡Presupuesto solicitado con éxito para ${presupuesto.cliente}!\nSalón: ${presupuesto.salonNombre}\nTotal: $${presupuesto.precioDesglose.total.toFixed(2)}\n\nTe contactaremos a la brevedad.`);
 }
 
+// Valida que el nombre solo contenga letras y espacios (con soporte para acentos y ñ)
+function validarNombre(nombre) {
+  const regex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s']+$/;
+  return regex.test(nombre) && nombre.trim().length > 0;
+}
+
+// Valida el formato de email estándar
+function validarEmail(email) {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email) && email.trim().length > 0;
+}
+
+// Valida que el teléfono solo contenga números y opcionalmente un + al inicio
+function validarTelefono(telefono) {
+  const regex = /^\+?\d{8,15}$/; // Entre 8 y 15 dígitos
+  return regex.test(telefono) && telefono.trim().length > 0;
+}
+
 // Event listener para el botón de confirmar presupuesto
 document.getElementById('btnConfirmarPresupuesto').addEventListener('click', async function() {
     const servicios = JSON.parse(document.getElementById('presupuestoModal').dataset.servicios || '[]');
@@ -464,6 +500,24 @@ document.getElementById('btnConfirmarPresupuesto').addEventListener('click', asy
         mostrarError('Por favor complete todos los campos obligatorios');
         return;
     }
+
+       
+    if (!validarNombre(presupuestoData.cliente)) {
+        mostrarError('El nombre solo puede contener letras y espacios (no se permiten números ni caracteres especiales)');
+        return;
+    }
+
+      
+    if (!validarEmail(presupuestoData.email)) {
+        mostrarError('Por favor ingrese un email válido (ejemplo: usuario@dominio.com)');
+        return;
+    }
+    
+    
+    if (!validarTelefono(presupuestoData.telefono)) {
+        mostrarError('El teléfono debe contener solo números (8-15 dígitos). Opcionalmente puede comenzar con +');
+        return;
+    }
     
     if (presupuestoData.cantidadPersonas <= 0) {
         mostrarError('La cantidad de personas debe ser mayor a cero');
@@ -480,11 +534,15 @@ document.getElementById('btnConfirmarPresupuesto').addEventListener('click', asy
         bootstrap.Modal.getInstance(document.getElementById('presupuestoModal')).hide();
         document.getElementById('presupuestoForm').reset();
     }
+
+
+    
 });
 
 // En window.onload, agregar event listeners para el modal de presupuesto
 window.onload = function() {
-    // ... código existente ...
+    const today = new Date().toISOString().split("T")[0];
+  document.getElementById("fechaEvento").min = today;
     
     // Para el modal de presupuesto
     document.getElementById('cantidadPersonasPresupuesto').addEventListener('input', calcularPrecioTotalPresupuesto);
