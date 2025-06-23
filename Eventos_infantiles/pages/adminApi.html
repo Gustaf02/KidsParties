@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
+    
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Administración - Gestión de Salones</title>
-    <!-- Bootstrap para layout responsive y componentes pre-diseñados --> 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <!-- Fuentes utilizadas en el diseño: Monserrat, Dancing Script - Pacífico y Quicksand -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
-    <!-- Ionicons, librería desde la que usamos íconos -->
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <!-- CSS compartido por todas las páginas -->
-    <link rel="stylesheet" href="../css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel de administración - Gestión de salones</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet" />
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
 </head>
 
-<body class="body-admin">
+<body class="body-public">
 
     <!-- Navbar que usamos todos -->
     <nav class="navbar navbar-expand-lg navbar-dark custom-navbar-bg custom-navbar-shadow">
@@ -29,35 +30,125 @@
                     IDW Eventos
                     <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
                 </span>
-                <!-- Versión condensada del brand para móviles -->
                 <span class="d-lg-none position-relative z-1">
-                    IDW 
+                    IDW
                     <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
                 </span>
             </a>
-            <!-- Menú hamburguesa para celular -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <!-- Menu de navegación con efectos hover personalizados -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <!-- Link a index con underline animado -->
-                    <li class="nav-item mx-2"><a class="nav-link custom-nav-link position-relative px-3 py-2" href="../index.html"><span class="d-inline-block position-relative z-1">Inicio <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span></span></a></li>
-                    <!-- Página con información sobre los valores de la empresa -->   
-                    <li class="nav-item mx-2"><a class="nav-link custom-nav-link position-relative px-3 py-2" href="./institucional.html"><span class="d-inline-block position-relative z-1">Institucional<span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span></span></a></li>
+                    <!-- Página de inicio/bienvenida-->
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-link position-relative px-3 py-2" href="../index.html">
+                            <span class="d-inline-block position-relative z-1">Inicio
+                                <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
+                            </span>
+                        </a>
+                    </li>
+                    <!-- Página con información sobre los valores de la empresa -->
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-link position-relative px-3 py-2" href="./institucional.html">
+                            <span class="d-inline-block position-relative z-1">Institucional
+                                <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
+                            </span>
+                        </a>
+                    </li>
                     <!-- Formulario de contacto para consultas de eventos -->
-                    <li class="nav-item mx-2"><a class="nav-link custom-nav-link position-relative px-3 py-2" href="./contacto.html"><span class="d-inline-block position-relative z-1">Contacto</span><span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span></a></li>
-                    <!-- Catálogo de propuestas temáticas API -->
-                    <li class="nav-item mx-2"><a class="nav-link custom-nav-link position-relative px-3 py-2" href="./propuestas.html"><span class="d-inline-block position-relative z-1">Propuestas</span><span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span></a></li>
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-link position-relative px-3 py-2" href="./contacto.html">
+                            <span class="d-inline-block position-relative z-1">Contacto</span>
+                                <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
+                        </a>
+                    </li>
                     <!-- Galería con los salones temáticos -->
-                    <li class="nav-item mx-2"><a class="nav-link custom-nav-link position-relative px-3 py-2" href="./catalogoSalones.html"><span class="d-inline-block position-relative z-1">Salones</span><span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span></a></li>
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-link position-relative px-3 py-2"
+                            href="./salonesReservaLocalStorage.html">
+                            <span class="d-inline-block position-relative z-1">Salones</span>
+                                <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
+                        </a>
+                    </li>
                     <!-- Página actual - estado activo en navegación -->
-                    <li class="nav-item mx-2"><a class="nav-link custom-nav-link position-relative px-3 py-2" href="./adminApi.html"><span class="d-inline-block position-relative z-1">Admin</span><span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span></a></li>
+                    <li id="admin-link-item" class="nav-item d-none">
+                        <a class="nav-link custom-nav-link position-relative px-3 py-2" href="./adminApi.html">
+                            <span class="d-inline-block position-relative z-1">Admin</span>
+                                <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
+                        </a>
+                    </li>
+                    <!-- Panel administrativo para visualizar a los usuarios registrados-->
+                    <li id="usuarios-link-item" class="nav-item d-none">
+                        <a class="nav-link custom-nav-link position-relative px-3 py-2" href="./usuarios.html">
+                            <span class="d-inline-block position-relative z-1">Usuarios</span>
+                            <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
+                        </a>
+                    </li>
+                    <!-- Ícono de carrito oculto por defecto, lleva a reservas-->
+                    <li id="carrito-link-item" class="nav-item d-none">
+                        <a class="nav-link custom-nav-link position-relative px-3 py-2" href="./verReservaLocalStorage.html">
+                            <span class="d-inline-block position-relative z-1">
+                                <i class="bi bi-cart3 fs-5 carrito-animado"></i>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger notificacion-carrito"></span>
+                                <span class="d-lg-none ms-2">Mis Reservas</span> </span>
+                            <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
+                        </a>
+                    </li>
                 </ul>
+                <!-- Botón para iniciar sesión -->
+                <div class="d-flex align-items-center ms-auto">
+                    <div id="botonIniciarSesion" class="d-block">
+                        <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#loginModal">
+                            Iniciar Sesión
+                        </button>
+                    </div>
+                    <!-- Botón para cerrar sesión -->
+                    <div id="nav-user-container" class="d-flex align-items-center d-none">
+                        <img id="nav-avatar" src="https://via.placeholder.com/40/007bff/ffffff?text=Avatar" alt="Avatar" width="32" height="32" class="rounded-circle me-2 nav-avatar-img" style="object-fit: cover;">
+                        <span id="nav-name" class="text-white me-2 nav-username-text"></span>
+                        <button id="nav-logout-button" class="btn btn-sm btn-outline-light nav-logout-btn">Cerrar Sesión</button>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
+    <!-- Modal para el inicio de sesión -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="login-form">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Usuario</label>
+                            <input type="text" class="form-control" id="username" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="password" required />
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">
+                            Iniciar Sesión
+                        </button>
+                        <div id="error-message" class="text-danger mt-2 text-center"></div>
+                    </form>
+                    <div id="spinner" class="text-center mt-3" style="display: none">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Cargando...</span>
+                        </div>
+                    </div>
+                    <p class="text-center mt-3">
+                        <a href="#">¿Olvidaste tu contraseña?</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Contenedor principal para la info de admin -->
     <main class="container-fluid p-4">
@@ -79,18 +170,24 @@
                     </div>
                 </div>
                 <!-- Spinner de carga para los salones -->
-                <div id="loading" class="spinner-container">
-                    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;"></div>
-                    <span class="ms-3">Cargando salones...</span>
-                </div>
-                <!-- Mensaje de error oculto -->
-                <div id="error-message" class="alert alert-danger d-none"></div>
-                <!-- Contenedor donde se mostrarán los salones -->
-                <div id="catalogo-container" class="row g-4">
+                <div id="contenedorSalones" class="row"></div>
+        <div class="card shadow-sm rounded-3">
+            <div class="card-body">
+                <h2 class="section-heading-color mb-4">Elegí tu Salón Ideal</h2>
+                <!-- Contenedor del spinner de carga, oculto por defecto -->
+                <div id="loading" class="spinner-container d-none">
+                    <div id="loading" class="spinner-container d-none">
+                        <span class="visually-hidden">Cargando...</span>
                     </div>
+                    <p class="ms-3 fs-5">Cargando salones...</p>
+                </div>
+                <!-- Contenedor para mostrar mensajes de error, oculto por defecto -->
+                <div id="error-message" class="alert alert-danger d-none" role="alert"></div>
+                <!-- Contenedor donde se muestran los salones disponibles -->
+                <div id="catalogo-container" class="row g-4">
+                </div>
             </div>
-        </class>
-    </main>
+        </div>
     <!-- Modal para agregar un nuevo salón -->
     <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -353,9 +450,9 @@
     </footer> 
     <!-- Bootstrap JS para funcionalidad de componentes interactivos -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Archivo JS para funcionalidades de nav bar -->
-    <script src="../js/main.js"></script>
-    <!-- Archivo JS para funcionalidades de adminApi -->
-    <script src="../js/adminApi.js"></script>   
+    <!-- Archivo JS para funcionalidades de login -->
+    <script src="../js/login.js"></script>
+    <script src="../js/nav.js"></script> 
+    <script src="../js/adminApi.js"></script>  
     </body>
 </html>
