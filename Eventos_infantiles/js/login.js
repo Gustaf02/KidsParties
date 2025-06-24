@@ -218,3 +218,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hacemos handleLogout global para que nav.js pueda llamarlo
     window.handleLogout = handleLogout;
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Función para copiar texto
+    document.querySelectorAll('.copy-btn').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const textToCopy = this.getAttribute('data-text');
+            navigator.clipboard.writeText(textToCopy)
+                .then(() => {
+                    // Cambiar temporalmente el texto del botón
+                    const originalHTML = this.innerHTML;
+                    this.innerHTML = '<i class="bi bi-check2"></i> Copiado!';
+                    setTimeout(() => {
+                        this.innerHTML = originalHTML;
+                    }, 2000);
+                })
+                .catch(err => {
+                    console.error('Error al copiar: ', err);
+                });
+        });
+    });
+});
