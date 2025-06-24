@@ -1,26 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bienvenido - IDW S.A.</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap"
-    rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet" />
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
-  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-  <link rel="stylesheet" href="css/styles.css" />
-  <link rel="stylesheet" href="css/adminServicios.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración de Servicios - IDW S.A.</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
 
-<body class="body-public">
-  <!-- Navbar que usamos todos con enlaces de index.html -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="../css/styles.css" />
+<link rel="stylesheet" href="../css/adminServicios.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
+</head>
+<body>
+      <!-- Navbar que usamos todos con enlaces de index.html -->
   <nav class="navbar navbar-expand-lg navbar-dark custom-navbar-bg custom-navbar-shadow">
     <div class="container">
         <a class="navbar-brand custom-navbar-brand d-flex align-items-center position-relative px-3 py-2" href="#">
@@ -157,172 +153,114 @@
     </div>
   </div>
 
-  <!-- Sección de grid de cards temáticas utilizando Bootstrap -->
-  <section class="container my-5">
-    <h1 class="text-center mb-5 display-4 fw-bold -color-dark">
-      Salones Temáticos🎉
-    </h1>
-    <div class="row g-4">
-      <!-- Card 1: Princesas Encantadas -->
-      <div class="col-md-6 col-lg-3">
-        <div class="card h-100 card-theme card-princesas">
-          <img src="./img/tp_des_web_portada_0.webp" class="card-img-top" alt="Princesas" />
-          <!-- Overlay con título, descripción y botón -->
-          <div class="card-img-overlay card-overlay d-flex flex-column justify-content-end p-4">
-            <h3 class="card-title text-white fw-bold">
-              Princesas Encantadas
-            </h3>
-            <p class="card-text text-white">Temática niñas • 3-10 años</p>
-           
-          </div>
-        </div>
-      </div>
-      <!-- Card 2: Mi Primer Año (sin botón) -->
-      <div class="col-md-6 col-lg-3">
-        <div class="card h-100 card-theme card-bebes">
-          <img src="./img/tp_desweb_portada_1.webp" class="card-img-top" alt="Superhéroes" />
-          <div class="card-img-overlay card-overlay d-flex flex-column justify-content-end p-4">
-            <h3 class="card-title fw-bold">Mi Primer Año</h3>
-            <p class="card-text">Celebración para bebés</p>
-          </div>
-        </div>
-      </div>
-      <!-- Card 3: Game Over Party (sin botón) -->
-      <div class="col-md-6 col-lg-3">
-        <div class="card h-100 card-theme card-videojuegos">
-          <img src="./img/tp_desweb_portada_2.webp" class="card-img-top" alt="Videojuegos" />
-          <div class="card-img-overlay card-overlay d-flex flex-column justify-content-end p-4">
-            <h3 class="card-title fw-bold">Game Over Party</h3>
-            <p class="card-text">Videojuegos y series</p>
-          </div>
-        </div>
-      </div>
-      <!-- Card 4: Caritas Creativas (sin botón)-->
-      <div class="col-md-6 col-lg-3">
-        <div class="card h-100 card-theme card-maquillaje">
-          <img src="./img/tp_desweb_portada_3.webp" class="card-img-top" alt="Maquillaje" />
-          <div class="card-img-overlay card-overlay d-flex flex-column justify-content-end p-4">
-            <h3 class="card-title text-white fw-bold">Caritas Creativas</h3>
-            <p class="card-text text-white">Maquillaje personalizado</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Sección descriptiva con botón de reserva -->
-  <div class="container">
-    <div class="hero-section hero-section-rounded-box text-center">
-      <!-- Título de bienvenida -->
-      <h2 class="display-5 fw-bold mb-4">
-        🎉 ¡Bienvenidos a IDW Kids Parties!
-      </h2>
-      <p class="lead mb-4">
-        Somos una empresa especializada en salones de fiestas infantiles
-        temáticos, diseñados para convertir los sueños de tus pequeños en
-        realidades inolvidables.
-      </p>
-      <a href="./pages/salonesReservaLocalStorage.html" class="btn btn-theme pulse">¡Reservá Ahora!</a>
-    </div>
-  </div>
+    <main class="container mt-5 mb-5">
+        <h2 class="text-center mb-4">Gestión de Servicios</h2>
 
-  <!-- Footer corporativo con información de contacto y enlaces relevantes -->
-  <footer class="footer-custom">
-    <div class="container">
-      <div class="row g-4">
-        <!-- Información principal de la empresa -->
-        <div class="col-md-6 col-lg-3">
-          <h3 class="footer-title">IDW Kids Parties</h3>
-          <p class="mb-4">
-            Creando momentos inolvidables para los más pequeños desde 2010.
-          </p>
-          <!-- Íconos de redes sociales  -->
-          <div class="social-icons">
-            <a href="#" class="me-3"><ion-icon name="logo-facebook" class="social-icon"></ion-icon></a>
-            <a href="#" class="me-3"><ion-icon name="logo-instagram" class="social-icon"></ion-icon></a>
-            <a href="#" class="me-3"><ion-icon name="logo-twitter" class="social-icon"></ion-icon></a>
-          </div>
-        </div>
-        <!-- Navegación secundaria para facilitar exploración -->
-        <div class="col-md-6 col-lg-3">
-          <h3 class="footer-title">Navegación</h3>
-          <ul class="list-unstyled">
-            <li class="mb-2">
-              <a href="./pages/institucional.html" class="text-white text-decoration-none">Institucional</a>
-            </li>
-            <li class="mb-2">
-              <a href="./pages/contacto.html" class="text-white text-decoration-none">Contacto</a>
-            </li>
-            <!-- <li class="mb-2">
-              <a href="./pages/propuestas.html" class="text-white text-decoration-none">Propuestas</a>
-            </li>
-            <li class="mb-2">
-              <a href="./pages/salonesReservaLocalStorage.html" class="text-white text-decoration-none">Catálogo</a>
-            </li>
-            <li class="mb-2">
-              <a href="./pages/adminApi.html" class="text-white text-decoration-none">Admin</a>
-            </li> -->
-
-          <li class="mb-2" id="footerAdminLinkContainer"> 
-            <a href="./pages/adminApi.html" class="text-white text-decoration-none d-none" id="footerAdminLink">Admin</a>
-          </li>
-        
-          <li class="mb-2" id="footerUsuariosLinkContainer">
-            <a href="./pages/usuarios.html" class="text-white text-decoration-none d-none" id="footerUsuariosLink">Usuarios</a>
-          </li>
-
-          </ul>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <h3 class="footer-title">Legal</h3>
-          <ul class="list-unstyled">
-            <li class="mb-2">
-              <a href="#" class="text-white text-decoration-none">Aviso legal</a>
-            </li>
-            <li class="mb-2">
-              <a href="#" class="text-white text-decoration-none">Cookies</a>
-            </li>
-            <li class="mb-2">
-              <a href="#" class="text-white text-decoration-none">Política de privacidad</a>
-            </li>
-          </ul>
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <div class="card text-center bg-info text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Total de Servicios</h5>
+                        <p class="card-text fs-1" id="totalServicesCount">0</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Información de contacto directo  -->
-        <div class="col-md-6 col-lg-3">
-          <h3 class="footer-title">Contacto</h3>
-          <!-- Soporte 24/7  -->
-          <div class="d-flex align-items-center mb-3">
-            <ion-icon name="headset" class="me-2 social-icon"></ion-icon>
-            <span>Soporte 24/7</span>
-          </div>
-          <!-- Email corporativo  -->
-          <div class="d-flex align-items-center mb-3">
-            <ion-icon name="mail" class="me-2 social-icon"></ion-icon>
-            <span>info@idwsa.com</span>
-          </div>
-          <!-- Dirección física  -->
-          <div class="d-flex align-items-center">
-            <ion-icon name="location" class="me-2 social-icon"></ion-icon>
-            <span>Av Corrientes 123, Caba</span>
-          </div>
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0" id="serviceFormTitle">Añadir Nuevo Servicio</h5>
+            </div>
+            <div class="card-body">
+                <form id="serviceForm">
+                    <input type="hidden" id="serviceId" value=""> <div class="mb-3">
+                        <label for="serviceDescription" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="serviceDescription" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="serviceValue" class="form-label">Valor ($)</label>
+                        <input type="number" step="0.01" class="form-control" id="serviceValue" required min="0">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="saveServiceBtn">Guardar Servicio</button>
+                    <button type="button" class="btn btn-secondary d-none" id="cancelEditBtn">Cancelar Edición</button>
+                </form>
+            </div>
         </div>
-      </div>
-      <hr class="my-4 bg-light opacity-25" />
-      <div class="text-center pt-3">
-        © <span id="current-year"></span> IDW S.A - Reserva de Salones de
-        Eventos.
-      </div>
-    </div>
-  </footer>
 
-  <!-- Bootstrap JS para funcionalidad de componentes interactivos -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+                <h5 class="mb-0">Lista de Servicios</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Descripción</th>
+                                <th>Valor</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="servicesTableBody">
+                            </tbody>
+                    </table>
+                </div>
+                <p id="noServicesMessage" class="text-center text-muted d-none">No hay servicios para mostrar.</p>
+            </div>
+        </div>
+    </main>
 
-  <!-- Archivo JS para funcionalidades de login -->
-  <script src="./js/login.js"></script>
-  <script src="./js/nav.js"></script>
-  <script src="./js/footer.js"></script>
-</body>
+    <footer class="footer-custom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <img src="../assets/logo.png" alt="IDW Logo" class="footer-logo mb-3">
+                    <p>Celebrando la alegría en cada evento. Hacemos tus sueños realidad.</p>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <h3 class="footer-title">Navegación</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./institucional.html" class="text-white text-decoration-none">Institucional</a></li>
+                        <li class="mb-2"><a href="./contacto.html" class="text-white text-decoration-none">Contacto</a></li>
+                                              
+                        <li class="mb-2 d-none" id="footerAdminLinkContainer"> 
+                            <a href="./adminApi.html" class="text-white text-decoration-none" id="footerAdminLink">Admin</a> 
+                        </li> 
+                        
+                        <li class="mb-2 d-none" id="footerUsuariosLinkContainer">
+                            <a href="./usuarios.html" class="text-white text-decoration-none" id="footerUsuariosLink">Usuarios</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <h3 class="footer-title">Contáctanos</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-geo-alt-fill me-2"></i>Calle Corrientes 123, CABA</li>
+                        <li class="mb-2"><i class="bi bi-envelope-fill me-2"></i>info@idw.com</li>
+                        <li class="mb-2"><i class="bi bi-phone-fill me-2"></i>+54 9 261 1234567</li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <h3 class="footer-title">Síguenos</h3>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="text-white-50">
+            <div class="text-center text-white-50">
+                <p>&copy; <span id="current-year"></span> IDW Kids Parties. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/nav.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/adminServicios.js"></script> </body>
 </html>
