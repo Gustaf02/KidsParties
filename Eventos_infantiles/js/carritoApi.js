@@ -14,8 +14,8 @@ class Cart {
 
   /**
    * Agrega un item al carrito
-   * @param {Object} item - Objeto con los datos del servicio a agregar
-   * @throws {Error} Si la fecha no está disponible
+   * @param {Object} item 
+   * @throws {Error} 
    */
   addItem(item) {
     if (!item || !item.id || !item.fecha) {
@@ -42,7 +42,7 @@ class Cart {
 
   /**
    * Elimina un item del carrito
-   * @param {string} itemId - ID del servicio a eliminar
+   * @param {string} itemId - 
    */
   removeItem(itemId) {
     console.log(`Intentando eliminar item ${itemId}`);
@@ -122,7 +122,7 @@ class Cart {
 
 /**
  * Obtiene y combina datos de ambas APIs
- * @returns {Promise<Array>} Array de servicios combinados con imágenes
+ * @returns {Promise<Array>} 
  */
 async function fetchCombinedData() {
   console.log('Iniciando obtención de datos combinados...');
@@ -181,7 +181,7 @@ async function fetchCombinedData() {
 
 /**
  * Renderiza el catálogo en el DOM
- * @param {Array} data - Array de servicios a mostrar
+ * @param {Array} data - 
  */
 function renderCatalog(data) {
   console.log('Iniciando renderizado del catálogo...');
@@ -200,7 +200,7 @@ function renderCatalog(data) {
 
   try {
     container.innerHTML = data.map(item => {
-      // Validar item
+      
       if (!item.id || !item.nombre || !item.precio || !item.fecha) {
         console.warn('Item incompleto:', item);
         return '';
@@ -313,8 +313,8 @@ function updateCartDisplay() {
 
 /**
  * Muestra notificaciones al usuario
- * @param {string} message - Mensaje a mostrar
- * @param {string} type - Tipo de alerta (success, danger, etc.)
+ * @param {string} message 
+ * @param {string} type - 
  */
 function showAlert(message, type = 'success') {
   console.log(`Mostrando alerta [${type}]: ${message}`);

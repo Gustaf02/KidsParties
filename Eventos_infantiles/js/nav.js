@@ -27,28 +27,27 @@ document.addEventListener('DOMContentLoaded', () => {
         
         let parsedUrl;
         try {
-            // Cambia a una URL absoluta para manejar rutas relativas también
-            // Asegura que las rutas como "./pages/contacto.html" se resuelvan correctamente
+            
             parsedUrl = new URL(url, window.location.origin + window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1));
         } catch (e) {
-            // Si falla la construcción de URL, la maneja como una ruta relativa simple
+            
             let tempUrl = url;
             if (tempUrl.startsWith('./')) {
                 tempUrl = tempUrl.substring(2); 
             }
-            // Para casos de nombres de archivos o rutas relativas
+            
             return tempUrl.substring(tempUrl.lastIndexOf('/') + 1).split('?')[0].split('#')[0] || 'index.html';
         }
 
-        // Obtiene el nombre del archivo del pathname
+        
         let fileName = parsedUrl.pathname.substring(parsedUrl.pathname.lastIndexOf('/') + 1);
 
-        // En caso que el nombre de archivo esté vacío
+        
         if (fileName === '' || fileName.toLowerCase() === 'idweventos/') { 
             fileName = 'index.html';
         }
 
-        // Quita los parámetros de consulta
+        
         fileName = fileName.split('?')[0].split('#')[0];
 
         return fileName;
@@ -166,14 +165,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 3. INICIALIZACIÓN Y LISTENERS ---
 
-    // Se ejecuta al cargar la página para establecer el estado inicial de la navbar
+   
     updateNavbarVisibility();
 
-    // Ejecuta las funciones adicionales al cargar la página
+   
     activarEnlaceNavegacion();
     actualizarAnioFooter();
 
-    // Ejecuta los cambios en el localStorage
+    
     window.addEventListener('storage', function(e) {
         console.log("nav.js: Storage event detected:", e.key, e.newValue);
         if (['admin', 'user', 'token', 'username', 'userImage', 'reservas'].includes(e.key)) {

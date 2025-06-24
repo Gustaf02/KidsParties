@@ -343,7 +343,6 @@ window.onload = function() {
   const today = new Date().toISOString().split("T")[0];
   document.getElementById("fechaEvento").min = today;
   
-  // Escuchar cambios en cantidad de personas y servicios
   document.getElementById('cantidadPersonas').addEventListener('input', calcularPrecioTotal);
 
   document.getElementById('toggleMaquillaje').addEventListener('change', calcularPrecioTotal);

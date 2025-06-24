@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 function renderServicesTable(services) {
     const tableBody = document.getElementById('servicesTableBody');
-    tableBody.innerHTML = ''; // Limpiar tabla antes de renderizar
+    tableBody.innerHTML = ''; 
 
     if (services.length === 0) {
         document.getElementById('noServicesMessage').classList.remove('d-none');
@@ -131,11 +131,11 @@ function simulateAddService(serviceData) {
     
     // localStorage.setItem('servicesData', JSON.stringify(servicesData));
 
-    renderServicesTable(servicesData); // Re-renderizar tabla
-    updateServiceCounters(servicesData); // Actualizar contadores
-    resetForm(); // Limpiar formulario
+    renderServicesTable(servicesData); 
+    updateServiceCounters(servicesData); 
+    resetForm(); 
 
-    Swal.fire('¡Éxito!', 'Servicio añadido simuladamente.', 'success');
+    Swal.fire('¡Éxito!', 'Servicio añadido exitosamente.', 'success');
 }
 
 /**
@@ -153,7 +153,7 @@ function simulateUpdateService(serviceId, serviceData) {
         renderServicesTable(servicesData);
         updateServiceCounters(servicesData);
         resetForm();
-        Swal.fire('¡Éxito!', 'Servicio actualizado simuladamente.', 'success');
+        Swal.fire('¡Éxito!', 'Servicio actualizado exitosamente.', 'success');
     } else {
         Swal.fire('Error', 'Servicio no encontrado.', 'error');
     }
@@ -179,7 +179,7 @@ function simulateDeleteService(serviceId) {
 
             renderServicesTable(servicesData);
             updateServiceCounters(servicesData);
-            Swal.fire('¡Eliminado!', 'El servicio ha sido eliminado simuladamente.', 'success');
+            Swal.fire('¡Eliminado!', 'El servicio ha sido eliminado.', 'success');
         }
     });
 }

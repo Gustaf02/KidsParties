@@ -62,9 +62,9 @@ async function cargarSalones() {
     ]);
     console.log(salonesData);
     console.log(imagesData);
-    // Combinar datos
+    
     salonesData = salonesDataApi.map((salon) => {
-      // Convertir el ID a número y usarlo como índice
+      
       const idNum = parseInt(salon.id);
       const imageIndex = idNum % imagesData.photos.length;
       return {

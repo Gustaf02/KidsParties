@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Función para verificar el estado de sesión al cargar la página
     function checkSessionAndLoadUserData() {
-        console.log("login.js: checkSessionAndLoadUserData: Running..."); // Depuración
+        console.log("login.js: checkSessionAndLoadUserData: Running..."); 
         const token = localStorage.getItem('token');
         const username = localStorage.getItem('username');
         const isAdmin = localStorage.getItem('admin') === 'true';
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (!response.ok) {
                     const errorData = await response.json();
-                    // Mensaje de error en el logueo
+                    
                     errorMessage.textContent = errorData.message || 'Ingresaste erróneamente usuario o contraseña.';
                     throw new Error(errorData.message || 'Error en el login'); 
                 }
@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         window.location.href = '../index.html'; 
                     } else {
                         console.log(`login.js: Not redirecting from ${currentPage}.`); 
-                        // Opcional
+                        
                         // window.location.reload(); 
                     }
                 });
@@ -194,12 +194,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- 5. INICIALIZACIÓN ---
-    // Verifica el estado de sesión y cargar datos al cargar la página
+    // Verificar el estado de sesión y cargar datos al cargar la página
     checkSessionAndLoadUserData();
 
-    // Listener para que el evento 'storage' reaccione a cambios en OTRAS pestañas/ventanas
+    
     window.addEventListener('storage', (event) => {
-        console.log("login.js: Storage event detected in login.js:", event.key); // Depuración
+        console.log("login.js: Storage event detected in login.js:", event.key); 
         if (['token', 'username', 'admin', 'user', 'userImage', 'reservas'].includes(event.key)) {
            
             window.dispatchEvent(new Event('updateUI'));
