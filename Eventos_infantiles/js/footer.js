@@ -48,16 +48,9 @@ function updateFooterVisibility() {
         }
     }
 
-   
-    const currentYearSpan = document.getElementById('current-year');
+   const currentYearSpan = document.getElementById('current-year');
     if (currentYearSpan) {
         currentYearSpan.textContent = new Date().getFullYear();
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const currentYearSpan = document.getElementById('current-year');
-    if (currentYearSpan) {
-        currentYearSpan.textContent = new Date().getFullYear();
-    }
-});
