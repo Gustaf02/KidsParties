@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Calcular la suma de todos los precios
   function calcularTotalPrecios(reservas) {
     return reservas.reduce((total, reserva) => {
-      // Usamos precioTotal si existe, si no usamos precio
+      
       const precio = parseFloat(reserva.precioTotal || reserva.precio) || 0;
       return total + precio;
     }, 0);
@@ -24,12 +24,12 @@ document.addEventListener('DOMContentLoaded', function() {
   // Obtener todas las reservas del localStorage
   function obtenerTodasLasReservas() {
     try {
-      // Primero intentamos con 'reservas' (formato nuevo)
+      
       const reservasNuevas = localStorage.getItem('reservas');
       if (reservasNuevas) {
         return JSON.parse(reservasNuevas);
       }
-      // Si no hay, intentamos con 'reservas_historial' (formato antiguo)
+      
       const historial = localStorage.getItem('reservas_historial');
       return historial ? JSON.parse(historial) : [];
     } catch (error) {

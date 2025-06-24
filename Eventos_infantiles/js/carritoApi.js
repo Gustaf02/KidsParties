@@ -66,8 +66,8 @@ class Cart {
 
   /**
    * Verifica disponibilidad de una fecha
-   * @param {string} date - Fecha a verificar
-   * @returns {boolean} True si la fecha está disponible
+   * @param {string} date - 
+   * @returns {boolean} 
    */
   isDateAvailable(date) {
     const available = !this.reservedDates.has(date);

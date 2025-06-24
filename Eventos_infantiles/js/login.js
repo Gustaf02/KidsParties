@@ -4,7 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // --- 1. CONFIGURACIÓN Y SELECCIÓN DE ELEMENTOS ---
-    const API_ENDPOINT = 'https://dummyjson.com/auth/login'; // Verifica que este dominio sea accesible
+    const API_ENDPOINT = 'https://dummyjson.com/auth/login'; 
 
     // --- Elementos del Formulario de Login (en el modal)
     const loginForm = document.getElementById('login-form');
@@ -13,9 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const spinner = document.getElementById('spinner');
     const errorMessage = document.getElementById('error-message');
 
-    console.log("login.js: loaded."); // Depuración: Confirma que login.js se carga
-    if (loginForm) console.log("login.js: loginForm found."); // Depuración: Confirma que el form se encuentra
-
+    console.log("login.js: loaded."); 
+    if (loginForm) console.log("login.js: loginForm found."); 
 
     // --- 2. FUNCIONES DE UTILIDAD 
 
@@ -28,10 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const isUser = localStorage.getItem('user') === 'true';
 
         if (token && (isAdmin || isUser)) {
-            console.log("login.js: checkSessionAndLoadUserData: User is logged in. Username:", username, "isAdmin:", isAdmin); // Depuración
+            console.log("login.js: checkSessionAndLoadUserData: User is logged in. Username:", username, "isAdmin:", isAdmin); 
         } else {
-            console.log("login.js: checkSessionAndLoadUserData: User is NOT logged in or session invalid."); // Depuración
-            // Limpia el localstorage (aseguramos estado consistente)
+            console.log("login.js: checkSessionAndLoadUserData: User is NOT logged in or session invalid."); 
+            
             localStorage.removeItem('token');
             localStorage.removeItem('username');
             localStorage.removeItem('admin');
@@ -47,10 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (loginForm) {
         loginForm.addEventListener('submit', async (event) => {
             event.preventDefault();
-            console.log('login.js: Login form submitted.'); // Depuración
+            console.log('login.js: Login form submitted.'); 
 
             spinner.style.display = 'block';
-            errorMessage.textContent = ''; // Limpiar mensaje de error previo
+            errorMessage.textContent = ''; 
 
             const username = usernameInput.value;
             const password = passwordInput.value;
@@ -70,9 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 const data = await response.json();
-                console.log('login.js: Login exitoso:', data); // Depuración: Ver data de la API
+                console.log('login.js: Login exitoso:', data); 
 
-                // Definir el usuario administrador (ejemplo: 'emilys')
+                // Definir el usuario administrador 
                 const isAdminUser = data.username === 'emilys'; 
 
                 // Guardar información en localStorage
@@ -81,10 +80,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.setItem('admin', isAdminUser ? 'true' : 'false');
                 localStorage.setItem('user', isAdminUser ? 'false' : 'true'); 
                 if (data.image) {
-                    localStorage.setItem('userImage', data.image); // Guarda la URL de la imagen del avatar
+                    localStorage.setItem('userImage', data.image); 
                 } else {
                     localStorage.removeItem('userImage');
-                    console.warn('login.js: API no proporcionó URL de imagen para el usuario. Usando placeholder.'); // Depuración
+                    console.warn('login.js: API no proporcionó URL de imagen para el usuario. Usando placeholder.'); 
                 }
 
                 // Oculta el modal de login
@@ -95,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 if (loginModal) {
                     loginModal.hide();
-                    console.log('login.js: Login modal hidden.'); // Depuración
+                    console.log('login.js: Login modal hidden.'); 
                 }
 
                 // Mensaje de inicio de sesión
@@ -109,10 +108,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Dispara el evento personalizado para que nav.js se actualice en la misma pestaña
                 window.dispatchEvent(new Event('updateUI'));
-                console.log('login.js: Custom updateUI event dispatched.'); // Depuración
+                console.log('login.js: Custom updateUI event dispatched.'); 
 
             } catch (error) {
-                console.error('login.js: Error durante el login:', error); // Depuración: Muestra errores de fetch/API
+                console.error('login.js: Error durante el login:', error); 
                 
                 let userFriendlyMessage = 'Error al iniciar sesión. Por favor, verificá tu usuario y contraseña.';
 
@@ -120,14 +119,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (error.message && (error.message.includes('credentials') || error.message.includes('invalid'))) {
                     userFriendlyMessage = 'Usuario o contraseña incorrectos. Por favor, intntalo de nuevo.';
                 } else if (error.message) {
-                    // Para otros tipos de errores que la API pudiera devolver
+                   
                     userFriendlyMessage = `Error: ${error.message}`;
                 } else {
                     userFriendlyMessage = 'Ocurrió un error inesperado al intentar iniciar sesión.';
                 }
                 
-                errorMessage.textContent = userFriendlyMessage; // Muestra el mensaje en el formulario
-
+                errorMessage.textContent = userFriendlyMessage; 
                 // SweetAlert para errores críticos
                 Swal.fire({
                     icon: 'error',
@@ -142,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     // --- 4. MANEJO DEL LOGOUT ---
     function handleLogout() {
-        console.log("login.js: Logout triggered."); // Depuración
+        console.log("login.js: Logout triggered."); 
         
         // *** MENSAJE DE CONFIRMACIÓN CON SWEETALERT2 ***
         Swal.fire({
@@ -162,11 +160,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.removeItem('admin');
                 localStorage.removeItem('user');
                 localStorage.removeItem('userImage');
-                localStorage.removeItem('reservas'); // Limpiar carrito (si existe en localStorage)
+                localStorage.removeItem('reservas'); 
 
                 // Dispara el evento personalizado para que nav.js se actualice inmediatamente
                 window.dispatchEvent(new Event('updateUI'));
-                console.log('login.js: Custom updateUI event dispatched after logout.'); // Depuración
+                console.log('login.js: Custom updateUI event dispatched after logout.'); 
 
                 // Mensaje de éxito de logout
                 Swal.fire({
@@ -177,20 +175,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     timer: 1500
                 }).then(() => {
                     // Redirección obligatoria si el usuario está en una de estas páginas
-                    const currentPage = window.location.pathname.split('/').pop(); // Obtiene el nombre del archivo actual
+                    const currentPage = window.location.pathname.split('/').pop(); 
                     const pagesToRedirect = ['adminApi.html', 'usuarios.html', 'verReservaLocalStorage.html'];
 
                     if (pagesToRedirect.includes(currentPage)) {
-                        console.log(`login.js: Redirecting from ${currentPage} to index.html`); // Depuración
+                        console.log(`login.js: Redirecting from ${currentPage} to index.html`);
                         window.location.href = '../index.html'; 
                     } else {
-                        console.log(`login.js: Not redirecting from ${currentPage}.`); // Depuración
+                        console.log(`login.js: Not redirecting from ${currentPage}.`); 
                         // Opcional
                         // window.location.reload(); 
                     }
                 });
             } else {
-                console.log("login.js: Logout cancelled."); // Depuración si el usuario cancela
+                console.log("login.js: Logout cancelled."); 
             }
         });
     }
@@ -203,10 +201,10 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('storage', (event) => {
         console.log("login.js: Storage event detected in login.js:", event.key); // Depuración
         if (['token', 'username', 'admin', 'user', 'userImage', 'reservas'].includes(event.key)) {
-            // Cuando hay un cambio desde otra pestaña, también disparamos el evento para que nav.js se actualice
+           
             window.dispatchEvent(new Event('updateUI'));
-            // Si el cambio es un logout, y estamos en una página restringida, redirige a index.html
-            if (event.key === 'token' && !localStorage.getItem('token')) { // Si el token se eliminó
+            
+            if (event.key === 'token' && !localStorage.getItem('token')) { 
                 const currentPage = window.location.pathname.split('/').pop();
                 const pagesToRedirect = ['adminApi.html', 'usuarios.html', 'verReservaLocalStorage.html'];
                 if (pagesToRedirect.includes(currentPage)) {

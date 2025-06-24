@@ -27,7 +27,7 @@ async function fetchBirthdayImages() {
 
 // Función para mostrar imágenes en tarjetas
 function displayImages(photos) {
-    const foto = "Promo Uner extra globos" //parametro customisado ver como hacerlo individual
+    const foto = "Promo Uner extra globos" 
     container.innerHTML = photos.map(photo => `
         <div class="col-md-4 mb-4">
             <div class="card h-100">

@@ -20,11 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /**
      * Extrae y normaliza el nombre de archivo de una URL o ruta.
-     * @param {string} url La URL o ruta a procesar.
-     * @returns {string} El nombre de archivo normalizado.
+     * @param {string} url 
+     * @returns {string} 
      */
     const getNormalizedFileName = (url) => {
-        // Usa la URL para parsear la ruta de forma robusta
+        
         let parsedUrl;
         try {
             // Cambia a una URL absoluta para manejar rutas relativas también
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Si falla la construcción de URL, la maneja como una ruta relativa simple
             let tempUrl = url;
             if (tempUrl.startsWith('./')) {
-                tempUrl = tempUrl.substring(2); // Elimina './'
+                tempUrl = tempUrl.substring(2); 
             }
             // Para casos de nombres de archivos o rutas relativas
             return tempUrl.substring(tempUrl.lastIndexOf('/') + 1).split('?')[0].split('#')[0] || 'index.html';
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let fileName = parsedUrl.pathname.substring(parsedUrl.pathname.lastIndexOf('/') + 1);
 
         // En caso que el nombre de archivo esté vacío
-        if (fileName === '' || fileName.toLowerCase() === 'idweventos/') { // Ajusta el nombre de la carpeta raíz
+        if (fileName === '' || fileName.toLowerCase() === 'idweventos/') { 
             fileName = 'index.html';
         }
 
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- FUNCIÓN PRINCIPAL DE ACTUALIZACIÓN DE VISIBILIDAD DE LA NAVBAR ---
     function updateNavbarVisibility() {
-        console.log("nav.js: updateNavbarVisibility: Ejecutando..."); // Depuración
+        console.log("nav.js: updateNavbarVisibility: Ejecutando..."); 
 
         try {
             const isAdmin = localStorage.getItem('admin') === 'true';
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const username = localStorage.getItem('username');
             const userImage = localStorage.getItem('userImage');
 
-            console.log("nav.js: updateNavbarVisibility: isLoggedIn:", isLoggedIn, "isAdmin:", isAdmin, "username:", username); // Depuración
+            console.log("nav.js: updateNavbarVisibility: isLoggedIn:", isLoggedIn, "isAdmin:", isAdmin, "username:", username); 
 
             // Maneja la visibilidad de los botones de login/logout y avatar
             if (isLoggedIn) {
