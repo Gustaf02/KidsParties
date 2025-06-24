@@ -2,7 +2,7 @@ const API_KEY = '9tNEjFhwUIus25QDwOd8iywPhg5QEyYDWiVS9NlvWfD2MeSClgYAU125';
 
 /**
  * Clase Cart: Gestiona las operaciones del carrito de compras
- * Incluye manejo de items, totales y fechas reservadas
+
  */
 class Cart {
   constructor() {

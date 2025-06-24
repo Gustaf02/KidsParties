@@ -1,4 +1,4 @@
-// js/footer.js
+// footer.js
 
 document.addEventListener('DOMContentLoaded', updateFooterVisibility);
 window.addEventListener('storage', updateFooterVisibility); 

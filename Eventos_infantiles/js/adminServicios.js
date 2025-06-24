@@ -1,4 +1,4 @@
-// js/adminServicios.js
+// adminServicios.js
 
 // Array para almacenar los servicios 
 // let servicesData = JSON.parse(localStorage.getItem('servicesData')) || [];
