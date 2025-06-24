@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Configurar botones de los modales
   document
-    .getElementById("btn-add-saloon")
+    .getElementById("btn-add-salon")
     .addEventListener("click", crearSalon);
   document
     .getElementById("btn-update-saloon")
@@ -88,14 +88,11 @@ async function crearSalon() {
   const capacidad = document.getElementById("add-capacidad").value;
   const precio = document.getElementById("add-precio").value;
   const ubicacion = document.getElementById("add-ubicacion").value;
-  const fecha = document.getElementById("add-fecha").value;
-  const imagen =
-    document.getElementById("add-imagen").value || PLACEHOLDER_IMAGE;
   const descripcion = document.getElementById("add-descripcion").value;
   const catering = document.getElementById("add-catering").checked;
   const maquillaje = document.getElementById("add-maquillaje").checked;
 
-  if (!nombre || !capacidad || !precio || !ubicacion || !fecha) {
+  if (!nombre || !capacidad || !precio || !ubicacion ) {
     mostrarToast("error", "Por favor complete todos los campos obligatorios");
     return;
   }
@@ -105,8 +102,6 @@ async function crearSalon() {
     capacidad: parseInt(capacidad),
     precio: precio.toString(),
     ubicacion,
-    fecha,
-    imagen,
     descripcion,
     catering,
     maquillaje,
