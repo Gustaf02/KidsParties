@@ -500,24 +500,21 @@ document.getElementById('btnConfirmarPresupuesto').addEventListener('click', asy
         return;
     }
 
-       
     if (!validarNombre(presupuestoData.cliente)) {
         mostrarError('El nombre solo puede contener letras y espacios (no se permiten números ni caracteres especiales)');
         return;
     }
 
-      
     if (!validarEmail(presupuestoData.email)) {
         mostrarError('Por favor ingrese un email válido (ejemplo: usuario@dominio.com)');
         return;
     }
-    
-    
+
     if (!validarTelefono(presupuestoData.telefono)) {
         mostrarError('El teléfono debe contener solo números (8-15 dígitos). Opcionalmente puede comenzar con +');
         return;
     }
-    
+
     if (presupuestoData.cantidadPersonas <= 0) {
         mostrarError('La cantidad de personas debe ser mayor a cero');
         return;
@@ -528,14 +525,15 @@ document.getElementById('btnConfirmarPresupuesto').addEventListener('click', asy
     }
 
     const resultado = await guardarPresupuesto(presupuestoData);
-    
+
     if (resultado) {
+        // Cierra el modal y resetea el formulario
         bootstrap.Modal.getInstance(document.getElementById('presupuestoModal')).hide();
         document.getElementById('presupuestoForm').reset();
+
+        // --- Código para redirigir al usuario a la página de presupuesto ---
+        window.location.href = '/pages/verPresupuesto.html';
     }
-
-
-    
 });
 
 // En window.onload, agregar event listeners para el modal de presupuesto
