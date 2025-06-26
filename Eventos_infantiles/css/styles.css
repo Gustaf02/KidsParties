@@ -555,6 +555,18 @@ body {
     box-shadow: 0 5px 15px rgba(103, 73, 236, 0.4); 
 }
 
+/* Botón presupuesto en la página de catálogo de salones */
+.btn-presupuesto {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    transition: all 0.3s;
+}
+
+.btn-presupuesto:hover {
+    background-color: #5a6268;
+    color: white;
+}
 /* Iconos de características dentro de la card del salón */
 .feature-icon {
     font-size: 1.2rem;
