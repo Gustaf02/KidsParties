@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    let totalPresupuestos = 0;
+   
     let montoTotal = 0;
 
     function mostrarPresupuestos() {
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function obtenerTodosLosPresupuestos() {
         try {
-            const items = localStorage.getItem('reservas');
+            const items = localStorage.getItem('presupuestos');
             if (items) {
                 return JSON.parse(items).filter(item => item.estado === 'presupuesto');
             }

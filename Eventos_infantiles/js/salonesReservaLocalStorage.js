@@ -222,7 +222,7 @@ function calcularPrecioTotalPresupuesto() {
 
 async function guardarPresupuesto(presupuestoData) {
   try {
-    const presupuestos = JSON.parse(localStorage.getItem("reservas")) || [];
+    const presupuestos = JSON.parse(localStorage.getItem("presupuestos")) || [];
     const servicios = JSON.parse(document.getElementById('presupuestoModal').dataset.servicios || '[]');
     const presupuestoCompleto = {
       ...presupuestoData,
@@ -238,7 +238,7 @@ async function guardarPresupuesto(presupuestoData) {
       }
     };
     presupuestos.push(presupuestoCompleto);
-    localStorage.setItem("reservas", JSON.stringify(presupuestos));
+    localStorage.setItem("presupuestos", JSON.stringify(presupuestos));
     mostrarConfirmacionPresupuesto(presupuestoCompleto);
     return true;
   } catch (error) {
