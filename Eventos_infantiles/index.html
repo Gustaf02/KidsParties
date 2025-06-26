@@ -33,11 +33,11 @@
                 <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
             </span>
         </a>
-
+        
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
+          <!-- Página actual - estado activo en navegación -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto align-items-center">
                 <li class="nav-item">
@@ -47,6 +47,7 @@
                         </span>
                     </a>
                 </li>
+                <!-- Página con información sobre los valores de la empresa -->
                 <li class="nav-item">
                     <a class="nav-link custom-nav-link position-relative px-3 py-2" href="/pages/institucional.html">
                         <span class="d-inline-block position-relative z-1">Institucional
@@ -55,37 +56,43 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <!-- Formulario de contacto para consultas de eventos -->
                     <a class="nav-link custom-nav-link position-relative px-3 py-2" href="/pages/contacto.html">
                         <span class="d-inline-block position-relative z-1">Contacto</span>
                         <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
                     </a>
                 </li>
+                <!-- Galería con los salones temáticos -->
                 <li class="nav-item">
-                    <a class="nav-link custom-nav-link position-relative px-3 py-2" href="/salonesReservaLocalStorage.html">
+                    <a class="nav-link custom-nav-link position-relative px-3 py-2" href="/pages/salonesReservaLocalStorage.html">
                         <span class="d-inline-block position-relative z-1">Salones</span>
                         <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
                     </a>
                 </li>
+                <!-- Panel administrativo para visualizar servicios-->
                 <li id="servicios-link-item" class="nav-item">
                     <a class="nav-link custom-nav-link position-relative px-3 py-2" href="/pages/adminServicios.html">
                         <span class="d-inline-block position-relative z-1">Servicios</span>
                         <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
                     </a>
                 </li>
+                <!-- Panel administrativo para gestión interna -->
                 <li id="admin-link-item" class="nav-item d-none">
                     <a class="nav-link custom-nav-link position-relative px-3 py-2" href="/pages/adminApi.html">
                         <span class="d-inline-block position-relative z-1">Admin</span>
                         <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
                     </a>
                 </li>
+                <!-- Panel administrativo para visualizar a los usuarios registrados-->
                 <li id="usuarios-link-item" class="nav-item d-none">
                     <a class="nav-link custom-nav-link position-relative px-3 py-2" href="/pages/usuarios.html">
                         <span class="d-inline-block position-relative z-1">Usuarios</span>
                         <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
                     </a>
                 </li>
+                <!-- Ícono de carrito oculto por defecto, lleva a reservas-->
                 <li id="carrito-link-item" class="nav-item d-none px-1">
-                    <a class="nav-link custom-nav-link position-relative py-2" href="/verReservaLocalStorage.html">
+                    <a class="nav-link custom-nav-link position-relative py-2" href="/pages/verReservaLocalStorage.html">
                         <span class="d-inline-block position-relative z-1">
                             <i class="bi bi-cart3 fs-5 carrito-animado"></i>
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger notificacion-carrito"></span>
@@ -93,16 +100,17 @@
                         </span>
                     </a>
                 </li>
-
+                <!-- Botón para iniciar sesión -->
                 <li class="nav-item" id="user-actions-li">
                     <div id="botonIniciarSesion" class="d-block">
                         <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#loginModal">
                             Iniciar Sesión
                         </button>
                     </div>
+                    <!-- Botón para cerrar sesión -->
                     <div id="nav-user-container" class="nav-item dropdown d-none">
                         <a class="nav-link dropdown-toggle d-flex align-items-center text-white" href="#" id="navbarDropdownUserLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img id="nav-avatar" src="https://via.placeholder.com/40/007bff/ffffff?text=U" alt="Avatar" width="32" height="32" class="rounded-circle me-2 nav-avatar-img" style="object-fit: cover;">
+                            <img id="nav-avatar" src="https://via.placeholder.com/40/007bff/ffffff?text=U" alt="Avatar" class="rounded-circle me-2 nav-avatar-img">
                             <span id="nav-name" class="nav-username-text"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownUserLink">
