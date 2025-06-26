@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Si el error contiene "credentials" o "invalid", lo hacemos más genérico
                 if (error.message && (error.message.includes('credentials') || error.message.includes('invalid'))) {
-                    userFriendlyMessage = 'Usuario o contraseña incorrectos. Por favor, intntalo de nuevo.';
+                    userFriendlyMessage = 'Usuario o contraseña incorrectos. Por favor, intentalo de nuevo.';
                 } else if (error.message) {
                    
                     userFriendlyMessage = `Error: ${error.message}`;
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }).then(() => {
                     // Redirección obligatoria si el usuario está en una de estas páginas
                     const currentPage = window.location.pathname.split('/').pop(); 
-                    const pagesToRedirect = ['adminApi.html', 'usuarios.html', 'verReservaLocalStorage.html'];
+                    const pagesToRedirect = ['adminServicios.html','adminApi.html', 'usuarios.html', 'verReservaLocalStorage.html'];
 
                     if (pagesToRedirect.includes(currentPage)) {
                         console.log(`login.js: Redirecting from ${currentPage} to index.html`);

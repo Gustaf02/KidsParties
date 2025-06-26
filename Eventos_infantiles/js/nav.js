@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navAvatar = document.getElementById('nav-avatar');
     const navName = document.getElementById('nav-name');
     const navLogoutButton = document.getElementById('nav-logout-button');
-
+    const serviciosLinkItem = document.getElementById('servicios-link-item');
     const adminLinkItem = document.getElementById('admin-link-item');
     const usuariosLinkItem = document.getElementById('usuarios-link-item');
     const carritoLinkItem = document.getElementById('carrito-link-item');
@@ -56,33 +56,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- FUNCIÓN PRINCIPAL DE ACTUALIZACIÓN DE VISIBILIDAD DE LA NAVBAR ---
     function updateNavbarVisibility() {
         console.log("nav.js: updateNavbarVisibility: Ejecutando..."); 
-
         try {
-            const isAdmin = localStorage.getItem('admin') === 'true';
-            const isUser = localStorage.getItem('user') === 'true';
-            const isLoggedIn = isAdmin || isUser;
-            const username = localStorage.getItem('username');
-            const userImage = localStorage.getItem('userImage');
-
+            const isAdmin = localStorage.getItem('admin') === 'true'; 
+            const isUser = localStorage.getItem('user') === 'true'; 
+            const isLoggedIn = isAdmin || isUser; 
+            const username = localStorage.getItem('username'); 
+            const userImage = localStorage.getItem('userImage'); 
             console.log("nav.js: updateNavbarVisibility: isLoggedIn:", isLoggedIn, "isAdmin:", isAdmin, "username:", username); 
 
             // Maneja la visibilidad de los botones de login/logout y avatar
             if (isLoggedIn) {
-                if (loginButtonDiv) loginButtonDiv.classList.add('d-none');
+                if (loginButtonDiv) loginButtonDiv.classList.add('d-none'); 
                 if (navUserContainer) {
                     navUserContainer.classList.remove('d-none');
-                    navUserContainer.classList.add('d-flex');
+                    navUserContainer.classList.add('d-flex'); 
 
                     if (navName) navName.textContent = `Hola, ${username || 'Usuario'}`;
-                    if (navAvatar) navAvatar.src = userImage || 'https://via.placeholder.com/40/007bff/ffffff?text=Avatar';
+                    if (navAvatar) navAvatar.src = userImage || 'https://via.placeholder.com/40/007bff/ffffff?text=Avatar'; 
                 }
             } else {
-                if (loginButtonDiv) loginButtonDiv.classList.remove('d-none');
+                if (loginButtonDiv) loginButtonDiv.classList.remove('d-none'); 
                 if (navUserContainer) {
-                    navUserContainer.classList.add('d-none');
-                    navUserContainer.classList.remove('d-flex');
+                    navUserContainer.classList.add('d-none'); 
+                    navUserContainer.classList.remove('d-flex'); 
                     if (navName) navName.textContent = '';
-                    if (navAvatar) navAvatar.src = 'https://via.placeholder.com/40/007bff/ffffff?text=Avatar';
+                    if (navAvatar) navAvatar.src = 'https://via.placeholder.com/40/007bff/ffffff?text=Avatar'; 
                 }
             }
 
@@ -90,23 +88,22 @@ document.addEventListener('DOMContentLoaded', () => {
             function toggleLinkVisibility(element, show) {
                 if (element) {
                     if (show) {
-                        element.classList.remove('d-none');
+                        element.classList.remove('d-none'); 
                     } else {
-                        element.classList.add('d-none');
+                        element.classList.add('d-none'); 
                     }
                 }
             }
 
-            toggleLinkVisibility(carritoLinkItem, isLoggedIn);
-
+            toggleLinkVisibility(carritoLinkItem, isLoggedIn); 
+            toggleLinkVisibility(serviciosLinkItem, isLoggedIn); 
             if (isAdmin) {
-                toggleLinkVisibility(adminLinkItem, true);
-                toggleLinkVisibility(usuariosLinkItem, true);
+                toggleLinkVisibility(adminLinkItem, true); 
+                toggleLinkVisibility(usuariosLinkItem, true); 
             } else {
                 toggleLinkVisibility(adminLinkItem, false);
-                toggleLinkVisibility(usuariosLinkItem, false);
+                toggleLinkVisibility(usuariosLinkItem, false); 
             }
-
             // Actualiza el contador del carrito
             if (cartCounter) {
                 try {
@@ -123,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         } catch (error) {
-            console.error('nav.js: Error general en updateNavbarVisibility:', error);
+            console.error('nav.js: Error general en updateNavbarVisibility:', error); 
         }
     }
 

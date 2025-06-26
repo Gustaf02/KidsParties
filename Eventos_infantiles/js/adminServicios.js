@@ -8,19 +8,6 @@ let editingServiceId = null; // Para saber si estamos editando o añadiendo
 
 // Ejecutar al cargar el DOM
 document.addEventListener('DOMContentLoaded', () => {
-   
-    const isAdmin = localStorage.getItem('admin') === 'true';
-    if (!isAdmin) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Acceso Denegado',
-            text: 'Solo los administradores pueden acceder a esta sección de servicios.',
-            confirmButtonText: 'Entendido'
-        }).then(() => {
-            window.location.href = '../index.html'; 
-        });
-        return; 
-    }
 
     // Cargar datos de ejemplo si el array está vacío (solo para simulación inicial)
     if (servicesData.length === 0) {
