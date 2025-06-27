@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
-
+    
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contacto - IDW S.A.</title>
+  <title>Registro de usuarios</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap"
@@ -57,7 +57,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <!-- Página actual - estado activo en navegación -->
+                        <!-- Formulario de contacto para consultas de eventos -->
                         <a class="nav-link custom-nav-link position-relative px-3 py-2" href="/pages/contacto.html">
                             <span class="d-inline-block position-relative z-1">Contacto
                                 <span class="position-absolute bottom-0 start-50 translate-middle-x bg-white custom-underline-effect"></span>
@@ -88,7 +88,7 @@
                             </span>    
                         </a>
                     </li>
-                    <!-- Panel administrativo para visualizar a los usuarios registrados-->
+                    <!-- Página actual - estado activo en navegación -->
                     <li id="usuarios-link-item" class="nav-item d-none">
                         <a class="nav-link custom-nav-link position-relative px-3 py-2" href="/pages/usuarios.html">
                             <span class="d-inline-block position-relative z-1">Usuarios
@@ -163,109 +163,23 @@
             </div>
         </div>
     </div>
-
-    <!-- Encabezado de Contacto -->
-    <header class="hero-section">
-        <div class="container text-center">
-            <h1 class="display-4 fw-bold mb-3">Contactate con Nosotros</h1>
-            <p class="lead mb-4">Estamos listos para hacer realidad el evento de tus sueños. Dejanos tu mensaje y pronto nos pondremos en contacto.</p>
-        </div>
-    </header>
-
-    <!-- Sección con información de Contacto -->
-    <section class="contact-form-section container py-4 fade show">
-        <div class="row align-items-stretch justify-content-center">
-            <div class="col-md-6 mb-4 mb-md-0">
-                <div class="contact-form">
-                    <h2 class="text-center mb-3">Formulario de Contacto</h2>
-                    <p class="text-center mb-4">Completá el siguiente formulario y nos pondremos en contacto con vos lo antes posible.</p>
-                    <!-- Label para nombre y apellido -->
-                    <form action="#" method="POST">
-                        <div class="mb-3">
-                            <label for="fullName" class="form-label">Nombre y Apellido:</label>
-                            <input type="text" class="form-control" id="fullName" name="fullName" required>
-                        </div>
-                        <!-- Label para mail -->
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Correo Electrónico:</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
-                        <!-- Label para teléfono -->
-                        <div class="mb-3">
-                            <label for="phone" class="form-label">Teléfono:</label>
-                            <input type="tel" class="form-control" id="phone" name="phone" required>
-                        </div>
-                        <!-- Label para mensaje -->
-                        <div class="mb-4">
-                            <label for="message" class="form-label">Mensaje:</label>
-                            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
-                        </div>
-                        <!-- Botón para enviar -->
-                        <button type="submit" class="btn btn-outline-primary">Enviar Mensaje</button>
-                    </form>
-                </div>
-            </div>
-
-                       
-            <!-- Flyer de salones de eventos -->
-            <div class="col-md-6">
-                <div class="contact-image-container">
-                    <img src="/img/imagen_contacto.png" alt="IDW Eventos" class="img-fluid rounded shadow-lg">
-                </div>
-            </div>
-        </div>
-    </section>  
-    <!-- Sección con mapa y horario de atención -->
-    <section class="map-and-hours text-center"> 
-        <div class="container">
-            <h2 class="display-5 mb-3">Nuestra Ubicación</h2>
-            <p class="lead mb-5">Visitanos en nuestra sede para conocer más sobre nuestros salones de fiestas.</p>
-            <!-- Columna que contiene mapa de Google Maps -->
-            <div class="row">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <div class="map-container">
-                        <div class="embed-responsive embed-responsive-16by9" style="height: 450px;">
-                            <iframe class="embed-responsive-item w-100 h-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13182.685187383535!2d-58.39115981124575!3d-34.60368305068878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccaf68a7e79b7%3A0x3c7c7e4d48acb59b!2sAv.%20Corrientes%2C%20CABA%2C%20Argentina!5e0!3m2!1ses!2sus!4v1636559401552!5m2!1ses!2sus" 
-                                style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                        </div>
+    
+    <!-- Contenedor principal para la info de admin -->
+    <main class="container-fluid p-4"> <div class="card shadow-sm rounded-3">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="section-heading-color">Registro de Usuarios</h2>
+                    <div>
                     </div>
                 </div>
-                <!-- Columna de días y horarios de atención -->
-                <div class="col-lg-6">
-                    <div class="hours-container">
-                        <h3 class="mb-4">Horario de Atención</h3>
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-hover">
-                                <thead> 
-                                    <tr>
-                                        <th>Día</th>
-                                        <th>Horario</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Lunes a Viernes</td>
-                                        <td>9:00 AM - 6:00 PM</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sábado</td>
-                                        <td>10:00 AM - 4:00 PM</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Domingo</td>
-                                        <td>Cerrado</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <p><strong>Nota:</strong> Es necesario agendar una cita para visitas presenciales.</p>
-                    </div>
+                <div id="users-container" class="users-grid"></div>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
+            
 
-    <!-- Footer corporativo con información de contacto y enlaces relevantes -->
+<!-- Footer corporativo con información de contacto y enlaces relevantes -->
     <footer class="footer-custom">
         <div class="container">
             <div class="row g-4">                
@@ -280,27 +194,16 @@
                         <a href="#" class="me-3"><ion-icon name="logo-twitter" class="social-icon"></ion-icon></a>
                     </div>
                 </div>
-                 <!-- Navegación secundaria para facilitar exploración -->
-                    <div class="col-md-6 col-lg-3">
+                <!-- Navegación secundaria para facilitar exploración -->
+                <div class="col-md-6 col-lg-3">
                     <h3 class="footer-title">Navegación</h3>
                     <ul class="list-unstyled">
-                        <li class="mb-2">
-                        <a href="/pages/institucional.html" class="text-white text-decoration-none">Institucional</a>
-                        </li>
-                        <li class="mb-2">
-                        <a href="/pages/contacto.html" class="text-white text-decoration-none">Contacto</a>
-                        </li>
-                     
-                    <li class="mb-2" id="footerAdminLinkContainer"> 
-                        <a href="/pages/adminApi.html" class="text-white text-decoration-none d-none" id="footerAdminLink">Admin</a>
-                    </li>
-                    
-                    <li class="mb-2" id="footerUsuariosLinkContainer">
-                        <a href="/pages/usuarios.html" class="text-white text-decoration-none d-none" id="footerUsuariosLink">Usuarios</a>
-                    </li>
-                    </ul>
-                    </div>  
-
+                        <li class="mb-2"><a href="./institucional.html" class="text-white text-decoration-none">Institucional</a></li>
+                        <li class="mb-2"><a href="./contacto.html" class="text-white text-decoration-none">Contacto</a></li>
+                   <!-- <li class="mb-2"><a href="./propuestas.html" class="text-white text-decoration-none">Propuestas</a></li> 
+                        <li class="mb-2"><a href="./catalogoSalones.html" class="text-white text-decoration-none">Catalogo</a></li> 
+                        <li class="mb-2"><a href="./adminApi.html" class="text-white text-decoration-none">Admin</a></li> -->
+                </div>
                 <div class="col-md-6 col-lg-3">
                     <h3 class="footer-title">Legal</h3>
                     <ul class="list-unstyled">
@@ -338,8 +241,8 @@
     <!-- Bootstrap JS para funcionalidad de componentes interactivos -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Archivo JS para funcionalidades de login -->
-    <script src="/js/login.js"></script>
-    <script src="/js/nav.js"></script>
-    <script src="/js/footer.js"></script>
+  <script src="/js/login.js"></script>
+ <script src="/js/nav.js"></script>
+ <script src="/js/usuarios.js"></script>
     </body>
 </html>
