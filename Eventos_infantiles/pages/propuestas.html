@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Información Institucional - IDW S.A.</title>   
+    <title>Nuestra propuesta - IDW S.A.</title>   
     <!-- Bootstrap para layout responsive y componentes pre-diseñados --> 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
     <!-- Fuentes utilizadas en el diseño: Monserrat, Dancing Script - Pacífico y Quicksand -->   
@@ -13,13 +13,11 @@
     <!-- Ionicons, librería desde la que usamos íconos -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>   
-    <!-- CSS de institucional.html -->  
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"> 
-    <link rel="stylesheet" href="../css/institucional.css"> 
+    <!-- CSS de propuestas.html -->   
+    <link rel="stylesheet" href="../css/catalogoApi.css"> 
 </head>
-
 <body>
-     <!-- Navbar que usamos todos -->
+    <!-- Navbar que usamos todos -->
     <nav class="navbar navbar-expand-lg navbar-dark custom-navbar-bg custom-navbar-shadow">
         <div class="container">
             <a class="navbar-brand custom-navbar-brand d-flex align-items-center position-relative px-3 py-2" 
@@ -98,30 +96,121 @@
             </div>                                                               
         </div>
     </nav>
-    <!-- Contenedor para filtros de búsqueda de salones -->
-    <div class="container my-5">
-        <h1 class="text-center mb-4">Salones de Eventos Disponibles</h1>        
-        <div class="row mb-4">
-            <div class="col-md-6">
-                <input type="text" id="filtroNombre" class="form-control" placeholder="Filtrar por nombre...">
+
+    <!-- Sección con botón para ver salones-->
+    <section class="hero-section">
+        <div class="hero-overlay">
+            <div class="container">
+                <h1 class="display-3 fw-bold mb-4">Celebrá momentos mágicos</h1>
+                <p class="lead mb-4">Los mejores salones temáticos para fiestas infantiles</p>
+                <a href="../pages/catalogoSalones.html" class="btn btn-theme btn-lg pulse">Ver Salones</a>
             </div>
-            <div class="col-md-3">
-                <input type="number" id="filtroCapacidadMin" class="form-control" placeholder="Capacidad mínima">
-            </div>
-            <div class="col-md-3">
-                <button id="btnFiltrar" class="btn btn-primary w-100">Filtrar</button>
-            </div>
-        </div>        
-       
-        <div id="galeriaSalones" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-           
         </div>
-    </div>
-     
+    </section>
+
+    <!-- Catálogo de Salones -->
+    <section id="salones" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 display-4 fw-bold">Salones Destacados</h2>
+            
+            <div class="row">
+                <!-- Card para Princesas Encantadas -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-theme card-princesas h-100">
+                        <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Princesas">
+                        <div class="card-overlay">
+                            <h3 class="card-title fw-bold">Princesas Encantadas</h3>
+                            <p class="card-text">Temática niñas • 3-10 años</p>
+                            <a href="#" class="btn btn-light btn-sm">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card para Mi Primer Año -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-theme card-bebes h-100">
+                        <img src="https://images.unsplash.com/photo-1526893381913-e311045b8064?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Bebés">
+                        <div class="card-overlay">
+                            <h3 class="card-title fw-bold">Mi Primer Año</h3>
+                            <p class="card-text">Celebración para bebés</p>
+                            <a onclick="" class="btn btn-light btn-sm">Agregar</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card para Game Over Party-->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-theme card-videojuegos h-100">
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Videojuegos">
+                        <div class="card-overlay">
+                            <h3 class="card-title fw-bold">Game Over Party</h3>
+                            <p class="card-text">Videojuegos y series</p>
+                            <a onclick="" class="btn btn-light btn-sm">Agregar</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card para Caritas creastivas-->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-theme card-maquillaje h-100">
+                        <img src="https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Maquillaje">
+                        <div class="card-overlay">
+                            <h3 class="card-title fw-bold">Caritas Creativas</h3>
+                            <p class="card-text">Maquillaje personalizado</p>
+                            <a onclick="" class="btn btn-light btn-sm">Agregar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Servicios -->
+    <section id="servicios" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 display-4 fw-bold">Nuestros Servicios</h2>
+            <!-- Decoración Temática -->
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <ion-icon name="color-palette" style="font-size: 3rem; color: var(--color-primary);"></ion-icon>
+                            <h3 class="h4 mt-3">Decoración Temática</h3>
+                            <p class="text-muted">Transformamos espacios según la temática elegida con los mejores materiales.</p>
+                            <a onclick="" class="btn btn-light btn-sm">Agregar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Catering infantil -->
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <ion-icon name="restaurant" style="font-size: 3rem; color: var(--color-primary);"></ion-icon>
+                            <h3 class="h4 mt-3">Catering Infantil</h3>
+                            <p class="text-muted">Menús saludables y divertidos adaptados a los gustos de los niños.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Animación profesional -->
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <ion-icon name="people" style="font-size: 3rem; color: var(--color-primary);"></ion-icon>
+                            <h3 class="h4 mt-3">Animación Profesional</h3>
+                            <p class="text-muted">Equipo de animadores especializados en fiestas infantiles.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
     <!-- Footer corporativo con información de contacto y enlaces relevantes -->
     <footer class="footer-custom">
         <div class="container">
-            <div class="row g-4">                
+            <div class="row g-4">
+                
                 <!-- Información principal de la empresa -->
                 <div class="col-md-6 col-lg-3">
                     <h3 class="footer-title">IDW Kids Parties</h3>
@@ -137,7 +226,7 @@
                 <div class="col-md-6 col-lg-3">
                     <h3 class="footer-title">Navegación</h3>
                     <ul class="list-unstyled">
-                           <li class="mb-2"><a href="./institucional.html" class="text-white text-decoration-none">Institucional</a></li>
+                        <li class="mb-2"><a href="./institucional.html" class="text-white text-decoration-none">Institucional</a></li>
                         <li class="mb-2"><a href="./contacto.html" class="text-white text-decoration-none">Contacto</a></li>
                         <li class="mb-2"><a href="./propuestas.html" class="text-white text-decoration-none">Propuestas</a></li> 
                         <li class="mb-2"><a href="./catalogoSalones.html" class="text-white text-decoration-none">Catálogo</a></li> 
@@ -151,7 +240,8 @@
                         <li class="mb-2"><a href="#" class="text-white text-decoration-none">Cookies</a></li>
                         <li class="mb-2"><a href="#" class="text-white text-decoration-none">Política de privacidad</a></li>
                     </ul>
-                </div>                
+                </div>
+                
                 <!-- Información de contacto directo  -->
                 <div class="col-md-6 col-lg-3">
                     <h3 class="footer-title">Contacto</h3>
@@ -183,7 +273,4 @@
         <script>
         // Actualización dinámica del año para evitar mantenimiento manual
         document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
-    <script src="../js/salones.js"> </script>     
-    </body>
-</html>
+    </script> 
