@@ -13,24 +13,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const spinner = document.getElementById('spinner');
     const errorMessage = document.getElementById('error-message');
 
-    console.log("login.js: loaded."); 
-    if (loginForm) console.log("login.js: loginForm found."); 
+    //if (loginForm) console.log("login.js: Funcionando ok."); 
 
     // --- 2. FUNCIONES DE UTILIDAD 
 
     // Función para verificar el estado de sesión al cargar la página
     function checkSessionAndLoadUserData() {
-        console.log("login.js: checkSessionAndLoadUserData: Running..."); 
         const token = localStorage.getItem('token');
         const username = localStorage.getItem('username');
         const isAdmin = localStorage.getItem('admin') === 'true';
         const isUser = localStorage.getItem('user') === 'true';
 
         if (token && (isAdmin || isUser)) {
-            console.log("login.js: checkSessionAndLoadUserData: User is logged in. Username:", username, "isAdmin:", isAdmin); 
+            console.log(" Usuario logueado. Nombre:", username, "Admin:", isAdmin); 
         } else {
-            console.log("login.js: checkSessionAndLoadUserData: User is NOT logged in or session invalid."); 
-            
+           
             localStorage.removeItem('token');
             localStorage.removeItem('username');
             localStorage.removeItem('admin');
@@ -46,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (loginForm) {
         loginForm.addEventListener('submit', async (event) => {
             event.preventDefault();
-            console.log('login.js: Login form submitted.'); 
+           
 
             spinner.style.display = 'block';
             errorMessage.textContent = ''; 

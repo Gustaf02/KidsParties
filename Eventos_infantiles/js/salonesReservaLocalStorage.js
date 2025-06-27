@@ -8,7 +8,7 @@ const PLACEHOLDER_IMAGE = 'https://images.unsplash.com/photo-1575425186775-b8de9
 // FUNCIÓN: Carga los datos iniciales de las APIs
 async function fetchData() {
   try {
-    document.getElementById("loading").classList.remove("d-none");
+    //document.getElementById("loading").classList.remove("d-none");
     document.getElementById("error-message").classList.add("d-none");
 
     const [imagesResponse, salonesResponse] = await Promise.all([
@@ -161,18 +161,23 @@ async function guardarReserva(reservaData) {
         serviciosAdicionales: parseFloat(reservaData.precioTotal) - parseFloat(reservaData.precioBase),
         total: parseFloat(reservaData.precioTotal)
       }
+      
     };
+      console.log(reservaCompleta)
+
     reservas.push(reservaCompleta);
     localStorage.setItem("reservas", JSON.stringify(reservas));
     mostrarConfirmacion(reservaCompleta);
     return true;
+    
   } catch (error) {
     console.error("Error al guardar reserva:", error);
     mostrarError("Error al guardar la reserva: " + error.message);
     return false;
   }
+  
 }
-
+//
 // --- LÓGICA DE PRESUPUESTOS ---
 
 function solicitarPresupuesto(salonId, capacidad, nombreSalon, precioSalon) {
@@ -294,7 +299,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Configura la fecha mínima para el campo de evento en el modal de reserva
   const today = new Date().toISOString().split("T")[0];
-  document.getElementById("fechaEvento").min = today;
+  //document.getElementById("fechaEvento").min = today;
 
   // --- Listeners para el modal de RESERVA ---
   document.getElementById('cantidadPersonas').addEventListener('input', calcularPrecioTotal);

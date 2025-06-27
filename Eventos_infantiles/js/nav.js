@@ -55,14 +55,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- FUNCIÓN PRINCIPAL DE ACTUALIZACIÓN DE VISIBILIDAD DE LA NAVBAR ---
     function updateNavbarVisibility() {
-        console.log("nav.js: updateNavbarVisibility: Ejecutando..."); 
+        
         try {
             const isAdmin = localStorage.getItem('admin') === 'true'; 
             const isUser = localStorage.getItem('user') === 'true'; 
             const isLoggedIn = isAdmin || isUser; 
             const username = localStorage.getItem('username'); 
             const userImage = localStorage.getItem('userImage'); 
-            console.log("nav.js: updateNavbarVisibility: isLoggedIn:", isLoggedIn, "isAdmin:", isAdmin, "username:", username); 
+           
 
             // Maneja la visibilidad de los botones de login/logout y avatar
             if (isLoggedIn) {
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     navUserContainer.classList.add('d-none'); 
                     navUserContainer.classList.remove('d-flex'); 
                     if (navName) navName.textContent = '';
-                    if (navAvatar) navAvatar.src = 'https://via.placeholder.com/40/007bff/ffffff?text=Avatar'; 
+                    //if (navAvatar) navAvatar.src = 'https://via.placeholder.com/40/007bff/ffffff?text=Avatar'; 
                 }
             }
 
@@ -129,25 +129,22 @@ document.addEventListener('DOMContentLoaded', () => {
         const nombreArchivoPaginaActual = getNormalizedFileName(window.location.href);
         const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
 
-        console.log("--- Activando enlaces de navegación ---");
-        console.log(`Página actual (normalizada): ${nombreArchivoPaginaActual}`);
-
         navLinks.forEach(link => {
             const hrefDelEnlace = link.getAttribute('href');
             if (!hrefDelEnlace) return;
 
             const nombreArchivoEnlace = getNormalizedFileName(hrefDelEnlace);
 
-            console.log(`  Comparando: Enlace '${link.textContent.trim()}' (normalizado: '${nombreArchivoEnlace}') con Página actual ('${nombreArchivoPaginaActual}')`);
+    
 
             if (nombreArchivoPaginaActual === nombreArchivoEnlace) {
                 link.classList.add('active');
-                console.log(`  -> ¡ACTIVO!: ${link.textContent.trim()}`);
+                
             } else {
                 link.classList.remove('active');
             }
         });
-        console.log("--- Fin activación enlaces de navegación ---");
+     
     };
 
     /**
@@ -172,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     window.addEventListener('storage', function(e) {
         console.log("nav.js: Storage event detected:", e.key, e.newValue);
-        if (['admin', 'user', 'token', 'username', 'userImage', 'reservas'].includes(e.key)) {
+        if (['admin', 'user', 'token', 'username', 'userImage', 'reservas', 'presupuestos'].includes(e.key)) {
             updateNavbarVisibility();
             activarEnlaceNavegacion();
         }
@@ -183,8 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateNavbarVisibility();
         activarEnlaceNavegacion();
     });
-    console.log("nav.js: Listening for 'updateUI' custom event.");
-
+    
     // Adjunta evento de click al botón de cerrar sesión en la navbar
     if (navLogoutButton) {
         navLogoutButton.addEventListener('click', () => {
@@ -198,7 +194,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.removeItem('user');
                 localStorage.removeItem('userImage');
                 localStorage.removeItem('reservas');
+                localStorage.removeItem('presupuestos');
                 window.dispatchEvent(new Event('updateUI'));
+
             }
             console.log('nav.js: Custom updateUI event dispatched after logout.');
         });

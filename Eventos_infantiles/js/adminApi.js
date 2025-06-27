@@ -60,8 +60,8 @@ async function cargarSalones() {
       imagesResponse.json(),
       salonesResponse.json(),
     ]);
-    console.log(salonesData);
-    console.log(imagesData);
+    console.log("Lista de salones api:", salonesDataApi);
+    console.log("Lista de imagenes api:", imagesData);
     
     salonesData = salonesDataApi.map((salon) => {
       
