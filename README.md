@@ -28,3 +28,20 @@ La empresa IDW S.A., para la cual trabaja nuestro equipo, nos ha encargado  el d
 - **SweetAlert2** – Alertas visuales.
 - **Bootstrap Icons** – Iconografía atractiva.
 
+## 🛠️ Desarrolladores :
+  
+<h3 align="left">📂 \Integrantes del equipo</h3>
+<p align="left">
+</p>
+     
+       ┃━ ━📂 \Walter Frías 
+    
+       ┃━ ━📂 \Israel Leonardo Montiel  
+
+       ┃━ ━📂 \Carlos Gustavo Ortiz
+    
+       ┃━ ━📂 \Azucena Prieto 
+
+---
+
+
