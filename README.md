@@ -67,11 +67,11 @@ El proyecto se ha estructurado de la siguiente manera:
 - handleLogin(): Envía credenciales a dummyjson.com/auth/login. Al éxito, guarda token, username, userImage, y banderas de rol (admin, user) en localStorage. Dispara un evento updateUI para notificar a la navegación.
 - handleLogout(): Limpia los datos de sesión de localStorage y también dispara updateUI.
 - nav.js:
-- updateNavbarVisibility(): Se ejecuta al cargar la página y escucha eventos de storage (para sincronización entre pestañas) y updateUI (desde login.js). Muestra/oculta elementos de la barra de navegación (ej., botón de login vs. avatar de usuario, enlaces de admin) según el estado de localStorage.
+- updateNavbarVisibility(): Se ejecuta al cargar la página y escucha eventos de storage (para sincronización entre pestañas) y updateUI (desde login.js). Muestra/oculta elementos de la barra de navegación (ej., botón de login - avatar de usuario, enlaces de admin) según el estado de localStorage.
 - reservas.js: Visualización de Reservas
 - obtenerTodasLasReservas(): Recupera reservas de localStorage, con lógica de compatibilidad para dos posibles claves ('reservas' y 'reservas_historial').
-- renderizarReservas(reservas): Ordena las reservas por fecha de evento y genera dinámicamente tarjetas detalladas para cada reserva, mostrando cliente, detalles del evento, y desglose de precios.
-- actualizarContadores(): Muestra el total de reservas y la suma estimada de los ingresos en la interfaz.
+- renderizarReservas(reservas): Ordena las reservas por fecha de evento y genera dinámicamente tarjetas detalladas para cada reserva, mostrando cliente, detalles del evento, y precios.
+- actualizarContadores(): Muestra el total de reservas y valores estimados en la interfaz.
 
 ---
 
