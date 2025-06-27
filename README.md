@@ -21,11 +21,11 @@ La empresa IDW S.A., para la cual trabaja nuestro equipo, nos ha encargado  el d
 ## ✨ Funcionalidades Destacadas
 
 - **Catálogo Interactivo de Salones** Explora una gran variedad de salones con imágenes de alta calidad (integrado con Pexels) y algunos detalles. 
-- **Filtros Avanzados** Encuentra el salón perfecto filtrando por capacidad de personas, rango de precios o buscando por nombre.
+- **Filtros** Encuentra el salón perfecto filtrando por capacidad de personas o buscando por nombre.
 - **Gestión de Sesiones Segura** Inicia y cierra sesión para acceder a funcionalidades personalizadas y de administración (autenticación simulada con DummyJSON).
 - **Persistencia en localStorage** Las sesiones y reservas se guardan localmente en el navegador utilizando localStorage.
 - **Presupuestador en Tiempo Real** Calcula instantáneamente el costo total de tu reserva, incluyendo los servicios adicionales seleccionados
-- **Historial de Reservas** detallado con desglose de precios.
+- **Historial de Reservas** detallado con desglose de las mismas.
 - **Diseño Responsivo**, adaptado a móvil, tablet y escritorio.
 
 ---
@@ -70,7 +70,7 @@ El proyecto se ha estructurado de la siguiente manera:
 - updateNavbarVisibility(): Se ejecuta al cargar la página y escucha eventos de storage (para sincronización entre pestañas) y updateUI (desde login.js). Muestra/oculta elementos de la barra de navegación (ej., botón de login - avatar de usuario, enlaces de admin) según el estado de localStorage.
 - reservas.js: Visualización de Reservas
 - obtenerTodasLasReservas(): Recupera reservas de localStorage, con lógica de compatibilidad para dos posibles claves ('reservas' y 'reservas_historial').
-- renderizarReservas(reservas): Ordena las reservas por fecha de evento y genera dinámicamente tarjetas detalladas para cada reserva, mostrando cliente, detalles del evento, y precios.
+- renderizarReservas(reservas): Ordena las reservas y genera dinámicamente tarjetas detalladas para cada reserva, mostrando cliente, detalles del evento, y precios.
 - actualizarContadores(): Muestra el total de reservas y valores estimados en la interfaz.
 
 ---
