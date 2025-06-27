@@ -32,7 +32,7 @@ La empresa IDW S.A., para la cual trabaja nuestro equipo, nos ha encargado  el d
 
 ## 🧱 Estructura del Proyecto
 
-El proyecto tiene se ha estructurado de la siguiente manera: 
+El proyecto se ha estructurado de la siguiente manera: 
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/a7782665-818e-48a4-bbcc-cb5c31ef4c21" width="900" alt="image"/>
