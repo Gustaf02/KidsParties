@@ -79,13 +79,14 @@ El proyecto se ha estructurado de la siguiente manera:
 ## 💻 Cómo Ejecutar el Proyecto
 
 Para poner en marcha este proyecto en tu entorno local, seguí estos pasos:
+
 - Clonar el Repositorio:
  -- Bash
- -- git clone https://github.com/tu-usuario/tu-repositorio.git
+ -- git clone https://github.com/Gustaf02/KidsParties.git
  -- cd tu-repositorio
+  
 - Abrir con un Servidor Local:
-Este es un proyecto front-end o. No necesitás instalar dependencias de Node.js ni un servidor backend complejo.
-Simplemente abrí el archivo index.html en tu navegador.
+ -- Simplemente abrí el archivo index.html en tu navegador, botón derecho, Open with Live Server. 
 
 ---
 
