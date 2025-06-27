@@ -60,15 +60,15 @@ El proyecto se ha estructurado de la siguiente manera:
 - fetchData(): Función asíncrona que utiliza Promise.all() para cargar simultáneamente imágenes de Pexels y datos de salones de MockAPI. Combina estos datos y los almacena en salonesDataGlobal para un acceso rápido.
 - renderCatalog(data): Genera dinámicamente las tarjetas de salones en el HTML, iterando sobre salonesDataGlobal o los datos filtrados. Incluye manejo de errores de imagen (onerror).
 - filtrarSalonesAvanzado(): Aplica filtros por capacidad, precio y nombre sobre salonesDataGlobal y re-renderiza el catálogo con los resultados.
-- reservar(salonId, ...): Inicializa el modal de reserva con la información del salón seleccionado.
+- reservar(salonId): Inicializa el modal de reserva con la información del salón seleccionado.
 - calcularPrecioTotal(): Calcula el precio en tiempo real basándose en la cantidad de personas y servicios adicionales, validando la capacidad del salón.
-- guardarReserva(reservaData): Persiste la nueva reserva en localStorage (bajo la clave 'reservas'), incluyendo un ID único y un desglose detallado del precio. Realiza validación de duplicados.
+- guardarReserva(reservaData): Persiste la nueva reserva en localStorage (bajo la clave 'reservas'), incluyendo un ID único y detalle del precio. Realiza validación de duplicados.
 - login.js y nav.js: Autenticación y Navegación
 - login.js:
-- handleLogin(): Envía credenciales a dummyjson.com/auth/login. Al éxito, guarda token, username, userImage, y banderas de rol (admin, user) en localStorage. Dispara un evento updateUI para notificar a la navegación.
-- handleLogout(): Limpia los datos de sesión de localStorage y también dispara updateUI.
+  - handleLogin(): Envía credenciales a dummyjson.com/auth/login. Al éxito, guarda token, username, userImage, y banderas de rol (admin, user) en localStorage. Dispara un evento updateUI para notificar a la navegación.
+  - handleLogout(): Limpia los datos de sesión de localStorage y también dispara updateUI.
 - nav.js:
-- updateNavbarVisibility(): Se ejecuta al cargar la página y escucha eventos de storage (para sincronización entre pestañas) y updateUI (desde login.js). Muestra/oculta elementos de la barra de navegación (ej., botón de login - avatar de usuario, enlaces de admin) según el estado de localStorage.
+  - updateNavbarVisibility(): Se ejecuta al cargar la página y escucha eventos de storage (para sincronización entre pestañas) y updateUI (desde login.js). Muestra/oculta elementos de la barra de navegación (ej. botón de login - avatar de usuario, enlaces de admin) según el estado de localStorage.
 - reservas.js: Visualización de Reservas
 - obtenerTodasLasReservas(): Recupera reservas de localStorage, con lógica de compatibilidad para dos posibles claves ('reservas' y 'reservas_historial').
 - renderizarReservas(reservas): Ordena las reservas y genera dinámicamente tarjetas detalladas para cada reserva, mostrando cliente, detalles del evento, y precios.
