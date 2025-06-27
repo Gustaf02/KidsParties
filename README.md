@@ -15,3 +15,16 @@ La empresa IDW S.A., para la cual trabaja nuestro equipo, nos ha encargado  el d
 - **Diseño Responsivo**, adaptado a móvil, tablet y escritorio.
 
 ---
+## 🛠️ Tecnologías Utilizadas
+
+- **HTML5** – Estructura semántica.
+- **CSS3 & Bootstrap 5** – Estilos modernos y responsive.
+- **JavaScript (ES6+)** – Lógica e interactividad.
+- **LocalStorage API** – Persistencia del lado del cliente.
+- **APIs REST**:
+  - `dummyjson.com` – Simulación de usuarios y autenticación.
+  - `api.pexels.com` – Imágenes de alta calidad.
+  - `mockapi.io` – Datos simulados de salones.
+- **SweetAlert2** – Alertas visuales.
+- **Bootstrap Icons** – Iconografía atractiva.
+
