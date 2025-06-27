@@ -20,13 +20,13 @@ La empresa IDW S.A., para la cual trabaja nuestro equipo, nos ha encargado  el d
 
 ## ✨ Funcionalidades Destacadas
 
-- **Catálogo Interactivo de Salones** Explora una gran variedad de salones con imágenes de alta calidad (integrado con Pexels) y algunos detalles. 
-- **Filtros** Encuentra el salón perfecto filtrando por capacidad de personas o buscando por nombre.
-- **Gestión de Sesiones Segura** Inicia y cierra sesión para acceder a funcionalidades personalizadas y de administración (autenticación simulada con DummyJSON).
-- **Persistencia en localStorage** Las sesiones y reservas se guardan localmente en el navegador utilizando localStorage.
-- **Presupuestador en Tiempo Real** Calcula instantáneamente el costo total de tu reserva, incluyendo los servicios adicionales seleccionados
-- **Historial de Reservas** detallado con desglose de las mismas.
-- **Diseño Responsivo**, adaptado a móvil, tablet y escritorio.
+- **Catálogo Interactivo de Salones:** Explora una gran variedad de salones con imágenes de alta calidad (integrado con Pexels) y algunos detalles. 
+- **Filtros:** Encuentra el salón perfecto filtrando por capacidad de personas o buscando por nombre.
+- **Gestión de Sesiones Segura:** Inicia y cierra sesión para acceder a funcionalidades personalizadas y de administración (autenticación simulada con DummyJSON).
+- **Persistencia en localStorage:** Las sesiones y reservas se guardan localmente en el navegador utilizando localStorage.
+- **Presupuestador:** Calcula instantáneamente el costo total de tu reserva.
+- **Historial de Reservas:** Detallado con desglose de las mismas.
+- **Diseño Responsivo:** Adaptado a móvil, tablet y escritorio.
 
 ---
 
