@@ -4,7 +4,15 @@
 
 La empresa IDW S.A., para la cual trabaja nuestro equipo, nos ha encargado  el desarrollo de un sitio web que optimizará la gestión de reservas de casas para cumpleaños infantiles. Este sitio tiene como finalidad servir como un catálogo que presenta los diferentes salones de eventos y servicios disponibles para contratar. Se facilita que, de esta manera,  los usuarios puedan obtener presupuestos personalizados de manera eficiente.
 
+## ✨ Funcionalidades Destacadas
 
+- **Catálogo Interactivo de Salones** con imágenes de Pexels y detalles esenciales.
+- **Filtros Avanzados** por capacidad, precio y nombre.
+- **Gestión de Sesiones Segura** (autenticación simulada con DummyJSON).
+- **Persistencia en localStorage** de sesiones y reservas.
+- **Presupuestador en Tiempo Real** con servicios extra.
+- **Historial de Reservas** detallado con desglose de precios.
+- **Diseño Responsivo**, adaptado a móvil, tablet y escritorio.
 
 ---
 
