@@ -43,7 +43,7 @@ El proyecto se ha estructurado de la siguiente manera:
 
 - **HTML5** – Estructura semántica.
 - **CSS3 & Bootstrap 5** – Estilos modernos y responsive.
-- **JavaScript (ES6+)** – Lógica e interactividad.
+- **JavaScript** – Lógica e interactividad.
 - **LocalStorage API** – Persistencia del lado del cliente.
 - **APIs REST**:
   - `dummyjson.com` – Simulación de usuarios y autenticación.
