@@ -12,6 +12,12 @@ La empresa IDW S.A., para la cual trabaja nuestro equipo, nos ha encargado  el d
 
 ---
 
+## 🎥 Video del Proyecto :
+
+ [Ver video del proyecto en Google Drive](https://drive.google.com/drive/folders/1N5CISiHWohmRfxBY98L1rh4hlLMcueKz)
+
+---
+
 ## ✨ Funcionalidades Destacadas
 
 - **Catálogo Interactivo de Salones** Explora una gran variedad de salones con imágenes de alta calidad (integrado con Pexels) y algunos detalles. 
@@ -25,6 +31,9 @@ La empresa IDW S.A., para la cual trabaja nuestro equipo, nos ha encargado  el d
 ---
 
 ## 🧱 Estructura del Proyecto
+
+El proyecto tiene se ha estructurado de la siguiente manera: 
+
 <p align="center">
   <img src="https://github.com/user-attachments/assets/a7782665-818e-48a4-bbcc-cb5c31ef4c21" width="900" alt="image"/>
 </p>
