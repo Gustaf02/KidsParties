@@ -50,6 +50,7 @@ El proyecto se ha estructurado de la siguiente manera:
   - `api.pexels.com` – Imágenes de alta calidad.
   - `mockapi.io` – Datos simulados de salones.
 - **SweetAlert2** – Alertas visuales.
+- **Bootstrap** – Creación de un sitio web responsivo y adaptable
 - **Bootstrap Icons** – Set de iconos para mejorar la interfaz visual.
 
 ---
