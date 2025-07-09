@@ -12,7 +12,17 @@ La empresa IDW S.A., para la cual trabaja nuestro equipo, nos ha encargado  el d
 
 ---
 
-## 🎥 Video del Proyecto :
+## 🚀 Demo en Vivo 
+
+Versión actual del proyecto desplegada en Netlify:
+
+https://dreamy-pastelito-0e4e5d.netlify.app/
+
+---
+
+## 🎥 Video del Proyecto 
+
+Presentación de nuestro proyecto en video: 
 
  [Ver video del proyecto en Google Drive](https://drive.google.com/drive/folders/1N5CISiHWohmRfxBY98L1rh4hlLMcueKz)
 
